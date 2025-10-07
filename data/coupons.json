@@ -1,0 +1,23 @@
+[
+  {
+    "id": "coupon-1",
+    "code": "DPAN10",
+    "discount": 10,
+    "type": "percentage",
+    "active": true
+  },
+  {
+    "id": "coupon-2",
+    "code": "DPAN50",
+    "discount": 50,
+    "type": "percentage",
+    "active": true
+  },
+  {
+    "id": "coupon-3",
+    "code": "BIENVENIDA",
+    "discount": 15,
+    "type": "percentage",
+    "active": true
+  }
+]

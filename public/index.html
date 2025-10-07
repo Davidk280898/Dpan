@@ -61,11 +61,11 @@
     <!-- CABECERA y NAVEGACIÓN -->
     <header class="sticky top-0 z-40 bg-pan-cream dark:bg-pan-contrast shadow-xl dark:shadow-pan-dark transition duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-            <!-- LOGO SOLO (sin texto) -->
+            <!-- LOGO SOLO (sin texto) - Optimizado para móvil -->
             <button data-page="inicio" class="page-link focus:outline-none">
                 <img src="/img/logo.jpg" 
                     alt="Logo D'PAN" 
-                    class="w-20 h-20 object-contain rounded-full shadow-lg hover:scale-105 transition duration-300">
+                    class="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 object-contain rounded-full shadow-lg hover:scale-105 transition duration-300">
             </button>
             
             <nav class="hidden md:flex space-x-4 lg:space-x-8 text-lg font-semibold">
@@ -77,18 +77,50 @@
                 <button data-page="contacto" class="page-link text-pan-contrast dark:text-pan-light hover:text-pan-orange dark:hover:text-pan-accent transition duration-200 focus:outline-none">Contacto</button>
             </nav>
 
-            <div class="flex items-center space-x-4">
+            <div class="flex items-center space-x-2 sm:space-x-4">
+                <!-- Botón de menú móvil con icono hamburguesa -->
+                <button id="mobile-menu-button" class="md:hidden p-2 rounded-lg bg-pan-light dark:bg-pan-dark hover:bg-pan-orange transition duration-200" onclick="toggleMobileMenu()" aria-label="Menú">
+                    <svg class="w-6 h-6 text-pan-dark dark:text-pan-light" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+
+            <!-- Navegación Desktop (sin cambios) -->
+            <nav class="hidden md:flex space-x-4 lg:space-x-8 text-lg font-semibold">
+                <button data-page="inicio" class="page-link text-pan-contrast dark:text-pan-light hover:text-pan-orange dark:hover:text-pan-accent transition duration-200 focus:outline-none">Inicio</button>
+                <button data-page="productos" class="page-link text-pan-contrast dark:text-pan-light hover:text-pan-orange dark:hover:text-pan-accent transition duration-200 focus:outline-none">Menú</button>
+                <button data-page="historia" class="page-link text-pan-contrast dark:text-pan-light hover:text-pan-orange dark:hover:text-pan-accent transition duration-200 focus:outline-none">Historia</button>
+                <button data-page="quiz" class="page-link text-pan-contrast dark:text-pan-light hover:text-pan-orange dark:hover:text-pan-accent transition duration-200 focus:outline-none">¿No Sabés Qué Comer?</button>
+                <button data-page="bienestar" class="page-link text-pan-contrast dark:text-pan-light hover:text-pan-orange dark:hover:text-pan-accent transition duration-200 focus:outline-none">Bienestar</button>
+                <button data-page="contacto" class="page-link text-pan-contrast dark:text-pan-light hover:text-pan-orange dark:hover:text-pan-accent transition duration-200 focus:outline-none">Contacto</button>
+            </nav>
+                
+                <!-- Botones de carrito y tema -->
                 <button id="cart-button" onclick="openCart()" class="relative p-2 rounded-full bg-pan-light dark:bg-pan-dark hover:bg-pan-dark hover:text-pan-light transition duration-200 shadow-md">
-                    <i data-lucide="shopping-bag" class="w-6 h-6 text-pan-dark dark:text-pan-light hover:text-pan-light dark:hover:text-pan-cream"></i>
-                    <span id="cart-count" class="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white transform translate-x-1/2 -translate-y-1/2 bg-pan-orange rounded-full shadow-lg">0</span>
+                    <i data-lucide="shopping-bag" class="w-5 h-5 sm:w-6 sm:h-6 text-pan-dark dark:text-pan-light hover:text-pan-light dark:hover:text-pan-cream"></i>
+                    <span id="cart-count" class="absolute -top-1 -right-1 inline-flex items-center justify-center px-1.5 py-0.5 text-xs font-bold leading-none text-white transform bg-pan-orange rounded-full shadow-lg min-w-[20px]">0</span>
                 </button>
                 <button id="theme-toggle" class="p-2 rounded-full bg-pan-light dark:bg-pan-dark text-pan-dark dark:text-pan-light hover:bg-pan-dark hover:text-pan-light transition duration-200 shadow-md" aria-label="Cambiar tema">
-                    <i data-lucide="moon" class="w-6 h-6 block dark:hidden"></i>
-                    <i data-lucide="sun" class="w-6 h-6 hidden dark:block"></i>
+                    <i data-lucide="moon" class="w-5 h-5 sm:w-6 sm:h-6 block dark:hidden"></i>
+                    <i data-lucide="sun" class="w-5 h-5 sm:w-6 sm:h-6 hidden dark:block"></i>
                 </button>
             </div>
         </div>
     </header>
+
+    <!-- Menú móvil desplegable optimizado -->
+    <div id="mobile-menu" class="hidden md:hidden bg-pan-light dark:bg-pan-dark shadow-xl border-t-2 border-pan-accent/30">
+        <nav class="flex flex-col p-4 space-y-2">
+            <button data-page="inicio" class="page-link text-left px-4 py-3 text-pan-contrast dark:text-pan-light hover:bg-pan-orange hover:text-white rounded-lg transition duration-200 font-medium" onclick="toggleMobileMenu()">🏠 Inicio</button>
+            <button data-page="productos" class="page-link text-left px-4 py-3 text-pan-contrast dark:text-pan-light hover:bg-pan-orange hover:text-white rounded-lg transition duration-200 font-medium" onclick="toggleMobileMenu()">🍞 Menú</button>
+            <button data-page="historia" class="page-link text-left px-4 py-3 text-pan-contrast dark:text-pan-light hover:bg-pan-orange hover:text-white rounded-lg transition duration-200 font-medium" onclick="toggleMobileMenu()">📖 Historia</button>
+            <button data-page="quiz" class="page-link text-left px-4 py-3 text-pan-contrast dark:text-pan-light hover:bg-pan-orange hover:text-white rounded-lg transition duration-200 font-medium" onclick="toggleMobileMenu()">❓ ¿No Sabés Qué Comer?</button>
+            <button data-page="bienestar" class="page-link text-left px-4 py-3 text-pan-contrast dark:text-pan-light hover:bg-pan-orange hover:text-white rounded-lg transition duration-200 font-medium" onclick="toggleMobileMenu()">💚 Bienestar</button>
+            <button data-page="contacto" class="page-link text-left px-4 py-3 text-pan-contrast dark:text-pan-light hover:bg-pan-orange hover:text-white rounded-lg transition duration-200 font-medium" onclick="toggleMobileMenu()">📞 Contacto</button>
+        </nav>
+    </div>
+
+    <main class="flex-grow">
 
     <main class="flex-grow">
         <!-- PAGINA: INICIO -->
@@ -160,7 +192,7 @@
                                 Gracias por estar acá, gracias por leer, y gracias por ser parte de este camino.
                             </p>
                             <p class="text-xl font-bold text-pan-dark dark:text-pan-accent mt-6 text-center">
-                                D'Pan — Hecho en casa, como en casa ❤️‍🏡
+                                D'Pan – Hecho en casa, como en casa ❤️‍🩹🏡
                             </p>
                         </div>
                     </div>
@@ -265,7 +297,7 @@
                             <i data-lucide="facebook" class="w-12 h-12 mb-2 text-blue-600 group-hover:text-white"></i>
                             <span class="text-sm font-semibold">D'Pan Paraná</span>
                         </a>
-                        <a href="mailto:dpanparana@gmail.com" class="flex flex-col items-center p-4 bg-pan-cream dark:bg-pan-contrast rounded-lg hover:bg-pan-orange hover:text-white transition duration-300 shadow-md group">
+                        <a href="mailto:dpanparanagmail.com" class="flex flex-col items-center p-4 bg-pan-cream dark:bg-pan-contrast rounded-lg hover:bg-pan-orange hover:text-white transition duration-300 shadow-md group">
                             <i data-lucide="mail" class="w-12 h-12 mb-2 text-red-500 group-hover:text-white"></i>
                             <span class="text-sm font-semibold">Email</span>
                         </a>
@@ -822,6 +854,7 @@
         };
 
         document.getElementById('close-quiz-modal').addEventListener('click', closeQuizModal);
+        
         // Modal de detalle de producto
         const openProductModal = (productId) => {
             const product = ALL_PRODUCTS.find(p => p.id === productId);
@@ -973,6 +1006,13 @@
             updateCartDisplay();
             showPage('inicio');
         });
+
+        // Función para toggle del menú móvil
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+            lucide.createIcons();
+        }
 
     </script>
 </body>

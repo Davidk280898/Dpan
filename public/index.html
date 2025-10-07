@@ -135,6 +135,34 @@
                 </div>
             </div>
         </section>
+    <script>
+  function toggleMobileMenu() {
+    const menu = document.getElementById('mobile-menu');
+    // alterna visibilidad
+    menu.classList.toggle('hidden');
+    // si se abre, agrega animación
+    if (!menu.classList.contains('hidden')) {
+      menu.classList.add('animate-slide-down');
+    }
+  }
+
+  // Cerrar menú al hacer clic en cualquier link
+  document.querySelectorAll('#mobile-menu .page-link').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.getElementById('mobile-menu').classList.add('hidden');
+    });
+  });
+</script>
+
+<style>
+  @keyframes slide-down {
+    from { opacity: 0; transform: translateY(-10px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .animate-slide-down {
+    animation: slide-down 0.3s ease-out;
+  }
+</style>
 
         <!-- PAGINA: PRODUCTOS -->
         <section id="page-productos" class="page hidden py-16 md:py-24 bg-pan-cream dark:bg-pan-contrast transition duration-300">
@@ -1002,3 +1030,4 @@
     </script>
 </body>
 </html>
+

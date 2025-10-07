@@ -47,41 +47,27 @@
         .cart-drawer-transition {
             transition: transform 0.3s ease-in-out;
         }
-        .video-container {
-            position: relative;
-            padding-bottom: 125%;
-            height: 0;
-            overflow: hidden;
-            border-radius: 0.75rem;
-            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
-        }
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
     </style>
 </head>
 
 <body class="bg-pan-cream text-pan-contrast dark:bg-pan-contrast dark:text-pan-cream min-h-screen flex flex-col">
-
     <!-- Icono de WhatsApp Flotante -->
-    <a href="https://wa.me/5493436108756" target="_blank" class="fixed bottom-6 right-6 z-50 p-3 bg-green-500 rounded-full shadow-2xl hover:bg-green-600 transition duration-300 ease-in-out transform hover:scale-110" aria-label="WhatsApp Business de D'PAN">
-        <img src="/img/whatsapp.svg" 
-             alt="Icono de WhatsApp" 
-             class="w-8 h-8">
+    <a href="https://wa.me/5493436108756" target="_blank" class="fixed bottom-6 right-6 z-50 p-4 bg-green-500 rounded-full shadow-2xl hover:bg-green-600 transition duration-300 ease-in-out transform hover:scale-110" aria-label="WhatsApp Business de D'PAN">
+        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+        </svg>
     </a>
 
-<!-- CABECERA y NAVEGACIÓN -->
+    <!-- CABECERA y NAVEGACIÓN -->
     <header class="sticky top-0 z-40 bg-pan-cream dark:bg-pan-contrast shadow-xl dark:shadow-pan-dark transition duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <!-- LOGO SOLO (sin texto) -->
             <button data-page="inicio" class="page-link focus:outline-none">
                 <img src="/img/logo.jpg" 
                     alt="Logo D'PAN" 
                     class="w-20 h-20 object-contain rounded-full shadow-lg hover:scale-105 transition duration-300">
             </button>
+            
             <nav class="hidden md:flex space-x-4 lg:space-x-8 text-lg font-semibold">
                 <button data-page="inicio" class="page-link text-pan-contrast dark:text-pan-light hover:text-pan-orange dark:hover:text-pan-accent transition duration-200 focus:outline-none">Inicio</button>
                 <button data-page="productos" class="page-link text-pan-contrast dark:text-pan-light hover:text-pan-orange dark:hover:text-pan-accent transition duration-200 focus:outline-none">Menú</button>
@@ -105,7 +91,7 @@
     </header>
 
     <main class="flex-grow">
-    <!-- PAGINA: INICIO -->
+        <!-- PAGINA: INICIO -->
         <section id="page-inicio" class="page py-0 md:py-0 bg-pan-cream dark:bg-pan-contrast transition duration-300">
             <div class="py-20 md:py-32 hero-background text-white shadow-inner">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center bg-pan-dark/70 p-6 rounded-xl backdrop-blur-sm">
@@ -123,9 +109,7 @@
 
             <div id="featured-products-container" class="py-16 md:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <h2 class="text-4xl font-bold text-center text-pan-dark dark:text-pan-light mb-12">Nuestros Favoritos</h2>
-                <div id="featured-products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <!-- Productos destacados cargados dinámicamente -->
-                </div>
+                <div id="featured-products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"></div>
                 
                 <div class="text-center mt-12">
                     <button data-page="productos" class="page-link px-10 py-4 text-xl font-bold text-white bg-pan-orange rounded-full shadow-2xl hover:bg-pan-dark transition duration-300 transform hover:scale-105">
@@ -139,9 +123,7 @@
         <section id="page-productos" class="page hidden py-16 md:py-24 bg-pan-cream dark:bg-pan-contrast transition duration-300">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <h2 class="text-4xl font-bold text-center text-pan-dark dark:text-pan-light mb-12">Catálogo Completo</h2>
-                <div id="full-products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-                    <!-- Todos los productos cargados dinámicamente -->
-                </div>
+                <div id="full-products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"></div>
                 
                 <div class="text-center mt-12 p-6 bg-pan-light dark:bg-pan-dark rounded-xl shadow-inner border border-pan-accent/50">
                     <h3 class="text-2xl font-semibold text-pan-dark dark:text-pan-cream mb-4">Revisa tu Pedido</h3>
@@ -154,7 +136,7 @@
                 </div>
             </div>
         </section>
-        <!-- PAGINA: HISTORIA (antes "Sobre D'PAN") -->
+        <!-- PAGINA: HISTORIA -->
         <section id="page-historia" class="page hidden py-16 md:py-24 bg-pan-cream dark:bg-pan-contrast transition duration-300">
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <h2 class="text-4xl font-display font-bold text-center text-pan-dark dark:text-pan-accent mb-12">Mi Historia</h2>
@@ -200,15 +182,16 @@
 
                         <div>
                             <h3 class="text-2xl font-semibold text-center text-pan-dark dark:text-pan-cream mb-4">Mirá más...</h3>
-                            <div class="video-container bg-pan-dark dark:bg-pan-contrast border border-pan-orange p-2">
-                                <iframe src="https://www.instagram.com/p/DJm-w2UBoGY/embed" frameborder="0" allowfullscreen class="rounded-lg"></iframe>
-                            </div>
+                            <a href="https://www.instagram.com/p/DJm-w2UBoGY/" target="_blank" class="block bg-gradient-to-br from-purple-500 via-pink-500 to-orange-500 p-12 rounded-xl text-white text-center hover:scale-105 transition duration-300 shadow-2xl">
+                                <i data-lucide="instagram" class="w-24 h-24 mx-auto mb-4"></i>
+                                <p class="text-2xl font-bold">Ver video en Instagram</p>
+                                <p class="text-sm mt-2">Click para abrir el reel</p>
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-
         <!-- PAGINA: BIENESTAR -->
         <section id="page-bienestar" class="page hidden py-16 md:py-24 bg-pan-cream dark:bg-pan-contrast transition duration-300">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -255,9 +238,7 @@
                 </p>
                 
                 <div class="bg-pan-light dark:bg-pan-dark p-8 rounded-xl shadow-xl max-w-xl mx-auto">
-                    <div id="quiz-container">
-                        <!-- El quiz se inyecta aquí con JS -->
-                    </div>
+                    <div id="quiz-container"></div>
                     <button id="start-quiz-button" onclick="resetQuiz(); renderQuizStep();" class="mt-6 px-6 py-3 bg-pan-orange text-white rounded-lg font-semibold hover:bg-pan-dark transition duration-300 shadow-md">
                         Empezar Test
                     </button>
@@ -272,20 +253,20 @@
                 <div class="bg-pan-light dark:bg-pan-dark p-8 rounded-xl shadow-xl space-y-6">
                     
                     <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                        <a href="https://wa.me/5493436108756" target="_blank" class="flex flex-col items-center p-4 bg-pan-cream dark:bg-pan-contrast rounded-lg hover:bg-pan-orange hover:text-white transition duration-300 shadow-md">
-                            <img src="/img/whatsapp.svg" alt="WhatsApp" class="w-12 h-12 mb-2">
+                        <a href="https://wa.me/5493436108756" target="_blank" class="flex flex-col items-center p-4 bg-pan-cream dark:bg-pan-contrast rounded-lg hover:bg-pan-orange hover:text-white transition duration-300 shadow-md group">
+                            <i data-lucide="message-circle" class="w-12 h-12 mb-2 text-green-500 group-hover:text-white"></i>
                             <span class="text-sm font-semibold">WhatsApp</span>
                         </a>
-                        <a href="https://instagram.com/ok_dpan" target="_blank" class="flex flex-col items-center p-4 bg-pan-cream dark:bg-pan-contrast rounded-lg hover:bg-pan-orange hover:text-white transition duration-300 shadow-md">
-                            <img src="/img/instagram.svg" alt="Instagram" class="w-12 h-12 mb-2">
+                        <a href="https://instagram.com/ok_dpan" target="_blank" class="flex flex-col items-center p-4 bg-pan-cream dark:bg-pan-contrast rounded-lg hover:bg-pan-orange hover:text-white transition duration-300 shadow-md group">
+                            <i data-lucide="instagram" class="w-12 h-12 mb-2 text-pink-500 group-hover:text-white"></i>
                             <span class="text-sm font-semibold">@ok_dpan</span>
                         </a>
-                        <a href="https://facebook.com/DPanParana" target="_blank" class="flex flex-col items-center p-4 bg-pan-cream dark:bg-pan-contrast rounded-lg hover:bg-pan-orange hover:text-white transition duration-300 shadow-md">
-                            <img src="/img/facebook.svg" alt="Facebook" class="w-12 h-12 mb-2">
+                        <a href="https://facebook.com/DPanParana" target="_blank" class="flex flex-col items-center p-4 bg-pan-cream dark:bg-pan-contrast rounded-lg hover:bg-pan-orange hover:text-white transition duration-300 shadow-md group">
+                            <i data-lucide="facebook" class="w-12 h-12 mb-2 text-blue-600 group-hover:text-white"></i>
                             <span class="text-sm font-semibold">D'Pan Paraná</span>
                         </a>
-                        <a href="mailto:dpanparana@gmail.com" class="flex flex-col items-center p-4 bg-pan-cream dark:bg-pan-contrast rounded-lg hover:bg-pan-orange hover:text-white transition duration-300 shadow-md">
-                            <img src="/img/gmail.svg" alt="Email" class="w-12 h-12 mb-2">
+                        <a href="mailto:dpanparana@gmail.com" class="flex flex-col items-center p-4 bg-pan-cream dark:bg-pan-contrast rounded-lg hover:bg-pan-orange hover:text-white transition duration-300 shadow-md group">
+                            <i data-lucide="mail" class="w-12 h-12 mb-2 text-red-500 group-hover:text-white"></i>
                             <span class="text-sm font-semibold">Email</span>
                         </a>
                     </div>
@@ -372,12 +353,9 @@
         </div>
     </div>
 
-    <!-- Panel Lateral del Carrito -->
+    <!-- Panel Lateral del Carrito con CUPONES -->
     <div id="cart-overlay" class="fixed inset-0 bg-pan-contrast/80 z-40 hidden transition-opacity duration-300" onclick="closeCart()">
-        <div id="cart-drawer" 
-             class="fixed right-0 top-0 h-full w-full max-w-xs md:max-w-sm bg-pan-cream dark:bg-pan-dark shadow-2xl cart-drawer-transition transform translate-x-full"
-             onclick="event.stopPropagation()">
-            
+        <div id="cart-drawer" class="fixed right-0 top-0 h-full w-full max-w-xs md:max-w-sm bg-pan-cream dark:bg-pan-dark shadow-2xl cart-drawer-transition transform translate-x-full" onclick="event.stopPropagation()">
             <div class="flex flex-col h-full">
                 <div class="p-6 border-b border-pan-accent/50 flex justify-between items-center bg-pan-light dark:bg-pan-contrast">
                     <h3 class="text-2xl font-bold text-pan-dark dark:text-pan-cream">Tu Pedido</h3>
@@ -393,11 +371,8 @@
                     <div class="space-y-2">
                         <label class="text-sm font-medium text-pan-dark dark:text-pan-cream">¿Tenés un cupón?</label>
                         <div class="flex space-x-2">
-                            <input type="text" id="coupon-input" placeholder="Código de cupón" 
-                                   class="flex-1 px-3 py-2 border border-pan-accent rounded-lg text-pan-dark focus:ring-2 focus:ring-pan-orange">
-                            <button onclick="applyCoupon()" class="px-4 py-2 bg-pan-accent text-white rounded-lg hover:bg-pan-orange transition">
-                                Aplicar
-                            </button>
+                            <input type="text" id="coupon-input" placeholder="Código de cupón" class="flex-1 px-3 py-2 border border-pan-accent rounded-lg text-pan-dark focus:ring-2 focus:ring-pan-orange">
+                            <button onclick="applyCoupon()" class="px-4 py-2 bg-pan-accent text-white rounded-lg hover:bg-pan-orange transition">Aplicar</button>
                         </div>
                         <p id="coupon-message" class="text-sm hidden"></p>
                     </div>
@@ -420,12 +395,8 @@
                         <span id="cart-total" class="text-pan-orange dark:text-pan-accent">$0.00</span>
                     </div>
 
-                    <button id="finalize-whatsapp-button" onclick="finalizeOrder()" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 rounded-xl transition duration-200 shadow-lg focus:outline-none" disabled>
-                        Pedir por WhatsApp (0)
-                    </button>
-                    <button onclick="closeCart()" class="w-full text-pan-dark dark:text-pan-accent hover:text-pan-orange font-semibold py-2 rounded-xl transition duration-200">
-                        Seguir Navegando
-                    </button>
+                    <button id="finalize-whatsapp-button" onclick="finalizeOrder()" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 rounded-xl transition duration-200 shadow-lg focus:outline-none" disabled>Pedir por WhatsApp (0)</button>
+                    <button onclick="closeCart()" class="w-full text-pan-dark dark:text-pan-accent hover:text-pan-orange font-semibold py-2 rounded-xl transition duration-200">Seguir Navegando</button>
                 </div>
             </div>
         </div>
@@ -433,22 +404,8 @@
     <script>
         lucide.createIcons();
 
-        // ===== CARGA DE PRODUCTOS DESDE API =====
+        // Variables globales
         let ALL_PRODUCTS = [];
-
-        async function loadProductsFromAPI() {
-            try {
-                const response = await fetch('/api/products');
-                if (!response.ok) throw new Error('Error al cargar productos');
-                ALL_PRODUCTS = await response.json();
-                renderProducts();
-            } catch (error) {
-                console.error('Error cargando productos:', error);
-                document.getElementById('featured-products-grid').innerHTML = '<p class="col-span-full text-center text-red-500">Error al cargar productos. Por favor, recarga la página.</p>';
-            }
-        }
-
-        // Variables de Estado
         let cart = [];
         let currentQuizStep = 0;
         let quizScore = 0;
@@ -463,41 +420,23 @@
         const cartContentElement = document.getElementById('cart-content');
         const cartTotalElement = document.getElementById('cart-total');
         const finalizeWhatsappButton = document.getElementById('finalize-whatsapp-button');
-        
         const bienestarSuccessModal = document.getElementById('bienestar-success-modal');
         const bienestarModalContentWrapper = document.getElementById('bienestar-modal-content-wrapper');
 
-        // Funciones de Lógica de Bienestar
-        const clearAndShowSuccessModal = () => {
-            const textarea = document.getElementById('descarga-text');
-            if (textarea.value.trim() === '') {
-                 openBienestarSuccessModal();
-            } else {
-                 textarea.value = '';
-                 openBienestarSuccessModal();
+        // Cargar productos desde API
+        async function loadProductsFromAPI() {
+            try {
+                const response = await fetch('/api/products');
+                if (!response.ok) throw new Error('Error al cargar productos');
+                ALL_PRODUCTS = await response.json();
+                renderProducts();
+            } catch (error) {
+                console.error('Error cargando productos:', error);
+                document.getElementById('featured-products-grid').innerHTML = '<p class="col-span-full text-center text-red-500">Error al cargar productos. Recarga la página.</p>';
             }
         }
 
-        const openBienestarSuccessModal = () => {
-            bienestarSuccessModal.classList.remove('hidden');
-            setTimeout(() => {
-                bienestarModalContentWrapper.classList.remove('scale-95', 'opacity-0');
-                bienestarModalContentWrapper.classList.add('scale-100', 'opacity-100');
-            }, 10);
-            document.body.style.overflow = 'hidden'; 
-            lucide.createIcons();
-        }
-
-        const closeBienestarSuccessModal = () => {
-            bienestarModalContentWrapper.classList.remove('scale-100', 'opacity-100');
-            bienestarModalContentWrapper.classList.add('scale-95', 'opacity-0');
-            setTimeout(() => {
-                bienestarSuccessModal.classList.add('hidden');
-                document.body.style.overflow = 'auto'; 
-            }, 300);
-        }
-
-        // Lógica de Navegación
+        // Navegación entre páginas
         const showPage = (pageId) => {
             document.querySelectorAll('.page').forEach(page => page.classList.add('hidden'));
             const targetPage = document.getElementById(`page-${pageId}`);
@@ -512,26 +451,51 @@
             });
         });
 
-        // Lógica del Carrito
+        // Funciones del modal de Bienestar
+        const clearAndShowSuccessModal = () => {
+            document.getElementById('descarga-text').value = '';
+            openBienestarSuccessModal();
+        }
+
+        const openBienestarSuccessModal = () => {
+            bienestarSuccessModal.classList.remove('hidden');
+            setTimeout(() => {
+                bienestarModalContentWrapper.classList.remove('scale-95', 'opacity-0');
+                bienestarModalContentWrapper.classList.add('scale-100', 'opacity-100');
+            }, 10);
+            document.body.style.overflow = 'hidden';
+            lucide.createIcons();
+        }
+
+        const closeBienestarSuccessModal = () => {
+            bienestarModalContentWrapper.classList.remove('scale-100', 'opacity-100');
+            bienestarModalContentWrapper.classList.add('scale-95', 'opacity-0');
+            setTimeout(() => {
+                bienestarSuccessModal.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }, 300);
+        }
+
+        // Funciones del carrito
         function openCart() {
             cartOverlay.classList.remove('hidden');
             cartDrawer.classList.remove('translate-x-full');
-            document.body.style.overflow = 'hidden'; 
+            document.body.style.overflow = 'hidden';
         }
 
         function closeCart() {
             cartDrawer.classList.add('translate-x-full');
             setTimeout(() => {
                 cartOverlay.classList.add('hidden');
-                document.body.style.overflow = 'auto'; 
-            }, 300); 
+                document.body.style.overflow = 'auto';
+            }, 300);
         }
 
         const updateCartDisplay = () => {
             let totalItems = 0;
             let totalCost = 0;
             cartContentElement.innerHTML = '';
-            
+
             if (cart.length === 0) {
                 cartContentElement.innerHTML = '<p class="text-center text-pan-contrast/70 dark:text-pan-light/70 py-10">Tu carrito está vacío. ¡Añade nuestros panes!</p>';
                 finalizeWhatsappButton.disabled = true;
@@ -545,33 +509,29 @@
                     const itemElement = document.createElement('div');
                     itemElement.className = 'flex items-center space-x-3 p-3 bg-pan-cream dark:bg-pan-contrast rounded-lg shadow-inner';
                     itemElement.innerHTML = `
-                        <img src="${item.img_url}" alt="${item.name}" class="w-12 h-12 object-cover rounded-md border border-pan-accent/30 flex-shrink-0"
-                             onerror="this.onerror=null; this.src='https://placehold.co/48x48/E28C42/FFF?text=ERR'">
+                        <img src="${item.img_url}" alt="${item.name}" class="w-12 h-12 object-cover rounded-md border border-pan-accent/30 flex-shrink-0" onerror="this.onerror=null; this.src='https://placehold.co/48x48/E28C42/FFF?text=ERR'">
                         <div class="flex-grow min-w-0">
                             <p class="font-semibold text-pan-dark dark:text-pan-cream text-sm truncate">${item.name}</p>
                             <p class="text-xs text-pan-contrast/80 dark:text-pan-light/80">Costo: $${item.price}</p>
                             <p class="font-bold text-pan-orange dark:text-pan-accent text-lg">$${subtotal}</p>
                         </div>
-                        
                         <div class="flex items-center space-x-1 flex-shrink-0">
-                            <button data-index="${index}" class="decrease-quantity text-pan-dark dark:text-pan-light hover:text-red-500 p-1 rounded-full transition duration-150" aria-label="Disminuir cantidad">
+                            <button data-index="${index}" class="decrease-quantity text-pan-dark dark:text-pan-light hover:text-red-500 p-1 rounded-full transition duration-150">
                                 <i data-lucide="minus-circle" class="w-6 h-6"></i>
                             </button>
                             <span class="font-bold text-pan-dark dark:text-pan-cream w-4 text-center">${item.quantity}</span>
-                            <button data-index="${index}" class="increase-quantity text-pan-dark dark:text-pan-light hover:text-green-500 p-1 rounded-full transition duration-150" aria-label="Aumentar cantidad">
+                            <button data-index="${index}" class="increase-quantity text-pan-dark dark:text-pan-light hover:text-green-500 p-1 rounded-full transition duration-150">
                                 <i data-lucide="plus-circle" class="w-6 h-6"></i>
                             </button>
                         </div>
                     `;
                     cartContentElement.appendChild(itemElement);
                 });
-
                 finalizeWhatsappButton.disabled = false;
-                finalizeWhatsappButton.textContent = `Pedir por WhatsApp (${totalItems})`;
             }
 
             cartCountElement.textContent = totalItems;
-            
+
             // Calcular descuento si hay cupón
             if (appliedCoupon) {
                 if (appliedCoupon.type === 'percentage') {
@@ -579,12 +539,12 @@
                 } else {
                     discountAmount = appliedCoupon.discount;
                 }
-                
+
                 document.getElementById('cart-subtotal').textContent = `$${totalCost}`;
                 document.getElementById('discount-section').classList.remove('hidden');
                 document.getElementById('coupon-code').textContent = appliedCoupon.code;
                 document.getElementById('discount-amount').textContent = `-$${discountAmount}`;
-                
+
                 const finalTotal = Math.max(0, totalCost - discountAmount);
                 cartTotalElement.textContent = `$${finalTotal}`;
             } else {
@@ -623,17 +583,17 @@
             if (existingItemIndex > -1) {
                 cart[existingItemIndex].quantity += 1;
             } else {
-                cart.push({ 
+                cart.push({
                     id: product.id,
-                    name: product.name, 
-                    price: product.price, 
+                    name: product.name,
+                    price: product.price,
                     quantity: 1,
                     img_url: product.img_url
                 });
             }
 
             updateCartDisplay();
-            openCart(); 
+            openCart();
         };
 
         const attachCartQuantityListeners = () => {
@@ -643,7 +603,7 @@
                     updateCartItemQuantity(index, 1);
                 };
             });
-            
+
             document.querySelectorAll('.decrease-quantity').forEach(button => {
                 button.onclick = (e) => {
                     const index = parseInt(e.currentTarget.getAttribute('data-index'));
@@ -652,39 +612,39 @@
             });
         }
 
-        // Lógica de cupones
+        // Función para aplicar cupón
         async function applyCoupon() {
             const couponInput = document.getElementById('coupon-input');
             const couponCode = couponInput.value.trim().toUpperCase();
             const couponMessage = document.getElementById('coupon-message');
-            
+
             if (!couponCode) {
                 couponMessage.textContent = 'Ingresa un código';
                 couponMessage.className = 'text-sm text-red-500';
                 couponMessage.classList.remove('hidden');
                 return;
             }
-            
+
             try {
                 const response = await fetch('/api/validate-coupon', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ code: couponCode })
                 });
-                
+
                 const data = await response.json();
-                
+
                 if (response.ok) {
                     appliedCoupon = {
                         code: couponCode,
                         discount: data.discount,
                         type: data.type
                     };
-                    
+
                     couponMessage.textContent = `¡Cupón aplicado! ${data.type === 'percentage' ? data.discount + '%' : '$' + data.discount} de descuento`;
                     couponMessage.className = 'text-sm text-green-600 font-semibold';
                     couponMessage.classList.remove('hidden');
-                    
+
                     updateCartDisplay();
                 } else {
                     couponMessage.textContent = data.error || 'Cupón inválido';
@@ -698,7 +658,8 @@
                 couponMessage.classList.remove('hidden');
             }
         }
-        
+
+        // Finalizar pedido por WhatsApp
         const finalizeOrder = () => {
             if (cart.length === 0) return;
 
@@ -712,12 +673,12 @@
             });
 
             message += `%0ASubtotal: $${total}`;
-            
+
             if (appliedCoupon) {
                 message += `%0ADescuento (${appliedCoupon.code}): -$${discountAmount}`;
                 total = Math.max(0, total - discountAmount);
             }
-            
+
             message += `%0A*TOTAL FINAL: $${total}*%0A%0A`;
             message += "Por favor, confírmenme el pedido y el método de pago/entrega.";
 
@@ -725,38 +686,38 @@
             window.open(whatsappUrl, '_blank');
             closeCart();
         }
-        // Lógica del Quiz (ACTUALIZADO)
+        // Preguntas del Quiz actualizadas
         const QUIZ_QUESTIONS = [
-            { 
-                question: "¿Cómo te sentís en este momento?", 
+            {
+                question: "¿Cómo te sentís en este momento?",
                 options: [
-                    { text: "De diez 🙌", score: 3 }, 
-                    { text: "Ahí andamos... 😂", score: 2 }, 
+                    { text: "De diez 🙌", score: 3 },
+                    { text: "Ahí andamos... 😂", score: 2 },
                     { text: "Siguiente pregunta... 😶‍🌫️", score: 1 }
-                ] 
+                ]
             },
-            { 
-                question: "¿Buscás algo para...?", 
+            {
+                question: "¿Buscás algo para...?",
                 options: [
-                    { text: "El almuerzo / cena 🍽️☀️", score: 3 }, 
-                    { text: "La merienda ☕🧉", score: 2 }, 
+                    { text: "El almuerzo / cena 🍽️☀️", score: 3 },
+                    { text: "La merienda ☕🧉", score: 2 },
                     { text: "Saciar el antojo 😋", score: 1 }
-                ] 
+                ]
             },
-            { 
-                question: "¿Tenés ganas de algo...?", 
+            {
+                question: "¿Tenés ganas de algo...?",
                 options: [
-                    { text: "Salado", score: 3 }, 
-                    { text: "Dulce", score: 1 }, 
+                    { text: "Salado", score: 3 },
+                    { text: "Dulce", score: 1 },
                     { text: "Me es indistinto", score: 2 }
-                ] 
+                ]
             }
         ];
 
         const renderQuizStep = () => {
             const quizContainer = document.getElementById('quiz-container');
             const startQuizButton = document.getElementById('start-quiz-button');
-            
+
             if (currentQuizStep >= QUIZ_QUESTIONS.length) {
                 showQuizResult();
                 startQuizButton.classList.remove('hidden');
@@ -777,11 +738,11 @@
                     ${optionsHtml}
                 </div>
             `;
-            
+
             document.querySelectorAll('.quiz-option').forEach(button => {
                 button.addEventListener('click', handleAnswer);
             });
-            startQuizButton.classList.add('hidden'); 
+            startQuizButton.classList.add('hidden');
         };
 
         const handleAnswer = (e) => {
@@ -792,20 +753,16 @@
         };
 
         const showQuizResult = () => {
-            let resultProduct;
-            
-            if (quizScore <= 3) {
-                 resultProduct = ALL_PRODUCTS.find(p => p.quiz_score && p.quiz_score.includes(1));
-            } else if (quizScore <= 5) {
-                resultProduct = ALL_PRODUCTS.find(p => p.quiz_score && p.quiz_score.includes(4));
-            } else if (quizScore <= 7) {
-                resultProduct = ALL_PRODUCTS.find(p => p.quiz_score && p.quiz_score.includes(6));
-            } else {
-                 resultProduct = ALL_PRODUCTS.find(p => p.quiz_score && p.quiz_score.includes(8));
-            }
+            let resultProduct = ALL_PRODUCTS[0];
 
-            if (!resultProduct && ALL_PRODUCTS.length > 0) {
-                resultProduct = ALL_PRODUCTS[0];
+            if (quizScore <= 3) {
+                resultProduct = ALL_PRODUCTS.find(p => p.quiz_score && p.quiz_score.includes(1)) || ALL_PRODUCTS[0];
+            } else if (quizScore <= 5) {
+                resultProduct = ALL_PRODUCTS.find(p => p.quiz_score && p.quiz_score.includes(4)) || ALL_PRODUCTS[0];
+            } else if (quizScore <= 7) {
+                resultProduct = ALL_PRODUCTS.find(p => p.quiz_score && p.quiz_score.includes(6)) || ALL_PRODUCTS[0];
+            } else {
+                resultProduct = ALL_PRODUCTS.find(p => p.quiz_score && p.quiz_score.includes(8)) || ALL_PRODUCTS[0];
             }
 
             const quizModalBody = document.getElementById('quiz-modal-body');
@@ -835,7 +792,7 @@
                     </button>
                 </div>
             `;
-            
+
             quizResultModal.classList.remove('hidden');
             setTimeout(() => {
                 quizModalContentWrapper.classList.remove('scale-95', 'opacity-0');
@@ -848,7 +805,7 @@
         const resetQuiz = () => {
             currentQuizStep = 0;
             quizScore = 0;
-            document.getElementById('quiz-container').innerHTML = ''; 
+            document.getElementById('quiz-container').innerHTML = '';
             document.getElementById('start-quiz-button').classList.remove('hidden');
             closeQuizModal();
         }
@@ -860,13 +817,12 @@
             quizModalContentWrapper.classList.add('scale-95', 'opacity-0');
             setTimeout(() => {
                 quizResultModal.classList.add('hidden');
-                document.body.style.overflow = 'auto'; 
+                document.body.style.overflow = 'auto';
             }, 300);
         };
 
         document.getElementById('close-quiz-modal').addEventListener('click', closeQuizModal);
-
-        // Lógica de Modales de Detalle
+        // Modal de detalle de producto
         const openProductModal = (productId) => {
             const product = ALL_PRODUCTS.find(p => p.id === productId);
             if (!product) return;
@@ -874,8 +830,13 @@
             const modalBody = document.getElementById('modal-body');
             const productModal = document.getElementById('product-modal');
             const modalContentWrapper = document.getElementById('modal-content-wrapper');
-            
-            const ingredientsList = product.ingredients.map(ing => `<li class="flex items-start"><i data-lucide="check-circle" class="w-5 h-5 mr-2 mt-1 text-pan-orange flex-shrink-0"></i> <span>${ing}</span></li>`).join('');
+
+            const ingredientsList = product.ingredients.map(ing => `
+                <li class="flex items-start">
+                    <i data-lucide="check-circle" class="w-5 h-5 mr-2 mt-1 text-pan-orange flex-shrink-0"></i>
+                    <span>${ing}</span>
+                </li>
+            `).join('');
 
             modalBody.innerHTML = `
                 <div class="md:flex md:space-x-6">
@@ -909,11 +870,11 @@
                 modalContentWrapper.classList.remove('scale-95', 'opacity-0');
                 modalContentWrapper.classList.add('scale-100', 'opacity-100');
             }, 10);
-            
+
             document.querySelector('.add-to-cart-modal').onclick = (e) => {
                 const productId = e.currentTarget.getAttribute('data-product-id');
                 addToCart(productId);
-                closeProductModal(); 
+                closeProductModal();
             };
 
             document.body.style.overflow = 'hidden';
@@ -926,12 +887,13 @@
             modalContentWrapper.classList.add('scale-95', 'opacity-0');
             setTimeout(() => {
                 productModal.classList.add('hidden');
-                document.body.style.overflow = 'auto'; 
+                document.body.style.overflow = 'auto';
             }, 300);
         };
 
         document.getElementById('close-modal').addEventListener('click', closeProductModal);
-        // Renderizado de Productos
+
+        // Renderizado de productos
         const renderProductCard = (product) => {
             return `
                 <div class="product-card bg-pan-light dark:bg-pan-dark p-6 rounded-xl shadow-xl hover:shadow-2xl transition duration-300 flex flex-col border border-pan-accent/30 dark:border-pan-dark" data-product-id="${product.id}">
@@ -957,7 +919,7 @@
         const renderProducts = () => {
             const featuredGrid = document.getElementById('featured-products-grid');
             const fullGrid = document.getElementById('full-products-grid');
-            
+
             featuredGrid.innerHTML = ALL_PRODUCTS
                 .filter(p => p.featured)
                 .map(renderProductCard)
@@ -987,7 +949,7 @@
             });
         };
 
-        // Inicialización del tema
+        // Tema dark/light
         const themeToggle = document.getElementById('theme-toggle');
         if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
             htmlElement.classList.add('dark');
@@ -1005,11 +967,11 @@
             }
         });
 
-        // Inicialización cuando carga el DOM
+        // Inicialización
         document.addEventListener('DOMContentLoaded', () => {
             loadProductsFromAPI();
             updateCartDisplay();
-            showPage('inicio'); 
+            showPage('inicio');
         });
 
     </script>

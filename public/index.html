@@ -1,55 +1,3 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>D'PAN - Hecho en casa, como en casa</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@100..900&family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
-
-    <script>
-        tailwind.config = {
-            darkMode: 'class', 
-            theme: {
-                extend: {
-                    colors: {
-                        'pan-dark': '#8B5E3C',     
-                        'pan-light': '#F5E3C0',    
-                        'pan-cream': '#FFF4E1',    
-                        'pan-accent': '#D19C4C',   
-                        'pan-orange': '#E28C42',   
-                        'pan-contrast': '#5C3A21', 
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        display: ['Playfair Display', 'serif'],
-                        handwritten: ['Dancing Script', 'cursive'],
-                    },
-                }
-            }
-        }
-    </script>
-    <style>
-        
-        body {
-            font-family: 'Inter', sans-serif;
-            transition: background-color 0.3s, color 0.3s;
-        }
-        .text-display-shadow {
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15);
-        }
-        .hero-background {
-            background-image: url('https://placehold.co/1920x600/D19C4C/8B5E3C?text=La+Esencia+del+Pan+Artesanal');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
-        .cart-drawer-transition {
-            transition: transform 0.3s ease-in-out;
-        }
-    </style>
-</head>
 <!-- CABECERA y NAVEGACIÓN -->
 <header class="sticky top-0 z-40 bg-pan-cream dark:bg-pan-contrast shadow-xl dark:shadow-pan-dark transition duration-300">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
@@ -61,14 +9,14 @@
            class="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 object-contain rounded-full shadow-lg hover:scale-105 transition duration-300" />
     </button>
 
-    <!-- MENÚ DESKTOP (SOLO UNO) -->
+    <!-- MENÚ DESKTOP -->
     <nav class="hidden md:flex space-x-4 lg:space-x-8 text-lg font-semibold">
-      <button data-page="inicio" class="page-link">Inicio</button>
-      <button data-page="productos" class="page-link">Menú</button>
-      <button data-page="historia" class="page-link">Historia</button>
-      <button data-page="quiz" class="page-link">¿No Sabés Qué Comer?</button>
-      <button data-page="bienestar" class="page-link">Bienestar</button>
-      <button data-page="contacto" class="page-link">Contacto</button>
+      <button data-page="inicio" class="page-link text-pan-contrast dark:text-pan-light hover:text-pan-orange dark:hover:text-pan-accent transition duration-200">Inicio</button>
+      <button data-page="productos" class="page-link text-pan-contrast dark:text-pan-light hover:text-pan-orange dark:hover:text-pan-accent transition duration-200">Menú</button>
+      <button data-page="historia" class="page-link text-pan-contrast dark:text-pan-light hover:text-pan-orange dark:hover:text-pan-accent transition duration-200">Historia</button>
+      <button data-page="quiz" class="page-link text-pan-contrast dark:text-pan-light hover:text-pan-orange dark:hover:text-pan-accent transition duration-200">¿No Sabés Qué Comer?</button>
+      <button data-page="bienestar" class="page-link text-pan-contrast dark:text-pan-light hover:text-pan-orange dark:hover:text-pan-accent transition duration-200">Bienestar</button>
+      <button data-page="contacto" class="page-link text-pan-contrast dark:text-pan-light hover:text-pan-orange dark:hover:text-pan-accent transition duration-200">Contacto</button>
     </nav>
 
     <!-- BOTONES: hamburguesa, carrito y tema -->
@@ -99,12 +47,12 @@
   <!-- MENÚ MÓVIL -->
   <div id="mobile-menu" class="hidden md:hidden bg-pan-light dark:bg-pan-dark shadow-xl border-t-2 border-pan-accent/30">
     <nav class="flex flex-col p-4 space-y-2">
-      <button data-page="inicio" class="page-link text-left px-4 py-3">🏠 Inicio</button>
-      <button data-page="productos" class="page-link text-left px-4 py-3">🍞 Menú</button>
-      <button data-page="historia" class="page-link text-left px-4 py-3">📖 Historia</button>
-      <button data-page="quiz" class="page-link text-left px-4 py-3">❓ ¿No Sabés Qué Comer?</button>
-      <button data-page="bienestar" class="page-link text-left px-4 py-3">💚 Bienestar</button>
-      <button data-page="contacto" class="page-link text-left px-4 py-3">📞 Contacto</button>
+      <button data-page="inicio" class="page-link text-left px-4 py-3 text-pan-contrast dark:text-pan-light hover:bg-pan-orange dark:hover:text-white rounded-lg transition duration-200">🏠 Inicio</button>
+      <button data-page="productos" class="page-link text-left px-4 py-3 text-pan-contrast dark:text-pan-light hover:bg-pan-orange dark:hover:text-white rounded-lg transition duration-200">🍞 Menú</button>
+      <button data-page="historia" class="page-link text-left px-4 py-3 text-pan-contrast dark:text-pan-light hover:bg-pan-orange dark:hover:text-white rounded-lg transition duration-200">📖 Historia</button>
+      <button data-page="quiz" class="page-link text-left px-4 py-3 text-pan-contrast dark:text-pan-light hover:bg-pan-orange dark:hover:text-white rounded-lg transition duration-200">❓ ¿No Sabés Qué Comer?</button>
+      <button data-page="bienestar" class="page-link text-left px-4 py-3 text-pan-contrast dark:text-pan-light hover:bg-pan-orange dark:hover:text-white rounded-lg transition duration-200">💚 Bienestar</button>
+      <button data-page="contacto" class="page-link text-left px-4 py-3 text-pan-contrast dark:text-pan-light hover:bg-pan-orange dark:hover:text-white rounded-lg transition duration-200">📞 Contacto</button>
     </nav>
   </div>
 </header>
@@ -1030,4 +978,5 @@
     </script>
 </body>
 </html>
+
 

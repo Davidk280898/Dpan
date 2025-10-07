@@ -14,12 +14,12 @@
             theme: {
                 extend: {
                     colors: {
-                        'pan-dark': '#8B5E3C',     
-                        'pan-light': '#F5E3C0',    
-                        'pan-cream': '#FFF4E1',    
-                        'pan-accent': '#D19C4C',   
-                        'pan-orange': '#E28C42',   
-                        'pan-contrast': '#5C3A21', 
+                        'pan-dark': '#8B5E3C',     // textos modo claro
+                        'pan-light': '#F5E3C0',
+                        'pan-cream': '#FFF4E1',    // textos modo oscuro
+                        'pan-accent': '#D19C4C',
+                        'pan-orange': '#E28C42',
+                        'pan-contrast': '#5C3A21', // textos sobre fondo claro
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
@@ -30,7 +30,18 @@
             }
         }
     </script>
+
     <style>
+        /* Si querés, podés agregar reglas generales para textos */
+        body {
+            color: #5C3A21; /* pan-contrast por defecto */
+        }
+        body.dark {
+            color: #FFF4E1; /* pan-cream en modo oscuro */
+        }
+    </style>
+</head>
+
 
   <!-- CABECERA y NAVEGACIÓN -->
   <header class="sticky top-0 z-40 bg-pan-cream dark:bg-pan-contrast shadow-xl dark:shadow-pan-dark transition duration-300">
@@ -1114,6 +1125,7 @@
     </script>
 </body>
 </html>
+
 
 
 

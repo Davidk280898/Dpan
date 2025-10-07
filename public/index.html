@@ -14,12 +14,12 @@
             theme: {
                 extend: {
                     colors: {
-                        'pan-dark': '#8B5E3C',     // textos modo claro
-                        'pan-light': '#F5E3C0',
-                        'pan-cream': '#FFF4E1',    // textos modo oscuro
-                        'pan-accent': '#D19C4C',
-                        'pan-orange': '#E28C42',
-                        'pan-contrast': '#5C3A21', // textos sobre fondo claro
+                        'pan-dark': '#8B5E3C',     
+                        'pan-light': '#F5E3C0',    
+                        'pan-cream': '#FFF4E1',    
+                        'pan-accent': '#D19C4C',   
+                        'pan-orange': '#E28C42',   
+                        'pan-contrast': '#5C3A21', 
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
@@ -30,111 +30,7 @@
             }
         }
     </script>
-
     <style>
-        /* Si querés, podés agregar reglas generales para textos */
-        body {
-            color: #5C3A21; /* pan-contrast por defecto */
-        }
-        body.dark {
-            color: #FFF4E1; /* pan-cream en modo oscuro */
-        }
-    </style>
-</head>
-    
-<script>
-const mobileMenuButton = document.getElementById('mobile-menu-button');
-const mobileMenu = document.getElementById('mobile-menu');
-
-mobileMenuButton.addEventListener('click', () => {
-    mobileMenu.classList.toggle('hidden');
-});
-</script>
-
-
-  <!-- CABECERA y NAVEGACIÓN -->
-  <header class="sticky top-0 z-40 bg-pan-cream dark:bg-pan-contrast shadow-xl dark:shadow-pan-dark transition duration-300">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-      
-      <!-- LOGO -->
-      <button data-page="inicio" class="page-link focus:outline-none">
-        <img src="/img/logo.jpg" 
-             alt="Logo D'PAN" 
-             class="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 object-contain rounded-full shadow-lg hover:scale-105 transition duration-300" />
-      </button>
-
-      <!-- MENÚ DESKTOP -->
-      <nav class="hidden md:flex space-x-4 lg:space-x-8 text-lg font-semibold">
-        <button data-page="inicio" class="page-link text-pan-contrast dark:text-pan-light hover:text-pan-orange dark:hover:text-pan-accent transition duration-200">Inicio</button>
-        <button data-page="productos" class="page-link text-pan-contrast dark:text-pan-light hover:text-pan-orange dark:hover:text-pan-accent transition duration-200">Menú</button>
-        <button data-page="historia" class="page-link text-pan-contrast dark:text-pan-light hover:text-pan-orange dark:hover:text-pan-accent transition duration-200">Historia</button>
-        <button data-page="quiz" class="page-link text-pan-contrast dark:text-pan-light hover:text-pan-orange dark:hover:text-pan-accent transition duration-200">¿No Sabés Qué Comer?</button>
-        <button data-page="bienestar" class="page-link text-pan-contrast dark:text-pan-light hover:text-pan-orange dark:hover:text-pan-accent transition duration-200">Bienestar</button>
-        <button data-page="contacto" class="page-link text-pan-contrast dark:text-pan-light hover:text-pan-orange dark:hover:text-pan-accent transition duration-200">Contacto</button>
-      </nav>
-
-      <!-- BOTONES: hamburguesa, carrito y tema -->
-      <div class="flex items-center space-x-2 sm:space-x-4">
-        
-        <!-- Botón menú móvil -->
-        <button id="mobile-menu-button" class="md:hidden p-2 rounded-lg bg-pan-light dark:bg-pan-dark hover:bg-pan-orange transition duration-200" onclick="toggleMobileMenu()" aria-label="Menú">
-          <svg class="w-6 h-6 text-pan-dark dark:text-pan-light" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M4 6h16M4 12h16M4 18h16"></path>
-          </svg>
-        </button>
-
-        <!-- Botón carrito -->
-        <button id="cart-button" onclick="openCart()" class="relative p-2 rounded-full bg-pan-light dark:bg-pan-dark hover:bg-pan-dark hover:text-pan-light transition duration-200 shadow-md">
-          <i data-lucide="shopping-bag" class="w-5 h-5 sm:w-6 sm:h-6 text-pan-dark dark:text-pan-light"></i>
-          <span id="cart-count" class="absolute -top-1 -right-1 inline-flex items-center justify-center px-1.5 py-0.5 text-xs font-bold leading-none text-white transform bg-pan-orange rounded-full shadow-lg min-w-[20px]">0</span>
-        </button>
-
-        <!-- Botón tema -->
-        <button id="theme-toggle" class="p-2 rounded-full bg-pan-light dark:bg-pan-dark text-pan-dark dark:text-pan-light hover:bg-pan-dark hover:text-pan-light transition duration-200 shadow-md" aria-label="Cambiar tema">
-          <i data-lucide="moon" class="w-5 h-5 sm:w-6 sm:h-6 block dark:hidden"></i>
-          <i data-lucide="sun" class="w-5 h-5 sm:w-6 sm:h-6 hidden dark:block"></i>
-        </button>
-      </div>
-    </div>
-
-    <!-- MENÚ MÓVIL -->
-    <div id="mobile-menu" class="hidden md:hidden bg-pan-light dark:bg-pan-dark shadow-xl border-t-2 border-pan-accent/30">
-      <nav class="flex flex-col p-4 space-y-2">
-        <button data-page="inicio" class="page-link text-left px-4 py-3 text-pan-contrast dark:text-pan-light hover:bg-pan-orange dark:hover:text-white rounded-lg transition duration-200">🏠 Inicio</button>
-        <button data-page="productos" class="page-link text-left px-4 py-3 text-pan-contrast dark:text-pan-light hover:bg-pan-orange dark:hover:text-white rounded-lg transition duration-200">🍞 Menú</button>
-        <button data-page="historia" class="page-link text-left px-4 py-3 text-pan-contrast dark:text-pan-light hover:bg-pan-orange dark:hover:text-white rounded-lg transition duration-200">📖 Historia</button>
-        <button data-page="quiz" class="page-link text-left px-4 py-3 text-pan-contrast dark:text-pan-light hover:bg-pan-orange dark:hover:text-white rounded-lg transition duration-200">❓ ¿No Sabés Qué Comer?</button>
-        <button data-page="bienestar" class="page-link text-left px-4 py-3 text-pan-contrast dark:text-pan-light hover:bg-pan-orange dark:hover:text-white rounded-lg transition duration-200">💚 Bienestar</button>
-        <button data-page="contacto" class="page-link text-left px-4 py-3 text-pan-contrast dark:text-pan-light hover:bg-pan-orange dark:hover:text-white rounded-lg transition duration-200">📞 Contacto</button>
-      </nav>
-    </div>
-  </header>
-
-  <!-- Acá irían tus secciones (Productos, Historia, etc.) -->
-
-  <script>
-    function toggleMobileMenu() {
-      const menu = document.getElementById('mobile-menu');
-      if (menu.classList.contains('hidden')) {
-        menu.classList.remove('hidden');
-        menu.classList.add('animate-slide-down');
-      } else {
-        menu.classList.add('hidden');
-        menu.classList.remove('animate-slide-down');
-      }
-    }
-
-    // Cerrar menú al hacer clic en un link
-    document.addEventListener('DOMContentLoaded', () => {
-      document.querySelectorAll('#mobile-menu .page-link').forEach(btn => {
-        btn.addEventListener('click', () => {
-          document.getElementById('mobile-menu').classList.add('hidden');
-        });
-      });
-    });
-  </script>
-<style>
         
         body {
             font-family: 'Inter', sans-serif;
@@ -1134,10 +1030,4 @@ mobileMenuButton.addEventListener('click', () => {
     </script>
 </body>
 </html>
-
-
-
-
-
-
 

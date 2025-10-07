@@ -78,6 +78,20 @@
             </nav>
 
             <div class="flex items-center space-x-4">
+                <!-- Botón de menú móvil -->
+            <button id="mobile-menu-button" class="md:hidden p-2 rounded-lg bg-pan-light dark:bg-pan-dark" onclick="toggleMobileMenu()">
+                <i data-lucide="menu" class="w-6 h-6 text-pan-dark dark:text-pan-light"></i>
+            </button>
+
+            <!-- Navegación Desktop (sin cambios) -->
+            <nav class="hidden md:flex space-x-4 lg:space-x-8 text-lg font-semibold">
+                <button data-page="inicio" class="page-link text-pan-contrast dark:text-pan-light hover:text-pan-orange dark:hover:text-pan-accent transition duration-200 focus:outline-none">Inicio</button>
+                <button data-page="productos" class="page-link text-pan-contrast dark:text-pan-light hover:text-pan-orange dark:hover:text-pan-accent transition duration-200 focus:outline-none">Menú</button>
+                <button data-page="historia" class="page-link text-pan-contrast dark:text-pan-light hover:text-pan-orange dark:hover:text-pan-accent transition duration-200 focus:outline-none">Historia</button>
+                <button data-page="quiz" class="page-link text-pan-contrast dark:text-pan-light hover:text-pan-orange dark:hover:text-pan-accent transition duration-200 focus:outline-none">¿No Sabés Qué Comer?</button>
+                <button data-page="bienestar" class="page-link text-pan-contrast dark:text-pan-light hover:text-pan-orange dark:hover:text-pan-accent transition duration-200 focus:outline-none">Bienestar</button>
+                <button data-page="contacto" class="page-link text-pan-contrast dark:text-pan-light hover:text-pan-orange dark:hover:text-pan-accent transition duration-200 focus:outline-none">Contacto</button>
+            </nav>
                 <button id="cart-button" onclick="openCart()" class="relative p-2 rounded-full bg-pan-light dark:bg-pan-dark hover:bg-pan-dark hover:text-pan-light transition duration-200 shadow-md">
                     <i data-lucide="shopping-bag" class="w-6 h-6 text-pan-dark dark:text-pan-light hover:text-pan-light dark:hover:text-pan-cream"></i>
                     <span id="cart-count" class="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white transform translate-x-1/2 -translate-y-1/2 bg-pan-orange rounded-full shadow-lg">0</span>
@@ -89,6 +103,20 @@
             </div>
         </div>
     </header>
+
+    <!-- Menú móvil desplegable -->
+    <div id="mobile-menu" class="hidden md:hidden bg-pan-light dark:bg-pan-dark shadow-xl">
+        <nav class="flex flex-col p-4 space-y-2">
+            <button data-page="inicio" class="page-link text-left px-4 py-3 text-pan-contrast dark:text-pan-light hover:bg-pan-orange hover:text-white rounded-lg transition duration-200" onclick="toggleMobileMenu()">Inicio</button>
+            <button data-page="productos" class="page-link text-left px-4 py-3 text-pan-contrast dark:text-pan-light hover:bg-pan-orange hover:text-white rounded-lg transition duration-200" onclick="toggleMobileMenu()">Menú</button>
+            <button data-page="historia" class="page-link text-left px-4 py-3 text-pan-contrast dark:text-pan-light hover:bg-pan-orange hover:text-white rounded-lg transition duration-200" onclick="toggleMobileMenu()">Historia</button>
+            <button data-page="quiz" class="page-link text-left px-4 py-3 text-pan-contrast dark:text-pan-light hover:bg-pan-orange hover:text-white rounded-lg transition duration-200" onclick="toggleMobileMenu()">¿No Sabés Qué Comer?</button>
+            <button data-page="bienestar" class="page-link text-left px-4 py-3 text-pan-contrast dark:text-pan-light hover:bg-pan-orange hover:text-white rounded-lg transition duration-200" onclick="toggleMobileMenu()">Bienestar</button>
+            <button data-page="contacto" class="page-link text-left px-4 py-3 text-pan-contrast dark:text-pan-light hover:bg-pan-orange hover:text-white rounded-lg transition duration-200" onclick="toggleMobileMenu()">Contacto</button>
+        </nav>
+    </div>
+
+    <main class="flex-grow">
 
     <main class="flex-grow">
         <!-- PAGINA: INICIO -->
@@ -973,7 +1001,16 @@
             updateCartDisplay();
             showPage('inicio');
         });
+// Función para toggle del menú móvil
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+            lucide.createIcons();
+        }
 
+    </script>
+</body>
+</html>
     </script>
 </body>
 </html>

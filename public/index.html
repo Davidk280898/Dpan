@@ -61,71 +61,48 @@
 <!-- CABECERA y NAVEGACIÓN -->
 <header class="sticky top-0 z-40 bg-pan-cream dark:bg-pan-contrast shadow-xl dark:shadow-pan-dark transition duration-300">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-    <!-- LOGO SOLO (sin texto) -->
+    
+    <!-- LOGO -->
     <button data-page="inicio" class="page-link focus:outline-none">
       <img 
         src="/img/logo.jpg"
         alt="Logo D'PAN"
-        class="w-20 h-20 object-contain rounded-full shadow-lg hover:scale-105 transition duration-300"
+        class="w-12 h-12 md:w-20 md:h-20 object-contain rounded-full shadow-lg hover:scale-105 transition-transform duration-300"
       />
     </button>
 
-    <!-- Navegación Desktop -->
+    <!-- NAVEGACIÓN DESKTOP -->
     <nav class="hidden md:flex space-x-4 lg:space-x-8 text-lg font-semibold">
-      <!-- Botones del menú -->
-      <!-- ... -->
+      <button data-page="inicio" class="page-link text-pan-contrast dark:text-pan-light hover:text-pan-orange dark:hover:text-pan-accent transition duration-200 focus:outline-none">Inicio</button>
+      <button data-page="productos" class="page-link text-pan-contrast dark:text-pan-light hover:text-pan-orange dark:hover:text-pan-accent transition duration-200 focus:outline-none">Menú</button>
+      <button data-page="historia" class="page-link text-pan-contrast dark:text-pan-light hover:text-pan-orange dark:hover:text-pan-accent transition duration-200 focus:outline-none">Historia</button>
+      <button data-page="quiz" class="page-link text-pan-contrast dark:text-pan-light hover:text-pan-orange dark:hover:text-pan-accent transition duration-200 focus:outline-none">¿No Sabés Qué Comer?</button>
+      <button data-page="bienestar" class="page-link text-pan-contrast dark:text-pan-light hover:text-pan-orange dark:hover:text-pan-accent transition duration-200 focus:outline-none">Bienestar</button>
+      <button data-page="contacto" class="page-link text-pan-contrast dark:text-pan-light hover:text-pan-orange dark:hover:text-pan-accent transition duration-200 focus:outline-none">Contacto</button>
     </nav>
 
-    <!-- Controles adicionales -->
+    <!-- CONTROLES (CARRITO, TEMA, MENÚ MOBILE) -->
     <div class="flex items-center space-x-4">
+      
       <!-- Botón de menú móvil -->
-      <!-- ... -->
+      <button id="mobile-menu-button" class="md:hidden p-2 rounded-lg bg-pan-light dark:bg-pan-dark" onclick="toggleMobileMenu()">
+        <i data-lucide="menu" class="w-6 h-6 text-pan-dark dark:text-pan-light"></i>
+      </button>
+
+      <!-- Botón carrito -->
+      <button id="cart-button" onclick="openCart()" class="relative p-2 rounded-full bg-pan-light dark:bg-pan-dark hover:bg-pan-dark hover:text-pan-light transition duration-200 shadow-md">
+        <i data-lucide="shopping-bag" class="w-6 h-6 text-pan-dark dark:text-pan-light hover:text-pan-light dark:hover:text-pan-cream"></i>
+        <span id="cart-count" class="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white transform translate-x-1/2 -translate-y-1/2 bg-pan-orange rounded-full shadow-lg">0</span>
+      </button>
+
+      <!-- Botón tema -->
+      <button id="theme-toggle" class="p-2 rounded-full bg-pan-light dark:bg-pan-dark text-pan-dark dark:text-pan-light hover:bg-pan-dark hover:text-pan-light transition duration-200 shadow-md" aria-label="Cambiar tema">
+        <i data-lucide="moon" class="w-6 h-6 block dark:hidden"></i>
+        <i data-lucide="sun" class="w-6 h-6 hidden dark:block"></i>
+      </button>
     </div>
   </div>
 </header>
-
-    <!-- Menú móvil desplegable -->
-    <div id="mobile-menu" class="hidden md:hidden bg-pan-light dark:bg-pan-dark shadow-xl">
-        <nav class="flex flex-col p-4 space-y-2">
-            <button data-page="inicio" class="page-link text-left px-4 py-3 text-pan-contrast dark:text-pan-light hover:bg-pan-orange hover:text-white rounded-lg transition duration-200" onclick="toggleMobileMenu()">Inicio</button>
-            <button data-page="productos" class="page-link text-left px-4 py-3 text-pan-contrast dark:text-pan-light hover:bg-pan-orange hover:text-white rounded-lg transition duration-200" onclick="toggleMobileMenu()">Menú</button>
-            <button data-page="historia" class="page-link text-left px-4 py-3 text-pan-contrast dark:text-pan-light hover:bg-pan-orange hover:text-white rounded-lg transition duration-200" onclick="toggleMobileMenu()">Historia</button>
-            <button data-page="quiz" class="page-link text-left px-4 py-3 text-pan-contrast dark:text-pan-light hover:bg-pan-orange hover:text-white rounded-lg transition duration-200" onclick="toggleMobileMenu()">¿No Sabés Qué Comer?</button>
-            <button data-page="bienestar" class="page-link text-left px-4 py-3 text-pan-contrast dark:text-pan-light hover:bg-pan-orange hover:text-white rounded-lg transition duration-200" onclick="toggleMobileMenu()">Bienestar</button>
-            <button data-page="contacto" class="page-link text-left px-4 py-3 text-pan-contrast dark:text-pan-light hover:bg-pan-orange hover:text-white rounded-lg transition duration-200" onclick="toggleMobileMenu()">Contacto</button>
-        </nav>
-    </div>
-
-    <main class="flex-grow">
-
-    <main class="flex-grow">
-        <!-- PAGINA: INICIO -->
-        <section id="page-inicio" class="page py-0 md:py-0 bg-pan-cream dark:bg-pan-contrast transition duration-300">
-            <div class="py-20 md:py-32 hero-background text-white shadow-inner">
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center bg-pan-dark/70 p-6 rounded-xl backdrop-blur-sm">
-                    <h1 class="text-6xl md:text-8xl font-handwritten text-pan-accent mb-2 text-display-shadow">D'PAN</h1>
-                    <p class="text-2xl md:text-4xl font-display text-pan-cream mb-8 italic font-light flex items-center justify-center space-x-2">
-                        <span>Hecho en casa, como en casa</span>
-                        <i data-lucide="home" class="w-8 h-8 text-pan-orange fill-pan-orange"></i>
-                        <i data-lucide="heart" class="w-8 h-8 text-red-500 fill-red-500"></i>
-                    </p>
-                    <button data-page="productos" class="page-link inline-block px-8 py-3 text-lg font-bold text-white bg-pan-orange rounded-lg shadow-xl hover:bg-pan-accent transition duration-300 transform hover:scale-105">
-                        Ver Productos Frescos <i data-lucide="arrow-right" class="inline ml-2 w-5 h-5"></i>
-                    </button>
-                </div>
-            </div>
-
-            <div id="featured-products-container" class="py-16 md:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="text-4xl font-bold text-center text-pan-dark dark:text-pan-light mb-12">Nuestros Favoritos</h2>
-                <div id="featured-products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"></div>
-                
-                <div class="text-center mt-12">
-                    <button data-page="productos" class="page-link px-10 py-4 text-xl font-bold text-white bg-pan-orange rounded-full shadow-2xl hover:bg-pan-dark transition duration-300 transform hover:scale-105">
-                        Ver Menú Completo
-                    </button>
-                </div>
-            </div>
-        </section>
 
         <!-- PAGINA: PRODUCTOS -->
         <section id="page-productos" class="page hidden py-16 md:py-24 bg-pan-cream dark:bg-pan-contrast transition duration-300">

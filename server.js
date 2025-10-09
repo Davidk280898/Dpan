@@ -335,8 +335,8 @@ app.listen(PORT, () => {
     console.log(`Servidor corriendo en http://localhost:${PORT}`);
     console.log(`Panel Admin: http://localhost:${PORT}/admin.html`);
     console.log(`Sitio Web: http://localhost:${PORT}/index.html`);
-});        cb(null, uniqueName);
-    
+});                cb(null, uniqueName);
+    }
 });
 
 const upload = multer({ 
@@ -632,6 +632,4 @@ app.listen(PORT, () => {
     console.log(`Servidor corriendo en http://localhost:${PORT}`);
     console.log(`Panel Admin: http://localhost:${PORT}/admin.html`);
     console.log(`Sitio Web: http://localhost:${PORT}/index.html`);
-
 });
-

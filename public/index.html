@@ -54,6 +54,22 @@
         .animate-slide-down {
             animation: slide-down 0.3s ease-out;
         }
+        
+        /* Mejoras sutiles para móvil */
+        @media (max-width: 640px) {
+            .product-card {
+                margin-bottom: 0.5rem;
+            }
+            #full-products-grid, #featured-products-grid {
+                padding-top: 1rem;
+                padding-bottom: 1rem;
+            }
+        }
+        
+        /* Scroll suave y orgánico */
+        html {
+            scroll-behavior: smooth;
+        }
     </style>
 </head>
 
@@ -135,14 +151,14 @@
                         <i data-lucide="heart" class="w-8 h-8 text-red-500 fill-red-500"></i>
                     </p>
                     <button data-page="productos" class="page-link inline-block px-8 py-3 text-lg font-bold text-white bg-pan-orange rounded-lg shadow-xl hover:bg-pan-accent transition duration-300 transform hover:scale-105">
-                        Ver Productos <i data-lucide="arrow-right" class="inline ml-2 w-5 h-5"></i>
+                        Ver Productos Frescos <i data-lucide="arrow-right" class="inline ml-2 w-5 h-5"></i>
                     </button>
                 </div>
             </div>
 
             <div id="featured-products-container" class="py-16 md:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="text-4xl font-bold text-center text-pan-dark dark:text-pan-light mb-12">Nuestros Favoritos</h2>
-                <div id="featured-products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"></div>
+                <h2 class="text-4xl font-bold text-center text-pan-dark dark:text-pan-light mb-12">Los más elegidos</h2>
+                <div id="featured-products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-8"></div>
                 
                 <div class="text-center mt-12">
                     <button data-page="productos" class="page-link px-10 py-4 text-xl font-bold text-white bg-pan-orange rounded-full shadow-2xl hover:bg-pan-dark transition duration-300 transform hover:scale-105">
@@ -155,11 +171,13 @@
         <!-- PAGINA: PRODUCTOS -->
         <section id="page-productos" class="page hidden py-16 md:py-24 bg-pan-cream dark:bg-pan-contrast transition duration-300">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="text-4xl font-bold text-center text-pan-dark dark:text-pan-light mb-12">Catálogo Completo</h2>
-                <div id="full-products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"></div>
+                <h2 class="text-4xl font-bold text-center text-pan-dark dark:text-pan-light mb-4">Catálogo Completo</h2>
+                <p class="text-center text-pan-contrast dark:text-pan-light mb-12 text-lg italic max-w-2xl mx-auto opacity-80">Tomá tu tiempo, cada producto tiene su momento</p>
                 
-                <div class="text-center mt-12 p-6 bg-pan-light dark:bg-pan-dark rounded-xl shadow-inner border border-pan-accent/50">
-                    <h3 class="text-2xl font-semibold text-pan-dark dark:text-pan-cream mb-4">Revisa tu Pedido</h3>
+                <div id="full-products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10 md:gap-8"></div>
+                
+                <div class="text-center mt-16 p-8 bg-pan-light dark:bg-pan-dark rounded-xl shadow-inner border border-pan-accent/50">
+                    <h3 class="text-2xl font-semibold text-pan-dark dark:text-pan-cream mb-4">¿Listo para encargar?</h3>
                     <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-8">
                         <p class="text-lg text-pan-contrast dark:text-pan-light italic" id="cart-message">Tu carrito está vacío.</p>
                         <button onclick="openCart()" class="px-8 py-3 text-lg font-bold text-white bg-pan-orange rounded-full shadow-lg hover:bg-pan-dark transition duration-300">
@@ -194,7 +212,7 @@
                                 Gracias por estar acá, gracias por leer, y gracias por ser parte de este camino.
                             </p>
                             <p class="text-xl font-bold text-pan-dark dark:text-pan-accent mt-6 text-center">
-                                D'Pan – Hecho en casa, como en casa ❤️‍🩹🏡
+                                D'Pan — Hecho en casa, como en casa ❤️‍🩹🏡
                             </p>
                         </div>
                     </div>
@@ -343,6 +361,7 @@
         <p>&copy; 2025 D'Pan - Panadería Artesanal y Bienestar.</p>
         <p class="text-sm mt-2"><a href="#" class="hover:text-pan-orange transition">Términos y Condiciones</a></p>
     </footer>
+
     <!-- MODAL DE DETALLE DE PRODUCTO -->
     <div id="product-modal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-pan-contrast/80 dark:bg-pan-dark/90 transition-opacity duration-300">
         <div class="flex items-center justify-center min-h-screen p-4">
@@ -377,7 +396,7 @@
                 <div class="text-center">
                     <i data-lucide="heart-handshake" class="w-16 h-16 mx-auto mb-4 text-pan-orange dark:text-pan-accent"></i>
                     <p class="text-lg text-pan-contrast dark:text-pan-light mb-6">
-                        Gracias por escribir, gracias por elegirte, gracias por estar. Te mando un abrazo grande, David.
+                        Gracias por escribir, gracias por elegirte, gracias por estar. Te mando un abrazo gigante, David.
                     </p>
                     <button onclick="closeBienestarSuccessModal(); showPage('productos');" class="px-6 py-3 bg-pan-dark text-white rounded-full font-semibold hover:bg-pan-accent transition duration-300 shadow-md">
                         ¿Comemos algo?
@@ -442,7 +461,6 @@
         let ALL_PRODUCTS = [];
         let cart = [];
         let currentQuizStep = 0;
-        let quizScore = 0;
         let appliedCoupon = null;
         let discountAmount = 0;
 
@@ -546,8 +564,8 @@
                         <img src="${item.img_url}" alt="${item.name}" class="w-12 h-12 object-cover rounded-md border border-pan-accent/30 flex-shrink-0" onerror="this.onerror=null; this.src='https://placehold.co/48x48/E28C42/FFF?text=ERR'">
                         <div class="flex-grow min-w-0">
                             <p class="font-semibold text-pan-dark dark:text-pan-cream text-sm truncate">${item.name}</p>
-                            <p class="text-xs text-pan-contrast/80 dark:text-pan-light/80">Costo: $${item.price}</p>
-                            <p class="font-bold text-pan-orange dark:text-pan-accent text-lg">$${subtotal}</p>
+                            <p class="text-xs text-pan-contrast/80 dark:text-pan-light/80">Costo: ${item.price}</p>
+                            <p class="font-bold text-pan-orange dark:text-pan-accent text-lg">${subtotal}</p>
                         </div>
                         <div class="flex items-center space-x-1 flex-shrink-0">
                             <button data-index="${index}" class="decrease-quantity text-pan-dark dark:text-pan-light hover:text-red-500 p-1 rounded-full transition duration-150">
@@ -574,24 +592,24 @@
                     discountAmount = appliedCoupon.discount;
                 }
 
-                document.getElementById('cart-subtotal').textContent = `$${totalCost}`;
+                document.getElementById('cart-subtotal').textContent = `${totalCost}`;
                 document.getElementById('discount-section').classList.remove('hidden');
                 document.getElementById('coupon-code').textContent = appliedCoupon.code;
-                document.getElementById('discount-amount').textContent = `-$${discountAmount}`;
+                document.getElementById('discount-amount').textContent = `-${discountAmount}`;
 
                 const finalTotal = Math.max(0, totalCost - discountAmount);
-                cartTotalElement.textContent = `$${finalTotal}`;
+                cartTotalElement.textContent = `${finalTotal}`;
             } else {
-                document.getElementById('cart-subtotal').textContent = `$${totalCost}`;
+                document.getElementById('cart-subtotal').textContent = `${totalCost}`;
                 document.getElementById('discount-section').classList.add('hidden');
-                cartTotalElement.textContent = `$${totalCost}`;
+                cartTotalElement.textContent = `${totalCost}`;
             }
 
             const cartMessage = document.getElementById('cart-message');
             if (cartMessage) {
                 const finalTotal = appliedCoupon ? Math.max(0, totalCost - discountAmount) : totalCost;
                 cartMessage.innerHTML = totalItems > 0 
-                    ? `¡Tenés ${totalItems} productos listos! Total: $${finalTotal}`
+                    ? `¡Tenés ${totalItems} productos listos! Total: ${finalTotal}`
                     : 'Tu carrito está vacío.';
             }
 
@@ -680,7 +698,7 @@
                         type: data.type
                     };
 
-                    couponMessage.textContent = `¡Cupón aplicado! ${data.type === 'percentage' ? data.discount + '%' : '$' + data.discount} de descuento`;
+                    couponMessage.textContent = `¡Cupón aplicado! ${data.type === 'percentage' ? data.discount + '%' : ' + data.discount} de descuento`;
                     couponMessage.className = 'text-sm text-green-600 font-semibold';
                     couponMessage.classList.remove('hidden');
 
@@ -707,49 +725,61 @@
 
             cart.forEach(item => {
                 const subtotal = item.quantity * item.price;
-                message += `* ${item.quantity} x ${item.name} (Subtotal: $${subtotal})%0A`;
+                message += `* ${item.quantity} x ${item.name} (Subtotal: ${subtotal})%0A`;
                 total += subtotal;
             });
 
-            message += `%0ASubtotal: $${total}`;
+            message += `%0ASubtotal: ${total}`;
 
             if (appliedCoupon) {
-                message += `%0ADescuento (${appliedCoupon.code}): -$${discountAmount}`;
+                message += `%0ADescuento (${appliedCoupon.code}): -${discountAmount}`;
                 total = Math.max(0, total - discountAmount);
             }
 
-            message += `%0A*TOTAL FINAL: $${total}*%0A%0A`;
+            message += `%0A*TOTAL FINAL: ${total}*%0A%0A`;
             message += "Por favor, confírmenme el pedido y el método de pago/entrega.";
 
             const whatsappUrl = `https://wa.me/5493436108756?text=${message}`;
             window.open(whatsappUrl, '_blank');
             closeCart();
         }
-        // Preguntas del Quiz
+        // ========================================
+        // QUIZ REDISEÑADO - Sistema inteligente
+        // ========================================
+        
+        let quizAnswers = {
+            momento: 0,    // 1=bajón, 2=normal, 3=energía
+            comida: 0,     // 1=antojo, 2=merienda, 3=comida
+            tipo: ''       // 'dulce', 'salado', 'indistinto'
+        };
+
         const QUIZ_QUESTIONS = [
             {
                 question: "¿Cómo te sentís en este momento?",
                 options: [
-                    { text: "De diez 🙌", score: 3 },
-                    { text: "Ahí andamos... 😂", score: 2 },
-                    { text: "Siguiente pregunta... 😶‍🌫️", score: 1 }
-                ]
+                    { text: "De diez 🙌", value: 3 },
+                    { text: "Ahí andamos... 😂", value: 2 },
+                    { text: "Siguiente pregunta... 😶‍🌫️", value: 1 }
+                ],
+                key: 'momento'
             },
             {
                 question: "¿Buscás algo para...?",
                 options: [
-                    { text: "El almuerzo / cena 🍽️☀️", score: 3 },
-                    { text: "La merienda ☕🧉", score: 2 },
-                    { text: "Saciar el antojo 😋", score: 1 }
-                ]
+                    { text: "El almuerzo / cena 🍽️☀️", value: 3 },
+                    { text: "La merienda ☕🧉", value: 2 },
+                    { text: "Saciar el antojo 😋", value: 1 }
+                ],
+                key: 'comida'
             },
             {
                 question: "¿Tenés ganas de algo...?",
                 options: [
-                    { text: "Salado", score: 3 },
-                    { text: "Dulce", score: 1 },
-                    { text: "Me es indistinto", score: 2 }
-                ]
+                    { text: "Salado", value: 'salado' },
+                    { text: "Dulce", value: 'dulce' },
+                    { text: "Me es indistinto", value: 'indistinto' }
+                ],
+                key: 'tipo'
             }
         ];
 
@@ -765,7 +795,7 @@
 
             const stepData = QUIZ_QUESTIONS[currentQuizStep];
             const optionsHtml = stepData.options.map((opt) => `
-                <button data-score="${opt.score}" class="quiz-option block w-full py-3 my-2 bg-pan-light dark:bg-pan-dark text-pan-dark dark:text-pan-cream rounded-lg border-2 border-pan-accent hover:bg-pan-orange hover:text-white transition duration-200">
+                <button data-value="${opt.value}" data-key="${stepData.key}" class="quiz-option block w-full py-3 my-2 bg-pan-light dark:bg-pan-dark text-pan-dark dark:text-pan-cream rounded-lg border-2 border-pan-accent hover:bg-pan-orange hover:text-white transition duration-200">
                     ${opt.text}
                 </button>
             `).join('');
@@ -785,57 +815,51 @@
         };
 
         const handleAnswer = (e) => {
-            const score = parseInt(e.currentTarget.getAttribute('data-score'));
-            quizScore += score;
+            const value = e.currentTarget.getAttribute('data-value');
+            const key = e.currentTarget.getAttribute('data-key');
+            
+            // Guardar respuesta
+            if (key === 'tipo') {
+                quizAnswers[key] = value; // 'dulce', 'salado', 'indistinto'
+            } else {
+                quizAnswers[key] = parseInt(value); // número 1, 2 o 3
+            }
+            
             currentQuizStep++;
             renderQuizStep();
         };
 
         const showQuizResult = () => {
-            // LÓGICA MEJORADA: Busca productos por categoría según respuestas
-            let resultProduct = ALL_PRODUCTS[0];
+            let targetScores = [];
             
-            // Categorizar según puntaje EXACTO
-            if (quizScore >= 3 && quizScore <= 4) {
-                // DULCES: Usuario quiere algo dulce, está bajón, busca antojo
-                const dulces = ALL_PRODUCTS.filter(p => 
-                    p.quiz_score && (p.quiz_score.includes(3) || p.quiz_score.includes(4))
-                );
-                resultProduct = dulces.length > 0 
-                    ? dulces[Math.floor(Math.random() * dulces.length)]
-                    : ALL_PRODUCTS[0];
-                    
-            } else if (quizScore >= 5 && quizScore <= 6) {
-                // MERIENDA: Usuario busca merienda, puede ser dulce o versátil
-                const merienda = ALL_PRODUCTS.filter(p => 
-                    p.quiz_score && (p.quiz_score.includes(5) || p.quiz_score.includes(6))
-                );
-                resultProduct = merienda.length > 0 
-                    ? merienda[Math.floor(Math.random() * merienda.length)]
-                    : ALL_PRODUCTS[0];
-                    
-            } else if (quizScore === 7) {
-                // VERSÁTIL: Usuario está neutral, indeciso
-                const versatiles = ALL_PRODUCTS.filter(p => 
-                    p.quiz_score && (p.quiz_score.includes(6) || p.quiz_score.includes(7))
-                );
-                resultProduct = versatiles.length > 0 
-                    ? versatiles[Math.floor(Math.random() * versatiles.length)]
-                    : ALL_PRODUCTS[0];
-                    
-            } else if (quizScore >= 8 && quizScore <= 9) {
-                // SALADOS/COMIDAS: Usuario está bien, busca comida, quiere salado
-                const salados = ALL_PRODUCTS.filter(p => 
-                    p.quiz_score && (p.quiz_score.includes(8) || p.quiz_score.includes(9))
-                );
-                resultProduct = salados.length > 0 
-                    ? salados[Math.floor(Math.random() * salados.length)]
-                    : ALL_PRODUCTS[0];
+            const intensidad = quizAnswers.momento + quizAnswers.comida; // De 2 a 6
+            
+            // REGLA 1: Si eligió DULCE → siempre dulces [3,4]
+            if (quizAnswers.tipo === 'dulce') {
+                targetScores = [3, 4];
             }
-
-            const quizModalBody = document.getElementById('quiz-modal-body');
-            const quizResultModal = document.getElementById('quiz-result-modal');
-            const quizModalContentWrapper = document.getElementById('quiz-modal-content-wrapper');
+            // REGLA 2: Si eligió SALADO → siempre salados [8,9]
+            else if (quizAnswers.tipo === 'salado') {
+                targetScores = [8, 9];
+            }
+            // REGLA 3: INDISTINTO → depende de las otras respuestas
+            else {
+                if (intensidad <= 3) {
+                    targetScores = [3, 4];  // Bajón + antojo = dulce
+                } else if (intensidad >= 5) {
+                    targetScores = [8, 9];  // Energía + comida = salado
+                } else {
+                    targetScores = [6, 7];  // Normal = versátil
+                }
+            }
+            
+            // Filtrar productos que coincidan
+            const matchingProducts = ALL_PRODUCTS.filter(p => 
+                p.quiz_score && targetScores.some(score => p.quiz_score.includes(score))
+            );
+            
+            // Elegir uno RANDOM
+            const resultProduct = matchingProducts[Math.floor(Math.random() * matchingProducts.length)];
 
             // Calcular precio con descuento si existe
             const hasDiscount = resultProduct.discount && resultProduct.discount > 0;
@@ -844,8 +868,12 @@
                 : resultProduct.price;
             
             const priceHTML = hasDiscount 
-                ? `<span class="line-through text-gray-400 text-lg mr-2">$${resultProduct.price}</span><span class="text-2xl">$${displayPrice}</span> <span class="text-sm bg-red-500 text-white px-2 py-1 rounded">-${resultProduct.discount}%</span>`
-                : `$${resultProduct.price}`;
+                ? `<span class="line-through text-gray-400 text-lg mr-2">${resultProduct.price}</span><span class="text-2xl">${displayPrice}</span> <span class="text-sm bg-red-500 text-white px-2 py-1 rounded">-${resultProduct.discount}%</span>`
+                : `${resultProduct.price}`;
+
+            const quizModalBody = document.getElementById('quiz-modal-body');
+            const quizResultModal = document.getElementById('quiz-result-modal');
+            const quizModalContentWrapper = document.getElementById('quiz-modal-content-wrapper');
 
             quizModalBody.innerHTML = `
                 <h3 class="text-3xl font-display font-bold text-pan-orange mb-4">¡Tu producto ideal es!</h3>
@@ -882,7 +910,7 @@
 
         const resetQuiz = () => {
             currentQuizStep = 0;
-            quizScore = 0;
+            quizAnswers = { momento: 0, comida: 0, tipo: '' };
             document.getElementById('quiz-container').innerHTML = '';
             document.getElementById('start-quiz-button').classList.remove('hidden');
             closeQuizModal();
@@ -925,14 +953,14 @@
             const priceHTML = hasDiscount 
                 ? `
                     <div class="flex flex-col">
-                        <span class="text-lg text-gray-500 line-through">$${product.price}</span>
+                        <span class="text-lg text-gray-500 line-through">${product.price}</span>
                         <div class="flex items-center space-x-2">
-                            <span class="text-3xl font-bold text-pan-orange dark:text-pan-accent">$${displayPrice}</span>
+                            <span class="text-3xl font-bold text-pan-orange dark:text-pan-accent">${displayPrice}</span>
                             <span class="text-sm font-bold bg-red-500 text-white px-2 py-1 rounded">-${product.discount}%</span>
                         </div>
                     </div>
                 `
-                : `<span class="text-3xl font-bold text-pan-orange dark:text-pan-accent">$${product.price}</span>`;
+                : `<span class="text-3xl font-bold text-pan-orange dark:text-pan-accent">${product.price}</span>`;
 
             modalBody.innerHTML = `
                 <div class="md:flex md:space-x-6">
@@ -1000,14 +1028,14 @@
             const priceHTML = hasDiscount 
                 ? `
                     <div class="flex flex-col items-start">
-                        <span class="text-sm text-gray-500 dark:text-gray-400 line-through">$${originalPrice}</span>
+                        <span class="text-sm text-gray-500 dark:text-gray-400 line-through">${originalPrice}</span>
                         <div class="flex items-center space-x-2">
-                            <span class="text-xl font-bold text-pan-accent dark:text-pan-orange">$${discountedPrice}</span>
+                            <span class="text-xl font-bold text-pan-accent dark:text-pan-orange">${discountedPrice}</span>
                             <span class="text-xs font-bold bg-red-500 text-white px-2 py-1 rounded-full">-${product.discount}%</span>
                         </div>
                     </div>
                 `
-                : `<span class="text-xl font-bold text-pan-accent dark:text-pan-orange">$${originalPrice}</span>`;
+                : `<span class="text-xl font-bold text-pan-accent dark:text-pan-orange">${originalPrice}</span>`;
             
             const offerBadge = hasDiscount 
                 ? `<div class="absolute top-2 right-2 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg animate-pulse">¡OFERTA!</div>`
@@ -1067,6 +1095,7 @@
                 };
             });
         };
+
         // Tema dark/light con detección automática del sistema
         const themeToggle = document.getElementById('theme-toggle');
         
@@ -1131,4 +1160,3 @@
     </script>
 </body>
 </html>
-

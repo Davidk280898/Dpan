@@ -54,8 +54,6 @@
         .animate-slide-down {
             animation: slide-down 0.3s ease-out;
         }
-        
-        /* Mejoras sutiles para móvil */
         @media (max-width: 640px) {
             .product-card {
                 margin-bottom: 0.5rem;
@@ -65,64 +63,50 @@
                 padding-bottom: 1rem;
             }
         }
-        
-        /* Scroll suave y orgánico */
         html {
             scroll-behavior: smooth;
         }
-        @media (max-width: 640px) {
-    .product-card { margin-bottom: 0.5rem; }
-}
-html { scroll-behavior: smooth; }
     </style>
 </head>
 
 <body class="bg-pan-cream text-pan-contrast dark:bg-pan-contrast dark:text-pan-cream min-h-screen flex flex-col">
-    <!-- Icono de WhatsApp Flotante -->
     <a href="https://wa.me/5493436108756" target="_blank" class="fixed bottom-6 right-6 z-50 p-4 bg-green-500 rounded-full shadow-2xl hover:bg-green-600 transition duration-300 ease-in-out transform hover:scale-110" aria-label="WhatsApp Business de D'PAN">
         <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
         </svg>
     </a>
 
-    <!-- CABECERA y NAVEGACIÓN -->
     <header class="sticky top-0 z-40 bg-pan-cream dark:bg-pan-contrast shadow-xl dark:shadow-pan-dark transition duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
             
-            <!-- LOGO -->
             <button data-page="inicio" class="page-link focus:outline-none">
                 <img src="/img/logo.jpg" 
                      alt="Logo D'PAN" 
                      class="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 object-contain rounded-full shadow-lg hover:scale-105 transition duration-300" />
             </button>
 
-            <!-- MENÚ DESKTOP -->
             <nav class="hidden md:flex space-x-4 lg:space-x-8 text-lg font-semibold">
                 <button data-page="inicio" class="page-link text-pan-contrast dark:text-pan-cream hover:text-pan-orange dark:hover:text-pan-accent transition duration-200 focus:outline-none">Inicio</button>
-                <button data-page="productos" class="page-link text-pan-contrast dark:text-pan-cream hover:text-pan-orange dark:hover:text-pan-accent transition duration-200 focus:outline-none">Menú</button>
+                <button data-page="productos" class="page-link text-pan-contrast dark:text-pan-cream hover:text-pan-orange dark:hover:text-pan-accent transition duration-200 focus:outline-none">Menu</button>
                 <button data-page="historia" class="page-link text-pan-contrast dark:text-pan-cream hover:text-pan-orange dark:hover:text-pan-accent transition duration-200 focus:outline-none">Historia</button>
-                <button data-page="quiz" class="page-link text-pan-contrast dark:text-pan-cream hover:text-pan-orange dark:hover:text-pan-accent transition duration-200 focus:outline-none">¿No Sabés Qué Comer?</button>
+                <button data-page="quiz" class="page-link text-pan-contrast dark:text-pan-cream hover:text-pan-orange dark:hover:text-pan-accent transition duration-200 focus:outline-none">No Sabes Que Comer?</button>
                 <button data-page="bienestar" class="page-link text-pan-contrast dark:text-pan-cream hover:text-pan-orange dark:hover:text-pan-accent transition duration-200 focus:outline-none">Bienestar</button>
                 <button data-page="contacto" class="page-link text-pan-contrast dark:text-pan-cream hover:text-pan-orange dark:hover:text-pan-accent transition duration-200 focus:outline-none">Contacto</button>
             </nav>
 
-            <!-- BOTONES: hamburguesa, carrito y tema -->
             <div class="flex items-center space-x-2 sm:space-x-4">
                 
-                <!-- Botón menú móvil -->
-                <button id="mobile-menu-button" class="md:hidden p-2 rounded-lg bg-pan-light dark:bg-pan-dark hover:bg-pan-orange transition duration-200" onclick="toggleMobileMenu()" aria-label="Menú">
+                <button id="mobile-menu-button" class="md:hidden p-2 rounded-lg bg-pan-light dark:bg-pan-dark hover:bg-pan-orange transition duration-200" onclick="toggleMobileMenu()" aria-label="Menu">
                     <svg class="w-6 h-6 text-pan-dark dark:text-pan-light" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
                 </button>
 
-                <!-- Botón carrito -->
                 <button id="cart-button" onclick="openCart()" class="relative p-2 rounded-full bg-pan-light dark:bg-pan-dark hover:bg-pan-dark hover:text-pan-light transition duration-200 shadow-md">
                     <i data-lucide="shopping-bag" class="w-5 h-5 sm:w-6 sm:h-6 text-pan-dark dark:text-pan-light"></i>
                     <span id="cart-count" class="absolute -top-1 -right-1 inline-flex items-center justify-center px-1.5 py-0.5 text-xs font-bold leading-none text-white transform bg-pan-orange rounded-full shadow-lg min-w-[20px]">0</span>
                 </button>
 
-                <!-- Botón tema -->
                 <button id="theme-toggle" class="p-2 rounded-full bg-pan-light dark:bg-pan-dark text-pan-dark dark:text-pan-light hover:bg-pan-dark hover:text-pan-light transition duration-200 shadow-md" aria-label="Cambiar tema">
                     <i data-lucide="moon" class="w-5 h-5 sm:w-6 sm:h-6 block dark:hidden"></i>
                     <i data-lucide="sun" class="w-5 h-5 sm:w-6 sm:h-6 hidden dark:block"></i>
@@ -130,21 +114,19 @@ html { scroll-behavior: smooth; }
             </div>
         </div>
 
-        <!-- MENÚ MÓVIL -->
         <div id="mobile-menu" class="hidden md:hidden bg-pan-light dark:bg-pan-dark shadow-xl border-t-2 border-pan-accent/30">
             <nav class="flex flex-col p-4 space-y-2">
-                <button data-page="inicio" class="page-link text-left px-4 py-3 text-pan-contrast dark:text-pan-cream hover:bg-pan-orange hover:text-white rounded-lg transition duration-200 font-medium">🏠 Inicio</button>
-                <button data-page="productos" class="page-link text-left px-4 py-3 text-pan-contrast dark:text-pan-cream hover:bg-pan-orange hover:text-white rounded-lg transition duration-200 font-medium">🍞 Menú</button>
-                <button data-page="historia" class="page-link text-left px-4 py-3 text-pan-contrast dark:text-pan-cream hover:bg-pan-orange hover:text-white rounded-lg transition duration-200 font-medium">📖 Historia</button>
-                <button data-page="quiz" class="page-link text-left px-4 py-3 text-pan-contrast dark:text-pan-cream hover:bg-pan-orange hover:text-white rounded-lg transition duration-200 font-medium">❓ ¿No Sabés Qué Comer?</button>
-                <button data-page="bienestar" class="page-link text-left px-4 py-3 text-pan-contrast dark:text-pan-cream hover:bg-pan-orange hover:text-white rounded-lg transition duration-200 font-medium">💚 Bienestar</button>
-                <button data-page="contacto" class="page-link text-left px-4 py-3 text-pan-contrast dark:text-pan-cream hover:bg-pan-orange hover:text-white rounded-lg transition duration-200 font-medium">📞 Contacto</button>
+                <button data-page="inicio" class="page-link text-left px-4 py-3 text-pan-contrast dark:text-pan-cream hover:bg-pan-orange hover:text-white rounded-lg transition duration-200 font-medium">Inicio</button>
+                <button data-page="productos" class="page-link text-left px-4 py-3 text-pan-contrast dark:text-pan-cream hover:bg-pan-orange hover:text-white rounded-lg transition duration-200 font-medium">Menu</button>
+                <button data-page="historia" class="page-link text-left px-4 py-3 text-pan-contrast dark:text-pan-cream hover:bg-pan-orange hover:text-white rounded-lg transition duration-200 font-medium">Historia</button>
+                <button data-page="quiz" class="page-link text-left px-4 py-3 text-pan-contrast dark:text-pan-cream hover:bg-pan-orange hover:text-white rounded-lg transition duration-200 font-medium">No Sabes Que Comer?</button>
+                <button data-page="bienestar" class="page-link text-left px-4 py-3 text-pan-contrast dark:text-pan-cream hover:bg-pan-orange hover:text-white rounded-lg transition duration-200 font-medium">Bienestar</button>
+                <button data-page="contacto" class="page-link text-left px-4 py-3 text-pan-contrast dark:text-pan-cream hover:bg-pan-orange hover:text-white rounded-lg transition duration-200 font-medium">Contacto</button>
             </nav>
         </div>
     </header>
 
     <main class="flex-grow">
-        <!-- PAGINA: INICIO -->
         <section id="page-inicio" class="page py-0 md:py-0 bg-pan-cream dark:bg-pan-contrast transition duration-300">
             <div class="py-20 md:py-32 hero-background text-white shadow-inner">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center bg-pan-dark/70 p-6 rounded-xl backdrop-blur-sm">
@@ -155,33 +137,34 @@ html { scroll-behavior: smooth; }
                         <i data-lucide="heart" class="w-8 h-8 text-red-500 fill-red-500"></i>
                     </p>
                     <button data-page="productos" class="page-link inline-block px-8 py-3 text-lg font-bold text-white bg-pan-orange rounded-lg shadow-xl hover:bg-pan-accent transition duration-300 transform hover:scale-105">
-                        Ver Productos Frescos <i data-lucide="arrow-right" class="inline ml-2 w-5 h-5"></i>
+                        Ver Productos <i data-lucide="arrow-right" class="inline ml-2 w-5 h-5"></i>
                     </button>
                 </div>
             </div>
 
             <div id="featured-products-container" class="py-16 md:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="text-4xl font-bold text-center text-pan-dark dark:text-pan-light mb-12">Los más elegidos</h2>
-<div id="featured-products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-8"></div>
+                <h2 class="text-4xl font-bold text-center text-pan-dark dark:text-pan-light mb-12">Nuestros Favoritos</h2>
+                <div id="featured-products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-8"></div>
+                
                 <div class="text-center mt-12">
                     <button data-page="productos" class="page-link px-10 py-4 text-xl font-bold text-white bg-pan-orange rounded-full shadow-2xl hover:bg-pan-dark transition duration-300 transform hover:scale-105">
-                        Ver Menú Completo
+                        Ver Menu Completo
                     </button>
                 </div>
             </div>
         </section>
 
-        <!-- PAGINA: PRODUCTOS -->
         <section id="page-productos" class="page hidden py-16 md:py-24 bg-pan-cream dark:bg-pan-contrast transition duration-300">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="text-4xl font-bold text-center text-pan-dark dark:text-pan-light mb-4">Catálogo Completo</h2>
-                <p class="text-center text-pan-contrast dark:text-pan-light mb-12 text-lg italic max-w-2xl mx-auto opacity-80">Tomá tu tiempo, cada producto tiene su momento</p>
+                <h2 class="text-4xl font-bold text-center text-pan-dark dark:text-pan-light mb-4">Catalogo Completo</h2>
+                <p class="text-center text-pan-contrast dark:text-pan-light mb-12 text-lg italic max-w-2xl mx-auto opacity-80">Toma tu tiempo, cada producto tiene su momento</p>
                 
-<div id="full-products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10 md:gap-8"></div>                
+                <div id="full-products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10 md:gap-8"></div>
+                
                 <div class="text-center mt-16 p-8 bg-pan-light dark:bg-pan-dark rounded-xl shadow-inner border border-pan-accent/50">
-                    <h3 class="text-2xl font-semibold text-pan-dark dark:text-pan-cream mb-4">¿Listo para encargar?</h3>
+                    <h3 class="text-2xl font-semibold text-pan-dark dark:text-pan-cream mb-4">Listo para encargar?</h3>
                     <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-8">
-                        <p class="text-lg text-pan-contrast dark:text-pan-light italic" id="cart-message">Tu carrito está vacío.</p>
+                        <p class="text-lg text-pan-contrast dark:text-pan-light italic" id="cart-message">Tu carrito esta vacio.</p>
                         <button onclick="openCart()" class="px-8 py-3 text-lg font-bold text-white bg-pan-orange rounded-full shadow-lg hover:bg-pan-dark transition duration-300">
                             Ver Carrito
                         </button>
@@ -190,7 +173,6 @@ html { scroll-behavior: smooth; }
             </div>
         </section>
 
-        <!-- PAGINA: HISTORIA -->
         <section id="page-historia" class="page hidden py-16 md:py-24 bg-pan-cream dark:bg-pan-contrast transition duration-300">
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <h2 class="text-4xl font-display font-bold text-center text-pan-dark dark:text-pan-accent mb-12">Mi Historia</h2>
@@ -199,22 +181,22 @@ html { scroll-behavior: smooth; }
                     <div class="space-y-8">
                         <div class="bg-pan-light dark:bg-pan-dark p-8 rounded-xl shadow-xl border-t-4 border-pan-orange">
                             <p class="text-lg text-pan-contrast dark:text-pan-light leading-relaxed">
-                                Hola, soy David, el "un poquito de todo" de este emprendimiento llamado <strong>D'Pan</strong>. Hace poco descubrí en la cocina una forma de expresión que no conocía, y con el tiempo se convirtió en mi proyecto de vida. Así nació D'Pan: de a poco, con esfuerzo, con aprendizajes, con errores y con mucho corazón.
+                                Hola, soy David, el "un poquito de todo" de este emprendimiento llamado <strong>D'Pan</strong>. Hace poco descubri en la cocina una forma de expresion que no conocia, y con el tiempo se convirtio en mi proyecto de vida. Asi nacio D'Pan: de a poco, con esfuerzo, con aprendizajes, con errores y con mucho corazon.
                             </p>
                             <p class="text-lg text-pan-contrast dark:text-pan-light leading-relaxed mt-4">
-                                Acá vas a encontrar panes y productos caseros, ricos, sin aditivos ni conservantes. Todo hecho a pulmón, con la idea de que sientas que lo que recibís es tan real y cercano como si lo hubieras hecho vos mismo.
+                                Aca vas a encontrar panes y productos caseros, ricos, sin aditivos ni conservantes. Todo hecho a pulmon, con la idea de que sientas que lo que recibis es tan real y cercano como si lo hubieras hecho vos mismo.
                             </p>
                             <p class="text-lg text-pan-contrast dark:text-pan-light leading-relaxed mt-4">
-                                Pero D'Pan también es mi historia. Viene de años de lucha con la salud mental, de nadar en mares que parecían no terminar nunca y de encontrar, después de tanto, una pequeña isla donde sostenerme. Esa isla hoy se llama D'Pan.
+                                Pero D'Pan tambien es mi historia. Viene de anos de lucha con la salud mental, de nadar en mares que parecian no terminar nunca y de encontrar, despues de tanto, una pequena isla donde sostenerme. Esa isla hoy se llama D'Pan.
                             </p>
                             <p class="text-lg text-pan-contrast dark:text-pan-light leading-relaxed mt-4">
-                                Este proyecto es mi forma de seguir adelante. Nació del dolor, pero también de no rendirme (aunque ni yo sé cómo). Hoy crece con dedicación, con amor, con lágrimas (sí, tampoco podían faltar 😂) y con la esperanza de que cada pan que llega a tu mesa te recuerde que lo simple, lo casero y lo compartido tienen un valor enorme.
+                                Este proyecto es mi forma de seguir adelante. Nacio del dolor, pero tambien de no rendirme (aunque ni yo se como). Hoy crece con dedicacion, con amor, con lagrimas y con la esperanza de que cada pan que llega a tu mesa te recuerde que lo simple, lo casero y lo compartido tienen un valor enorme.
                             </p>
                             <p class="text-lg text-pan-contrast dark:text-pan-light leading-relaxed mt-4 font-semibold">
-                                Gracias por estar acá, gracias por leer, y gracias por ser parte de este camino.
+                                Gracias por estar aca, gracias por leer, y gracias por ser parte de este camino.
                             </p>
                             <p class="text-xl font-bold text-pan-dark dark:text-pan-accent mt-6 text-center">
-                                D'Pan — Hecho en casa, como en casa ❤️‍🩹🏡
+                                D'Pan - Hecho en casa, como en casa
                             </p>
                         </div>
                     </div>
@@ -225,7 +207,7 @@ html { scroll-behavior: smooth; }
                             <div class="space-y-4">
                                 <div class="bg-pan-cream dark:bg-pan-contrast p-4 rounded-lg shadow-inner">
                                     <h4 class="font-bold text-pan-orange flex items-center"><i data-lucide="wheat" class="w-5 h-5 mr-2"></i> Ingredientes de verdad, sin apuros</h4>
-                                    <p class="text-sm text-pan-contrast dark:text-pan-light mt-1">Acá no vas a encontrar químicos raros ni nombres imposibles de pronunciar. Cada pan se hace con la paciencia y dedicación que vos le pondrías a todo lo que amas.</p>
+                                    <p class="text-sm text-pan-contrast dark:text-pan-light mt-1">Aca no vas a encontrar quimicos raros ni nombres imposibles de pronunciar. Cada pan se hace con la paciencia y dedicacion que vos le pondrias a todo lo que amas.</p>
                                 </div>
                                 <div class="bg-pan-cream dark:bg-pan-contrast p-4 rounded-lg shadow-inner">
                                     <h4 class="font-bold text-pan-accent flex items-center"><i data-lucide="heart" class="w-5 h-5 mr-2"></i> Bienestar Integral</h4>
@@ -235,7 +217,7 @@ html { scroll-behavior: smooth; }
                         </div>
 
                         <div>
-                            <h3 class="text-2xl font-semibold text-center text-pan-dark dark:text-pan-cream mb-4">Mirá más...</h3>
+                            <h3 class="text-2xl font-semibold text-center text-pan-dark dark:text-pan-cream mb-4">Mira mas...</h3>
                             <a href="https://www.instagram.com/p/DJm-w2UBoGY/" target="_blank" class="block bg-gradient-to-br from-purple-500 via-pink-500 to-orange-500 p-12 rounded-xl text-white text-center hover:scale-105 transition duration-300 shadow-2xl">
                                 <i data-lucide="instagram" class="w-24 h-24 mx-auto mb-4"></i>
                                 <p class="text-2xl font-bold">Ver video en Instagram</p>
@@ -246,31 +228,31 @@ html { scroll-behavior: smooth; }
                 </div>
             </div>
         </section>
-        <!-- PAGINA: BIENESTAR -->
+
         <section id="page-bienestar" class="page hidden py-16 md:py-24 bg-pan-cream dark:bg-pan-contrast transition duration-300">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                 <h2 class="text-5xl font-display font-bold text-pan-dark dark:text-pan-accent mb-8">TU ESPACIO</h2>
                 <div class="bg-pan-light dark:bg-pan-dark p-10 rounded-xl shadow-2xl border-4 border-pan-accent space-y-6">
                     
                     <p class="text-lg font-semibold text-pan-dark dark:text-pan-cream">
-                        Sin salud mental hoy no existiría D'Pan, y por eso era tan importante para mí haber creado esta sección.
+                        Sin salud mental hoy no existiria D'Pan, y por eso era tan importante para mi haber creado esta seccion.
                     </p>
                     <p class="text-lg text-pan-contrast dark:text-pan-light">
-                        Escribir siempre me ha ayudado a expresar mis emociones, a poner en letras lo que no sale con la boca. Y ojalá te sirva a vos también.
+                        Escribir siempre me ha ayudado a expresar mis emociones, a poner en letras lo que no sale con la boca. Y ojala te sirva a vos tambien.
                     </p>
                     
                     <p class="text-xl font-bold text-pan-orange dark:text-pan-accent pt-4 border-y border-pan-accent/50 py-3">
-                        Acordate que pedir ayuda es el gesto de valor más grande que podés tener.
+                        Acordate que pedir ayuda es el gesto de valor mas grande que podes tener.
                     </p>
 
                     <p class="text-pan-contrast dark:text-pan-light text-md italic">
-                        Escribí lo que quieras, lo que sientas, no se almacenará en ningún lugar. Si te sirve, podés copiar el texto y compartirlo con alguien de confianza.
+                        Escribi lo que quieras, lo que sientas, no se almacenara en ningun lugar. Si te sirve, podes copiar el texto y compartirlo con alguien de confianza.
                     </p>
 
                     <textarea 
                         id="descarga-text"
                         rows="8" 
-                        placeholder="Hoy me siento... (Escribí acá tu pensamiento, preocupación o idea. Es un espacio privado, para vos.)" 
+                        placeholder="Hoy me siento... (Escribi aca tu pensamiento, preocupacion o idea. Es un espacio privado, para vos.)" 
                         class="w-full p-4 border-2 border-pan-accent rounded-lg focus:ring-pan-orange focus:border-pan-orange transition duration-200 bg-white dark:bg-pan-contrast/50 text-pan-contrast dark:text-pan-light placeholder-pan-dark/50 dark:placeholder-pan-light/50 shadow-inner">
                     </textarea>
                     
@@ -283,12 +265,11 @@ html { scroll-behavior: smooth; }
             </div>
         </section>
 
-        <!-- PAGINA: QUIZ -->
         <section id="page-quiz" class="page hidden py-16 md:py-24 bg-pan-cream dark:bg-pan-contrast transition duration-300">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h2 class="text-4xl font-bold text-pan-dark dark:text-pan-light mb-8">¿No Sabés Qué Comer?</h2>
+                <h2 class="text-4xl font-bold text-pan-dark dark:text-pan-light mb-8">No Sabes Que Comer?</h2>
                 <p class="text-lg max-w-3xl mx-auto text-pan-contrast dark:text-pan-cream mb-10">
-                    Respondé tres preguntas y descubrí el producto ideal para vos en este momento.
+                    Responde tres preguntas y descubri el producto ideal para vos en este momento.
                 </p>
                 
                 <div class="bg-pan-light dark:bg-pan-dark p-8 rounded-xl shadow-xl max-w-xl mx-auto">
@@ -300,10 +281,9 @@ html { scroll-behavior: smooth; }
             </div>
         </section>
         
-        <!-- PAGINA: CONTACTO -->
         <section id="page-contacto" class="page hidden py-16 md:py-24 bg-pan-cream dark:bg-pan-contrast transition duration-300">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h2 class="text-4xl font-display font-bold text-pan-dark dark:text-pan-accent mb-8">¿Tenés alguna duda?</h2>
+                <h2 class="text-4xl font-display font-bold text-pan-dark dark:text-pan-accent mb-8">Tenes alguna duda?</h2>
                 <div class="bg-pan-light dark:bg-pan-dark p-8 rounded-xl shadow-xl space-y-6">
                     
                     <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -317,7 +297,7 @@ html { scroll-behavior: smooth; }
                         </a>
                         <a href="https://facebook.com/DPanParana" target="_blank" class="flex flex-col items-center p-4 bg-pan-cream dark:bg-pan-contrast rounded-lg hover:bg-pan-orange hover:text-white transition duration-300 shadow-md group">
                             <i data-lucide="facebook" class="w-12 h-12 mb-2 text-blue-600 group-hover:text-white"></i>
-                            <span class="text-sm font-semibold">D'Pan Paraná</span>
+                            <span class="text-sm font-semibold">D'Pan Parana</span>
                         </a>
                         <a href="mailto:dpanparana@gmail.com" class="flex flex-col items-center p-4 bg-pan-cream dark:bg-pan-contrast rounded-lg hover:bg-pan-orange hover:text-white transition duration-300 shadow-md group">
                             <i data-lucide="mail" class="w-12 h-12 mb-2 text-red-500 group-hover:text-white"></i>
@@ -329,27 +309,23 @@ html { scroll-behavior: smooth; }
                         <h3 class="text-2xl font-bold text-pan-dark dark:text-pan-cream mb-6 text-center">Preguntas Frecuentes</h3>
                         <div class="space-y-4">
                             <details class="bg-pan-cream dark:bg-pan-contrast p-4 rounded-lg shadow-inner">
-                                <summary class="font-semibold text-pan-dark dark:text-pan-cream cursor-pointer">¿Cómo hago un pedido?</summary>
-                                <p class="text-pan-contrast dark:text-pan-light mt-2">Podés hacer tu pedido por WhatsApp o directamente desde nuestra página agregando productos al carrito.</p>
+                                <summary class="font-semibold text-pan-dark dark:text-pan-cream cursor-pointer">Hacen envios?</summary>
+                                <p class="text-pan-contrast dark:text-pan-light mt-2">Si, realizamos envios en la zona de Parana. Consultanos por tu ubicacion.</p>
                             </details>
                             <details class="bg-pan-cream dark:bg-pan-contrast p-4 rounded-lg shadow-inner">
-                                <summary class="font-semibold text-pan-dark dark:text-pan-cream cursor-pointer">¿Hacen envíos?</summary>
-                                <p class="text-pan-contrast dark:text-pan-light mt-2">Sí, realizamos envíos en la zona de Paraná. Consultanos por tu ubicación.</p>
+                                <summary class="font-semibold text-pan-dark dark:text-pan-cream cursor-pointer">Con cuanta anticipacion debo pedir?</summary>
+                                <p class="text-pan-contrast dark:text-pan-light mt-2">Recomendamos hacer el pedido con al menos 24hs de anticipacion para garantizar la disponibilidad.</p>
                             </details>
                             <details class="bg-pan-cream dark:bg-pan-contrast p-4 rounded-lg shadow-inner">
-                                <summary class="font-semibold text-pan-dark dark:text-pan-cream cursor-pointer">¿Con cuánta anticipación debo pedir?</summary>
-                                <p class="text-pan-contrast dark:text-pan-light mt-2">Recomendamos hacer el pedido con al menos 24hs de anticipación para garantizar la disponibilidad.</p>
+                                <summary class="font-semibold text-pan-dark dark:text-pan-cream cursor-pointer">Los productos son aptos celiacos?</summary>
+                                <p class="text-pan-contrast dark:text-pan-light mt-2">Algunos productos como el Chipa son sin TACC. Consultanos por cada producto especifico.</p>
                             </details>
                             <details class="bg-pan-cream dark:bg-pan-contrast p-4 rounded-lg shadow-inner">
-                                <summary class="font-semibold text-pan-dark dark:text-pan-cream cursor-pointer">¿Los productos son aptos celíacos?</summary>
-                                <p class="text-pan-contrast dark:text-pan-light mt-2">Algunos productos como el Chipá son sin TACC. Consultanos por cada producto específico.</p>
+                                <summary class="font-semibold text-pan-dark dark:text-pan-cream cursor-pointer">Cuanto duran los productos?</summary>
+                                <p class="text-pan-contrast dark:text-pan-light mt-2">Al no tener conservantes, recomendamos consumirlos dentro de los 3-4 dias. Podes congelarlos para extender su vida util.</p>
                             </details>
                             <details class="bg-pan-cream dark:bg-pan-contrast p-4 rounded-lg shadow-inner">
-                                <summary class="font-semibold text-pan-dark dark:text-pan-cream cursor-pointer">¿Cuánto duran los productos?</summary>
-                                <p class="text-pan-contrast dark:text-pan-light mt-2">Al no tener conservantes, recomendamos consumirlos dentro de los 3-4 días. Podés congelarlos para extender su vida útil.</p>
-                            </details>
-                            <details class="bg-pan-cream dark:bg-pan-contrast p-4 rounded-lg shadow-inner">
-                                <summary class="font-semibold text-pan-dark dark:text-pan-cream cursor-pointer">¿Qué métodos de pago aceptan?</summary>
+                                <summary class="font-semibold text-pan-dark dark:text-pan-cream cursor-pointer">Que metodos de pago aceptan?</summary>
                                 <p class="text-pan-contrast dark:text-pan-light mt-2">Aceptamos efectivo, transferencia bancaria y Mercado Pago.</p>
                             </details>
                         </div>
@@ -360,11 +336,10 @@ html { scroll-behavior: smooth; }
     </main>
 
     <footer class="bg-pan-contrast dark:bg-pan-dark py-8 text-center text-pan-light dark:text-pan-cream transition duration-300">
-        <p>&copy; 2025 D'Pan - Panadería Artesanal y Bienestar.</p>
-        <p class="text-sm mt-2"><a href="#" class="hover:text-pan-orange transition">Términos y Condiciones</a></p>
+        <p>&copy; 2025 D'Pan - Panaderia Artesanal y Bienestar.</p>
+        <p class="text-sm mt-2"><a href="#" class="hover:text-pan-orange transition">Terminos y Condiciones</a></p>
     </footer>
 
-    <!-- MODAL DE DETALLE DE PRODUCTO -->
     <div id="product-modal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-pan-contrast/80 dark:bg-pan-dark/90 transition-opacity duration-300">
         <div class="flex items-center justify-center min-h-screen p-4">
             <div class="relative w-full max-w-2xl bg-pan-cream dark:bg-pan-contrast rounded-xl shadow-2xl p-6 md:p-8 transform scale-95 opacity-0 transition-all duration-300" id="modal-content-wrapper">
@@ -376,7 +351,6 @@ html { scroll-behavior: smooth; }
         </div>
     </div>
 
-    <!-- MODAL DE RESULTADO DEL QUIZ -->
     <div id="quiz-result-modal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-pan-contrast/80 dark:bg-pan-dark/90 transition-opacity duration-300">
         <div class="flex items-center justify-center min-h-screen p-4">
             <div class="relative w-full max-w-md bg-pan-cream dark:bg-pan-contrast rounded-xl shadow-2xl p-6 md:p-8 transform scale-95 opacity-0 transition-all duration-300" id="quiz-modal-content-wrapper">
@@ -388,7 +362,6 @@ html { scroll-behavior: smooth; }
         </div>
     </div>
     
-    <!-- MODAL DE ÉXITO DE BIENESTAR -->
     <div id="bienestar-success-modal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-pan-contrast/80 dark:bg-pan-dark/90 transition-opacity duration-300">
         <div class="flex items-center justify-center min-h-screen p-4">
             <div class="relative w-full max-w-sm bg-pan-cream dark:bg-pan-contrast rounded-xl shadow-2xl p-8 transform scale-95 opacity-0 transition-all duration-300" id="bienestar-modal-content-wrapper">
@@ -398,17 +371,16 @@ html { scroll-behavior: smooth; }
                 <div class="text-center">
                     <i data-lucide="heart-handshake" class="w-16 h-16 mx-auto mb-4 text-pan-orange dark:text-pan-accent"></i>
                     <p class="text-lg text-pan-contrast dark:text-pan-light mb-6">
-                        Gracias por escribir, gracias por elegirte, gracias por estar. Te mando un abrazo gigante, David.
+                        Gracias por escribir, gracias por elegirte, gracias por estar. Te mando un abrazo grande, David.
                     </p>
                     <button onclick="closeBienestarSuccessModal(); showPage('productos');" class="px-6 py-3 bg-pan-dark text-white rounded-full font-semibold hover:bg-pan-accent transition duration-300 shadow-md">
-                        ¿Comemos algo?
+                        Comemos algo?
                     </button>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Panel Lateral del Carrito con CUPONES -->
     <div id="cart-overlay" class="fixed inset-0 bg-pan-contrast/80 z-40 hidden transition-opacity duration-300" onclick="closeCart()">
         <div id="cart-drawer" class="fixed right-0 top-0 h-full w-full max-w-xs md:max-w-sm bg-pan-cream dark:bg-pan-dark shadow-2xl cart-drawer-transition transform translate-x-full" onclick="event.stopPropagation()">
             <div class="flex flex-col h-full">
@@ -422,29 +394,25 @@ html { scroll-behavior: smooth; }
                 <div id="cart-content" class="flex-grow overflow-y-auto p-4 space-y-3"></div>
 
                 <div class="p-6 border-t border-pan-accent/50 space-y-4 bg-pan-light dark:bg-pan-contrast">
-                    <!-- Campo de cupón -->
                     <div class="space-y-2">
-                        <label class="text-sm font-medium text-pan-dark dark:text-pan-cream">¿Tenés un cupón?</label>
+                        <label class="text-sm font-medium text-pan-dark dark:text-pan-cream">Tenes un cupon?</label>
                         <div class="flex space-x-2">
-                            <input type="text" id="coupon-input" placeholder="Código de cupón" class="flex-1 px-3 py-2 border border-pan-accent rounded-lg text-pan-dark focus:ring-2 focus:ring-pan-orange">
+                            <input type="text" id="coupon-input" placeholder="Codigo de cupon" class="flex-1 px-3 py-2 border border-pan-accent rounded-lg text-pan-dark focus:ring-2 focus:ring-pan-orange">
                             <button onclick="applyCoupon()" class="px-4 py-2 bg-pan-accent text-white rounded-lg hover:bg-pan-orange transition">Aplicar</button>
                         </div>
                         <p id="coupon-message" class="text-sm hidden"></p>
                     </div>
 
-                    <!-- Subtotal -->
                     <div class="flex justify-between items-center text-lg text-pan-dark dark:text-pan-cream">
                         <span>Subtotal:</span>
                         <span id="cart-subtotal">$0.00</span>
                     </div>
 
-                    <!-- Descuento -->
                     <div id="discount-section" class="hidden flex justify-between items-center text-lg text-green-600">
                         <span>Descuento (<span id="coupon-code"></span>):</span>
                         <span id="discount-amount">-$0</span>
                     </div>
 
-                    <!-- Total final -->
                     <div class="flex justify-between items-center text-xl font-bold text-pan-dark dark:text-pan-cream border-t pt-2">
                         <span>TOTAL:</span>
                         <span id="cart-total" class="text-pan-orange dark:text-pan-accent">$0.00</span>
@@ -456,17 +424,17 @@ html { scroll-behavior: smooth; }
             </div>
         </div>
     </div>
+
     <script>
         lucide.createIcons();
 
-        // Variables globales
         let ALL_PRODUCTS = [];
         let cart = [];
         let currentQuizStep = 0;
+        let quizScore = 0;
         let appliedCoupon = null;
         let discountAmount = 0;
 
-        // Elementos del DOM
         const htmlElement = document.documentElement;
         const cartDrawer = document.getElementById('cart-drawer');
         const cartOverlay = document.getElementById('cart-overlay');
@@ -477,7 +445,6 @@ html { scroll-behavior: smooth; }
         const bienestarSuccessModal = document.getElementById('bienestar-success-modal');
         const bienestarModalContentWrapper = document.getElementById('bienestar-modal-content-wrapper');
 
-        // Cargar productos desde API
         async function loadProductsFromAPI() {
             try {
                 const response = await fetch('/api/products');
@@ -486,14 +453,13 @@ html { scroll-behavior: smooth; }
                 renderProducts();
             } catch (error) {
                 console.error('Error cargando productos:', error);
-                document.getElementById('featured-products-grid').innerHTML = '<p class="col-span-full text-center text-red-500">Error al cargar productos. Recarga la página.</p>';
+                document.getElementById('featured-products-grid').innerHTML = '<p class="col-span-full text-center text-red-500">Error al cargar productos. Recarga la pagina.</p>';
             }
         }
 
-        // Navegación entre páginas
         const showPage = (pageId) => {
             document.querySelectorAll('.page').forEach(page => page.classList.add('hidden'));
-            const targetPage = document.getElementById(`page-${pageId}`);
+            const targetPage = document.getElementById('page-' + pageId);
             if (targetPage) targetPage.classList.remove('hidden');
             window.scrollTo(0, 0);
         };
@@ -505,7 +471,6 @@ html { scroll-behavior: smooth; }
             });
         });
 
-        // Funciones del modal de Bienestar
         const clearAndShowSuccessModal = () => {
             document.getElementById('descarga-text').value = '';
             openBienestarSuccessModal();
@@ -530,7 +495,6 @@ html { scroll-behavior: smooth; }
             }, 300);
         }
 
-        // Funciones del carrito
         function openCart() {
             cartOverlay.classList.remove('hidden');
             cartDrawer.classList.remove('translate-x-full');
@@ -551,7 +515,7 @@ html { scroll-behavior: smooth; }
             cartContentElement.innerHTML = '';
 
             if (cart.length === 0) {
-                cartContentElement.innerHTML = '<p class="text-center text-pan-contrast/70 dark:text-pan-light/70 py-10">Tu carrito está vacío. ¡Añade nuestros panes!</p>';
+                cartContentElement.innerHTML = '<p class="text-center text-pan-contrast/70 dark:text-pan-light/70 py-10">Tu carrito esta vacio. Anade nuestros panes!</p>';
                 finalizeWhatsappButton.disabled = true;
                 finalizeWhatsappButton.textContent = 'Pedir por WhatsApp (0)';
             } else {
@@ -562,23 +526,15 @@ html { scroll-behavior: smooth; }
 
                     const itemElement = document.createElement('div');
                     itemElement.className = 'flex items-center space-x-3 p-3 bg-pan-cream dark:bg-pan-contrast rounded-lg shadow-inner';
-                    itemElement.innerHTML = `
-                        <img src="${item.img_url}" alt="${item.name}" class="w-12 h-12 object-cover rounded-md border border-pan-accent/30 flex-shrink-0" onerror="this.onerror=null; this.src='https://placehold.co/48x48/E28C42/FFF?text=ERR'">
-                        <div class="flex-grow min-w-0">
-                            <p class="font-semibold text-pan-dark dark:text-pan-cream text-sm truncate">${item.name}</p>
-                            <p class="text-xs text-pan-contrast/80 dark:text-pan-light/80">Costo: ${item.price}</p>
-                            <p class="font-bold text-pan-orange dark:text-pan-accent text-lg">${subtotal}</p>
-                        </div>
-                        <div class="flex items-center space-x-1 flex-shrink-0">
-                            <button data-index="${index}" class="decrease-quantity text-pan-dark dark:text-pan-light hover:text-red-500 p-1 rounded-full transition duration-150">
-                                <i data-lucide="minus-circle" class="w-6 h-6"></i>
-                            </button>
-                            <span class="font-bold text-pan-dark dark:text-pan-cream w-4 text-center">${item.quantity}</span>
-                            <button data-index="${index}" class="increase-quantity text-pan-dark dark:text-pan-light hover:text-green-500 p-1 rounded-full transition duration-150">
-                                <i data-lucide="plus-circle" class="w-6 h-6"></i>
-                            </button>
-                        </div>
-                    `;
+                    itemElement.innerHTML = '<img src="' + item.img_url + '" alt="' + item.name + '" class="w-12 h-12 object-cover rounded-md border border-pan-accent/30 flex-shrink-0" onerror="this.onerror=null; this.src=\'https://placehold.co/48x48/E28C42/FFF?text=ERR\'"><div class="flex-grow min-w-0"><p class="font-semibold text-pan-dark dark:text-pan-cream text-sm truncate">' + item.name + '</p><p class="text-xs text-pan-contrast/80 dark:text-pan-light/80">Costo: -4 rounded-lg shadow-inner">
+                                <summary class="font-semibold text-pan-dark dark:text-pan-cream cursor-pointer">Como hago un pedido?</summary>
+                                <p class="text-pan-contrast dark:text-pan-light mt-2">Podes hacer tu pedido por WhatsApp o directamente desde nuestra pagina agregando productos al carrito.</p>
+                            </details>
+                            <details class="bg-pan-cream dark:bg-pan-contrast p + item.price + '</p><p class="font-bold text-pan-orange dark:text-pan-accent text-lg">-4 rounded-lg shadow-inner">
+                                <summary class="font-semibold text-pan-dark dark:text-pan-cream cursor-pointer">Como hago un pedido?</summary>
+                                <p class="text-pan-contrast dark:text-pan-light mt-2">Podes hacer tu pedido por WhatsApp o directamente desde nuestra pagina agregando productos al carrito.</p>
+                            </details>
+                            <details class="bg-pan-cream dark:bg-pan-contrast p + subtotal + '</p></div><div class="flex items-center space-x-1 flex-shrink-0"><button data-index="' + index + '" class="decrease-quantity text-pan-dark dark:text-pan-light hover:text-red-500 p-1 rounded-full transition duration-150"><i data-lucide="minus-circle" class="w-6 h-6"></i></button><span class="font-bold text-pan-dark dark:text-pan-cream w-4 text-center">' + item.quantity + '</span><button data-index="' + index + '" class="increase-quantity text-pan-dark dark:text-pan-light hover:text-green-500 p-1 rounded-full transition duration-150"><i data-lucide="plus-circle" class="w-6 h-6"></i></button></div>';
                     cartContentElement.appendChild(itemElement);
                 });
                 finalizeWhatsappButton.disabled = false;
@@ -586,7 +542,6 @@ html { scroll-behavior: smooth; }
 
             cartCountElement.textContent = totalItems;
 
-            // Calcular descuento si hay cupón
             if (appliedCoupon) {
                 if (appliedCoupon.type === 'percentage') {
                     discountAmount = Math.round(totalCost * (appliedCoupon.discount / 100));
@@ -594,25 +549,49 @@ html { scroll-behavior: smooth; }
                     discountAmount = appliedCoupon.discount;
                 }
 
-                document.getElementById('cart-subtotal').textContent = `${totalCost}`;
+                document.getElementById('cart-subtotal').textContent = '-4 rounded-lg shadow-inner">
+                                <summary class="font-semibold text-pan-dark dark:text-pan-cream cursor-pointer">Como hago un pedido?</summary>
+                                <p class="text-pan-contrast dark:text-pan-light mt-2">Podes hacer tu pedido por WhatsApp o directamente desde nuestra pagina agregando productos al carrito.</p>
+                            </details>
+                            <details class="bg-pan-cream dark:bg-pan-contrast p + totalCost;
                 document.getElementById('discount-section').classList.remove('hidden');
                 document.getElementById('coupon-code').textContent = appliedCoupon.code;
-                document.getElementById('discount-amount').textContent = `-${discountAmount}`;
+                document.getElementById('discount-amount').textContent = '--4 rounded-lg shadow-inner">
+                                <summary class="font-semibold text-pan-dark dark:text-pan-cream cursor-pointer">Como hago un pedido?</summary>
+                                <p class="text-pan-contrast dark:text-pan-light mt-2">Podes hacer tu pedido por WhatsApp o directamente desde nuestra pagina agregando productos al carrito.</p>
+                            </details>
+                            <details class="bg-pan-cream dark:bg-pan-contrast p + discountAmount;
 
                 const finalTotal = Math.max(0, totalCost - discountAmount);
-                cartTotalElement.textContent = `${finalTotal}`;
+                cartTotalElement.textContent = '-4 rounded-lg shadow-inner">
+                                <summary class="font-semibold text-pan-dark dark:text-pan-cream cursor-pointer">Como hago un pedido?</summary>
+                                <p class="text-pan-contrast dark:text-pan-light mt-2">Podes hacer tu pedido por WhatsApp o directamente desde nuestra pagina agregando productos al carrito.</p>
+                            </details>
+                            <details class="bg-pan-cream dark:bg-pan-contrast p + finalTotal;
             } else {
-                document.getElementById('cart-subtotal').textContent = `${totalCost}`;
+                document.getElementById('cart-subtotal').textContent = '-4 rounded-lg shadow-inner">
+                                <summary class="font-semibold text-pan-dark dark:text-pan-cream cursor-pointer">Como hago un pedido?</summary>
+                                <p class="text-pan-contrast dark:text-pan-light mt-2">Podes hacer tu pedido por WhatsApp o directamente desde nuestra pagina agregando productos al carrito.</p>
+                            </details>
+                            <details class="bg-pan-cream dark:bg-pan-contrast p + totalCost;
                 document.getElementById('discount-section').classList.add('hidden');
-                cartTotalElement.textContent = `${totalCost}`;
+                cartTotalElement.textContent = '-4 rounded-lg shadow-inner">
+                                <summary class="font-semibold text-pan-dark dark:text-pan-cream cursor-pointer">Como hago un pedido?</summary>
+                                <p class="text-pan-contrast dark:text-pan-light mt-2">Podes hacer tu pedido por WhatsApp o directamente desde nuestra pagina agregando productos al carrito.</p>
+                            </details>
+                            <details class="bg-pan-cream dark:bg-pan-contrast p + totalCost;
             }
 
             const cartMessage = document.getElementById('cart-message');
             if (cartMessage) {
                 const finalTotal = appliedCoupon ? Math.max(0, totalCost - discountAmount) : totalCost;
                 cartMessage.innerHTML = totalItems > 0 
-                    ? `¡Tenés ${totalItems} productos listos! Total: ${finalTotal}`
-                    : 'Tu carrito está vacío.';
+                    ? 'Tenes ' + totalItems + ' productos listos! Total: -4 rounded-lg shadow-inner">
+                                <summary class="font-semibold text-pan-dark dark:text-pan-cream cursor-pointer">Como hago un pedido?</summary>
+                                <p class="text-pan-contrast dark:text-pan-light mt-2">Podes hacer tu pedido por WhatsApp o directamente desde nuestra pagina agregando productos al carrito.</p>
+                            </details>
+                            <details class="bg-pan-cream dark:bg-pan-contrast p + finalTotal
+                    : 'Tu carrito esta vacio.';
             }
 
             lucide.createIcons();
@@ -632,7 +611,6 @@ html { scroll-behavior: smooth; }
             const product = ALL_PRODUCTS.find(p => p.id === productId);
             if (!product) return;
 
-            // Calcular precio con descuento si existe
             const finalPrice = product.discount && product.discount > 0
                 ? Math.round(product.price * (1 - product.discount / 100))
                 : product.price;
@@ -671,14 +649,13 @@ html { scroll-behavior: smooth; }
             });
         }
 
-        // Función para aplicar cupón
         async function applyCoupon() {
             const couponInput = document.getElementById('coupon-input');
             const couponCode = couponInput.value.trim().toUpperCase();
             const couponMessage = document.getElementById('coupon-message');
 
             if (!couponCode) {
-                couponMessage.textContent = 'Ingresa un código';
+                couponMessage.textContent = 'Ingresa un codigo';
                 couponMessage.className = 'text-sm text-red-500';
                 couponMessage.classList.remove('hidden');
                 return;
@@ -700,25 +677,28 @@ html { scroll-behavior: smooth; }
                         type: data.type
                     };
 
-                    couponMessage.textContent = `¡Cupón aplicado! ${data.type === 'percentage' ? data.discount + '%' : ' + data.discount} de descuento`;
+                    couponMessage.textContent = 'Cupon aplicado! ' + (data.type === 'percentage' ? data.discount + '%' : '-4 rounded-lg shadow-inner">
+                                <summary class="font-semibold text-pan-dark dark:text-pan-cream cursor-pointer">Como hago un pedido?</summary>
+                                <p class="text-pan-contrast dark:text-pan-light mt-2">Podes hacer tu pedido por WhatsApp o directamente desde nuestra pagina agregando productos al carrito.</p>
+                            </details>
+                            <details class="bg-pan-cream dark:bg-pan-contrast p + data.discount) + ' de descuento';
                     couponMessage.className = 'text-sm text-green-600 font-semibold';
                     couponMessage.classList.remove('hidden');
 
                     updateCartDisplay();
                 } else {
-                    couponMessage.textContent = data.error || 'Cupón inválido';
+                    couponMessage.textContent = data.error || 'Cupon invalido';
                     couponMessage.className = 'text-sm text-red-500';
                     couponMessage.classList.remove('hidden');
                     appliedCoupon = null;
                 }
             } catch (error) {
-                couponMessage.textContent = 'Error al validar cupón';
+                couponMessage.textContent = 'Error al validar cupon';
                 couponMessage.className = 'text-sm text-red-500';
                 couponMessage.classList.remove('hidden');
             }
         }
 
-        // Finalizar pedido por WhatsApp
         const finalizeOrder = () => {
             if (cart.length === 0) return;
 
@@ -727,61 +707,65 @@ html { scroll-behavior: smooth; }
 
             cart.forEach(item => {
                 const subtotal = item.quantity * item.price;
-                message += `* ${item.quantity} x ${item.name} (Subtotal: ${subtotal})%0A`;
+                message += '* ' + item.quantity + ' x ' + item.name + ' (Subtotal: -4 rounded-lg shadow-inner">
+                                <summary class="font-semibold text-pan-dark dark:text-pan-cream cursor-pointer">Como hago un pedido?</summary>
+                                <p class="text-pan-contrast dark:text-pan-light mt-2">Podes hacer tu pedido por WhatsApp o directamente desde nuestra pagina agregando productos al carrito.</p>
+                            </details>
+                            <details class="bg-pan-cream dark:bg-pan-contrast p + subtotal + ')%0A';
                 total += subtotal;
             });
 
-            message += `%0ASubtotal: ${total}`;
+            message += '%0ASubtotal: -4 rounded-lg shadow-inner">
+                                <summary class="font-semibold text-pan-dark dark:text-pan-cream cursor-pointer">Como hago un pedido?</summary>
+                                <p class="text-pan-contrast dark:text-pan-light mt-2">Podes hacer tu pedido por WhatsApp o directamente desde nuestra pagina agregando productos al carrito.</p>
+                            </details>
+                            <details class="bg-pan-cream dark:bg-pan-contrast p + total;
 
             if (appliedCoupon) {
-                message += `%0ADescuento (${appliedCoupon.code}): -${discountAmount}`;
+                message += '%0ADescuento (' + appliedCoupon.code + '): --4 rounded-lg shadow-inner">
+                                <summary class="font-semibold text-pan-dark dark:text-pan-cream cursor-pointer">Como hago un pedido?</summary>
+                                <p class="text-pan-contrast dark:text-pan-light mt-2">Podes hacer tu pedido por WhatsApp o directamente desde nuestra pagina agregando productos al carrito.</p>
+                            </details>
+                            <details class="bg-pan-cream dark:bg-pan-contrast p + discountAmount;
                 total = Math.max(0, total - discountAmount);
             }
 
-            message += `%0A*TOTAL FINAL: ${total}*%0A%0A`;
-            message += "Por favor, confírmenme el pedido y el método de pago/entrega.";
+            message += '%0A*TOTAL FINAL: -4 rounded-lg shadow-inner">
+                                <summary class="font-semibold text-pan-dark dark:text-pan-cream cursor-pointer">Como hago un pedido?</summary>
+                                <p class="text-pan-contrast dark:text-pan-light mt-2">Podes hacer tu pedido por WhatsApp o directamente desde nuestra pagina agregando productos al carrito.</p>
+                            </details>
+                            <details class="bg-pan-cream dark:bg-pan-contrast p + total + '*%0A%0A';
+            message += "Por favor, confirmenme el pedido y el metodo de pago/entrega.";
 
-            const whatsappUrl = `https://wa.me/5493436108756?text=${message}`;
+            const whatsappUrl = 'https://wa.me/5493436108756?text=' + message;
             window.open(whatsappUrl, '_blank');
             closeCart();
         }
-        // ========================================
-        // QUIZ REDISEÑADO - Sistema inteligente
-        // ========================================
-        
-        let quizAnswers = {
-            momento: 0,    // 1=bajón, 2=normal, 3=energía
-            comida: 0,     // 1=antojo, 2=merienda, 3=comida
-            tipo: ''       // 'dulce', 'salado', 'indistinto'
-        };
 
         const QUIZ_QUESTIONS = [
             {
-                question: "¿Cómo te sentís en este momento?",
+                question: "Como te sentis en este momento?",
                 options: [
-                    { text: "De diez 🙌", value: 3 },
-                    { text: "Ahí andamos... 😂", value: 2 },
-                    { text: "Siguiente pregunta... 😶‍🌫️", value: 1 }
-                ],
-                key: 'momento'
+                    { text: "De diez", score: 3 },
+                    { text: "Ahi andamos...", score: 2 },
+                    { text: "Siguiente pregunta...", score: 1 }
+                ]
             },
             {
-                question: "¿Buscás algo para...?",
+                question: "Buscas algo para...?",
                 options: [
-                    { text: "El almuerzo / cena 🍽️☀️", value: 3 },
-                    { text: "La merienda ☕🧉", value: 2 },
-                    { text: "Saciar el antojo 😋", value: 1 }
-                ],
-                key: 'comida'
+                    { text: "El almuerzo / cena", score: 3 },
+                    { text: "La merienda", score: 2 },
+                    { text: "Saciar el antojo", score: 1 }
+                ]
             },
             {
-                question: "¿Tenés ganas de algo...?",
+                question: "Tenes ganas de algo...?",
                 options: [
-                    { text: "Salado", value: 'salado' },
-                    { text: "Dulce", value: 'dulce' },
-                    { text: "Me es indistinto", value: 'indistinto' }
-                ],
-                key: 'tipo'
+                    { text: "Salado", score: 3 },
+                    { text: "Dulce", score: 1 },
+                    { text: "Me es indistinto", score: 2 }
+                ]
             }
         ];
 
@@ -796,19 +780,9 @@ html { scroll-behavior: smooth; }
             }
 
             const stepData = QUIZ_QUESTIONS[currentQuizStep];
-            const optionsHtml = stepData.options.map((opt) => `
-                <button data-value="${opt.value}" data-key="${stepData.key}" class="quiz-option block w-full py-3 my-2 bg-pan-light dark:bg-pan-dark text-pan-dark dark:text-pan-cream rounded-lg border-2 border-pan-accent hover:bg-pan-orange hover:text-white transition duration-200">
-                    ${opt.text}
-                </button>
-            `).join('');
+            const optionsHtml = stepData.options.map((opt) => '<button data-score="' + opt.score + '" class="quiz-option block w-full py-3 my-2 bg-pan-light dark:bg-pan-dark text-pan-dark dark:text-pan-cream rounded-lg border-2 border-pan-accent hover:bg-pan-orange hover:text-white transition duration-200">' + opt.text + '</button>').join('');
 
-            quizContainer.innerHTML = `
-                <h3 class="text-2xl font-semibold text-pan-dark dark:text-pan-accent mb-4">Pregunta ${currentQuizStep + 1} de ${QUIZ_QUESTIONS.length}</h3>
-                <p class="text-lg text-pan-contrast dark:text-pan-light mb-6 font-bold">${stepData.question}</p>
-                <div class="space-y-3">
-                    ${optionsHtml}
-                </div>
-            `;
+            quizContainer.innerHTML = '<h3 class="text-2xl font-semibold text-pan-dark dark:text-pan-accent mb-4">Pregunta ' + (currentQuizStep + 1) + ' de ' + QUIZ_QUESTIONS.length + '</h3><p class="text-lg text-pan-contrast dark:text-pan-light mb-6 font-bold">' + stepData.question + '</p><div class="space-y-3">' + optionsHtml + '</div>';
 
             document.querySelectorAll('.quiz-option').forEach(button => {
                 button.addEventListener('click', handleAnswer);
@@ -817,89 +791,74 @@ html { scroll-behavior: smooth; }
         };
 
         const handleAnswer = (e) => {
-            const value = e.currentTarget.getAttribute('data-value');
-            const key = e.currentTarget.getAttribute('data-key');
-            
-            // Guardar respuesta
-            if (key === 'tipo') {
-                quizAnswers[key] = value; // 'dulce', 'salado', 'indistinto'
-            } else {
-                quizAnswers[key] = parseInt(value); // número 1, 2 o 3
-            }
-            
+            const score = parseInt(e.currentTarget.getAttribute('data-score'));
+            quizScore += score;
             currentQuizStep++;
             renderQuizStep();
         };
 
         const showQuizResult = () => {
-            let targetScores = [];
+            let resultProduct = ALL_PRODUCTS[0];
             
-            const intensidad = quizAnswers.momento + quizAnswers.comida; // De 2 a 6
-            
-            // REGLA 1: Si eligió DULCE → siempre dulces [3,4]
-            if (quizAnswers.tipo === 'dulce') {
-                targetScores = [3, 4];
+            if (quizScore >= 3 && quizScore <= 4) {
+                const dulces = ALL_PRODUCTS.filter(p => 
+                    p.quiz_score && (p.quiz_score.includes(3) || p.quiz_score.includes(4))
+                );
+                resultProduct = dulces.length > 0 
+                    ? dulces[Math.floor(Math.random() * dulces.length)]
+                    : ALL_PRODUCTS[0];
+                    
+            } else if (quizScore >= 5 && quizScore <= 6) {
+                const merienda = ALL_PRODUCTS.filter(p => 
+                    p.quiz_score && (p.quiz_score.includes(5) || p.quiz_score.includes(6))
+                );
+                resultProduct = merienda.length > 0 
+                    ? merienda[Math.floor(Math.random() * merienda.length)]
+                    : ALL_PRODUCTS[0];
+                    
+            } else if (quizScore === 7) {
+                const versatiles = ALL_PRODUCTS.filter(p => 
+                    p.quiz_score && (p.quiz_score.includes(6) || p.quiz_score.includes(7))
+                );
+                resultProduct = versatiles.length > 0 
+                    ? versatiles[Math.floor(Math.random() * versatiles.length)]
+                    : ALL_PRODUCTS[0];
+                    
+            } else if (quizScore >= 8 && quizScore <= 9) {
+                const salados = ALL_PRODUCTS.filter(p => 
+                    p.quiz_score && (p.quiz_score.includes(8) || p.quiz_score.includes(9))
+                );
+                resultProduct = salados.length > 0 
+                    ? salados[Math.floor(Math.random() * salados.length)]
+                    : ALL_PRODUCTS[0];
             }
-            // REGLA 2: Si eligió SALADO → siempre salados [8,9]
-            else if (quizAnswers.tipo === 'salado') {
-                targetScores = [8, 9];
-            }
-            // REGLA 3: INDISTINTO → depende de las otras respuestas
-            else {
-                if (intensidad <= 3) {
-                    targetScores = [3, 4];  // Bajón + antojo = dulce
-                } else if (intensidad >= 5) {
-                    targetScores = [8, 9];  // Energía + comida = salado
-                } else {
-                    targetScores = [6, 7];  // Normal = versátil
-                }
-            }
-            
-            // Filtrar productos que coincidan
-            const matchingProducts = ALL_PRODUCTS.filter(p => 
-                p.quiz_score && targetScores.some(score => p.quiz_score.includes(score))
-            );
-            
-            // Elegir uno RANDOM
-            const resultProduct = matchingProducts[Math.floor(Math.random() * matchingProducts.length)];
 
-            // Calcular precio con descuento si existe
+            const quizModalBody = document.getElementById('quiz-modal-body');
+            const quizResultModal = document.getElementById('quiz-result-modal');
+            const quizModalContentWrapper = document.getElementById('quiz-modal-content-wrapper');
+
             const hasDiscount = resultProduct.discount && resultProduct.discount > 0;
             const displayPrice = hasDiscount 
                 ? Math.round(resultProduct.price * (1 - resultProduct.discount / 100))
                 : resultProduct.price;
             
             const priceHTML = hasDiscount 
-                ? `<span class="line-through text-gray-400 text-lg mr-2">${resultProduct.price}</span><span class="text-2xl">${displayPrice}</span> <span class="text-sm bg-red-500 text-white px-2 py-1 rounded">-${resultProduct.discount}%</span>`
-                : `${resultProduct.price}`;
+                ? '<span class="line-through text-gray-400 text-lg mr-2">-4 rounded-lg shadow-inner">
+                                <summary class="font-semibold text-pan-dark dark:text-pan-cream cursor-pointer">Como hago un pedido?</summary>
+                                <p class="text-pan-contrast dark:text-pan-light mt-2">Podes hacer tu pedido por WhatsApp o directamente desde nuestra pagina agregando productos al carrito.</p>
+                            </details>
+                            <details class="bg-pan-cream dark:bg-pan-contrast p + resultProduct.price + '</span><span class="text-2xl">-4 rounded-lg shadow-inner">
+                                <summary class="font-semibold text-pan-dark dark:text-pan-cream cursor-pointer">Como hago un pedido?</summary>
+                                <p class="text-pan-contrast dark:text-pan-light mt-2">Podes hacer tu pedido por WhatsApp o directamente desde nuestra pagina agregando productos al carrito.</p>
+                            </details>
+                            <details class="bg-pan-cream dark:bg-pan-contrast p + displayPrice + '</span> <span class="text-sm bg-red-500 text-white px-2 py-1 rounded">-' + resultProduct.discount + '%</span>'
+                : '-4 rounded-lg shadow-inner">
+                                <summary class="font-semibold text-pan-dark dark:text-pan-cream cursor-pointer">Como hago un pedido?</summary>
+                                <p class="text-pan-contrast dark:text-pan-light mt-2">Podes hacer tu pedido por WhatsApp o directamente desde nuestra pagina agregando productos al carrito.</p>
+                            </details>
+                            <details class="bg-pan-cream dark:bg-pan-contrast p + resultProduct.price;
 
-            const quizModalBody = document.getElementById('quiz-modal-body');
-            const quizResultModal = document.getElementById('quiz-result-modal');
-            const quizModalContentWrapper = document.getElementById('quiz-modal-content-wrapper');
-
-            quizModalBody.innerHTML = `
-                <h3 class="text-3xl font-display font-bold text-pan-orange mb-4">¡Tu producto ideal es!</h3>
-                <div class="bg-pan-cream dark:bg-pan-dark p-6 rounded-xl border-4 border-pan-accent shadow-lg">
-                    <img src="${resultProduct.img_url}" 
-                        onerror="this.onerror=null; this.src='https://placehold.co/300x200/8B5E3C/FFF?text=ERR';"
-                        alt="Resultado: ${resultProduct.name}"
-                        class="w-full h-auto object-cover rounded-lg mb-4 aspect-video shadow-md">
-                    <h4 class="text-3xl font-semibold text-pan-dark dark:text-pan-cream mb-2">${resultProduct.name}</h4>
-                    <p class="text-pan-contrast dark:text-pan-light mb-4">${resultProduct.short_description}</p>
-                </div>
-                
-                <div class="flex flex-col space-y-3 mt-4">
-                    <button onclick="addToCart('${resultProduct.id}'); closeQuizModal();" class="px-6 py-3 bg-pan-orange text-white font-bold rounded-lg hover:bg-pan-dark transition duration-300 transform hover:scale-[1.02] shadow-xl">
-                        <i data-lucide="shopping-bag" class="w-5 h-5 mr-2 inline"></i> Encargar Ahora (${priceHTML})
-                    </button>
-                    <button onclick="openProductModal('${resultProduct.id}'); closeQuizModal();" class="px-6 py-3 bg-pan-dark text-white rounded-lg hover:bg-pan-accent transition duration-300 shadow-md">
-                        Ver Detalles
-                    </button>
-                    <button onclick="resetQuiz();" class="text-pan-contrast/70 dark:text-pan-light/70 hover:text-pan-dark dark:hover:text-pan-light transition duration-300 text-sm">
-                        Probar otro resultado
-                    </button>
-                </div>
-            `;
+            quizModalBody.innerHTML = '<h3 class="text-3xl font-display font-bold text-pan-orange mb-4">Tu producto ideal es!</h3><div class="bg-pan-cream dark:bg-pan-dark p-6 rounded-xl border-4 border-pan-accent shadow-lg"><img src="' + resultProduct.img_url + '" onerror="this.onerror=null; this.src=\'https://placehold.co/300x200/8B5E3C/FFF?text=ERR\';" alt="Resultado: ' + resultProduct.name + '" class="w-full h-auto object-cover rounded-lg mb-4 aspect-video shadow-md"><h4 class="text-3xl font-semibold text-pan-dark dark:text-pan-cream mb-2">' + resultProduct.name + '</h4><p class="text-pan-contrast dark:text-pan-light mb-4">' + resultProduct.short_description + '</p></div><div class="flex flex-col space-y-3 mt-4"><button onclick="addToCart(\'' + resultProduct.id + '\'); closeQuizModal();" class="px-6 py-3 bg-pan-orange text-white font-bold rounded-lg hover:bg-pan-dark transition duration-300 transform hover:scale-[1.02] shadow-xl"><i data-lucide="shopping-bag" class="w-5 h-5 mr-2 inline"></i> Encargar Ahora (' + priceHTML + ')</button><button onclick="openProductModal(\'' + resultProduct.id + '\'); closeQuizModal();" class="px-6 py-3 bg-pan-dark text-white rounded-lg hover:bg-pan-accent transition duration-300 shadow-md">Ver Detalles</button><button onclick="resetQuiz();" class="text-pan-contrast/70 dark:text-pan-light/70 hover:text-pan-dark dark:hover:text-pan-light transition duration-300 text-sm">Probar otro resultado</button></div>';
 
             quizResultModal.classList.remove('hidden');
             setTimeout(() => {
@@ -912,7 +871,7 @@ html { scroll-behavior: smooth; }
 
         const resetQuiz = () => {
             currentQuizStep = 0;
-            quizAnswers = { momento: 0, comida: 0, tipo: '' };
+            quizScore = 0;
             document.getElementById('quiz-container').innerHTML = '';
             document.getElementById('start-quiz-button').classList.remove('hidden');
             closeQuizModal();
@@ -930,7 +889,7 @@ html { scroll-behavior: smooth; }
         };
 
         document.getElementById('close-quiz-modal').addEventListener('click', closeQuizModal);
-        // Modal de detalle de producto
+
         const openProductModal = (productId) => {
             const product = ALL_PRODUCTS.find(p => p.id === productId);
             if (!product) return;
@@ -939,56 +898,30 @@ html { scroll-behavior: smooth; }
             const productModal = document.getElementById('product-modal');
             const modalContentWrapper = document.getElementById('modal-content-wrapper');
 
-            const ingredientsList = product.ingredients.map(ing => `
-                <li class="flex items-start">
-                    <i data-lucide="check-circle" class="w-5 h-5 mr-2 mt-1 text-pan-orange flex-shrink-0"></i>
-                    <span>${ing}</span>
-                </li>
-            `).join('');
+            const ingredientsList = product.ingredients.map(ing => '<li class="flex items-start"><i data-lucide="check-circle" class="w-5 h-5 mr-2 mt-1 text-pan-orange flex-shrink-0"></i><span>' + ing + '</span></li>').join('');
 
-            // Calcular precio con descuento
             const hasDiscount = product.discount && product.discount > 0;
             const displayPrice = hasDiscount 
                 ? Math.round(product.price * (1 - product.discount / 100))
                 : product.price;
             
             const priceHTML = hasDiscount 
-                ? `
-                    <div class="flex flex-col">
-                        <span class="text-lg text-gray-500 line-through">${product.price}</span>
-                        <div class="flex items-center space-x-2">
-                            <span class="text-3xl font-bold text-pan-orange dark:text-pan-accent">${displayPrice}</span>
-                            <span class="text-sm font-bold bg-red-500 text-white px-2 py-1 rounded">-${product.discount}%</span>
-                        </div>
-                    </div>
-                `
-                : `<span class="text-3xl font-bold text-pan-orange dark:text-pan-accent">${product.price}</span>`;
+                ? '<div class="flex flex-col"><span class="text-lg text-gray-500 line-through">-4 rounded-lg shadow-inner">
+                                <summary class="font-semibold text-pan-dark dark:text-pan-cream cursor-pointer">Como hago un pedido?</summary>
+                                <p class="text-pan-contrast dark:text-pan-light mt-2">Podes hacer tu pedido por WhatsApp o directamente desde nuestra pagina agregando productos al carrito.</p>
+                            </details>
+                            <details class="bg-pan-cream dark:bg-pan-contrast p + product.price + '</span><div class="flex items-center space-x-2"><span class="text-3xl font-bold text-pan-orange dark:text-pan-accent">-4 rounded-lg shadow-inner">
+                                <summary class="font-semibold text-pan-dark dark:text-pan-cream cursor-pointer">Como hago un pedido?</summary>
+                                <p class="text-pan-contrast dark:text-pan-light mt-2">Podes hacer tu pedido por WhatsApp o directamente desde nuestra pagina agregando productos al carrito.</p>
+                            </details>
+                            <details class="bg-pan-cream dark:bg-pan-contrast p + displayPrice + '</span><span class="text-sm font-bold bg-red-500 text-white px-2 py-1 rounded">-' + product.discount + '%</span></div></div>'
+                : '<span class="text-3xl font-bold text-pan-orange dark:text-pan-accent">-4 rounded-lg shadow-inner">
+                                <summary class="font-semibold text-pan-dark dark:text-pan-cream cursor-pointer">Como hago un pedido?</summary>
+                                <p class="text-pan-contrast dark:text-pan-light mt-2">Podes hacer tu pedido por WhatsApp o directamente desde nuestra pagina agregando productos al carrito.</p>
+                            </details>
+                            <details class="bg-pan-cream dark:bg-pan-contrast p + product.price + '</span>';
 
-            modalBody.innerHTML = `
-                <div class="md:flex md:space-x-6">
-                    <div class="md:w-1/2 mb-4 md:mb-0">
-                        <img src="${product.img_url}" 
-                            onerror="this.onerror=null; this.src='https://placehold.co/400x400/8B5E3C/FFF?text=FOTO+NO+CARGADA';"
-                            alt="Detalle de ${product.name}"
-                            class="w-full h-auto object-cover rounded-lg border-4 border-pan-accent shadow-xl">
-                    </div>
-                    <div class="md:w-1/2">
-                        <h3 class="text-3xl font-display font-bold text-pan-dark dark:text-pan-accent mb-2">${product.name}</h3>
-                        <p class="text-pan-contrast dark:text-pan-light mb-4">${product.long_description}</p>
-                        <h4 class="text-xl font-semibold text-pan-dark dark:text-pan-light mb-2">Ingredientes Clave:</h4>
-                        <ul class="space-y-2 text-pan-contrast dark:text-pan-light text-sm list-none pl-0">
-                            ${ingredientsList}
-                        </ul>
-                        <div class="mt-6 flex justify-between items-center border-t pt-4 border-pan-dark/10 dark:border-pan-light/10">
-                            ${priceHTML}
-                            <button data-product-id="${product.id}" 
-                                class="add-to-cart-modal px-6 py-3 bg-pan-orange text-white rounded-lg hover:bg-pan-dark transition duration-300 flex items-center shadow-lg transform hover:scale-105">
-                                <i data-lucide="plus" class="w-5 h-5 mr-2"></i> Añadir al Carrito
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            `;
+            modalBody.innerHTML = '<div class="md:flex md:space-x-6"><div class="md:w-1/2 mb-4 md:mb-0"><img src="' + product.img_url + '" onerror="this.onerror=null; this.src=\'https://placehold.co/400x400/8B5E3C/FFF?text=FOTO+NO+CARGADA\';" alt="Detalle de ' + product.name + '" class="w-full h-auto object-cover rounded-lg border-4 border-pan-accent shadow-xl"></div><div class="md:w-1/2"><h3 class="text-3xl font-display font-bold text-pan-dark dark:text-pan-accent mb-2">' + product.name + '</h3><p class="text-pan-contrast dark:text-pan-light mb-4">' + product.long_description + '</p><h4 class="text-xl font-semibold text-pan-dark dark:text-pan-light mb-2">Ingredientes Clave:</h4><ul class="space-y-2 text-pan-contrast dark:text-pan-light text-sm list-none pl-0">' + ingredientsList + '</ul><div class="mt-6 flex justify-between items-center border-t pt-4 border-pan-dark/10 dark:border-pan-light/10">' + priceHTML + '<button data-product-id="' + product.id + '" class="add-to-cart-modal px-6 py-3 bg-pan-orange text-white rounded-lg hover:bg-pan-dark transition duration-300 flex items-center shadow-lg transform hover:scale-105"><i data-lucide="plus" class="w-5 h-5 mr-2"></i> Anadir al Carrito</button></div></div></div>';
             lucide.createIcons();
 
             productModal.classList.remove('hidden');
@@ -1019,7 +952,6 @@ html { scroll-behavior: smooth; }
 
         document.getElementById('close-modal').addEventListener('click', closeProductModal);
 
-        // Renderizado de productos CON DESCUENTOS
         const renderProductCard = (product) => {
             const hasDiscount = product.discount && product.discount > 0;
             const originalPrice = product.price;
@@ -1028,41 +960,26 @@ html { scroll-behavior: smooth; }
                 : originalPrice;
             
             const priceHTML = hasDiscount 
-                ? `
-                    <div class="flex flex-col items-start">
-                        <span class="text-sm text-gray-500 dark:text-gray-400 line-through">${originalPrice}</span>
-                        <div class="flex items-center space-x-2">
-                            <span class="text-xl font-bold text-pan-accent dark:text-pan-orange">${discountedPrice}</span>
-                            <span class="text-xs font-bold bg-red-500 text-white px-2 py-1 rounded-full">-${product.discount}%</span>
-                        </div>
-                    </div>
-                `
-                : `<span class="text-xl font-bold text-pan-accent dark:text-pan-orange">${originalPrice}</span>`;
+                ? '<div class="flex flex-col items-start"><span class="text-sm text-gray-500 dark:text-gray-400 line-through">-4 rounded-lg shadow-inner">
+                                <summary class="font-semibold text-pan-dark dark:text-pan-cream cursor-pointer">Como hago un pedido?</summary>
+                                <p class="text-pan-contrast dark:text-pan-light mt-2">Podes hacer tu pedido por WhatsApp o directamente desde nuestra pagina agregando productos al carrito.</p>
+                            </details>
+                            <details class="bg-pan-cream dark:bg-pan-contrast p + originalPrice + '</span><div class="flex items-center space-x-2"><span class="text-xl font-bold text-pan-accent dark:text-pan-orange">-4 rounded-lg shadow-inner">
+                                <summary class="font-semibold text-pan-dark dark:text-pan-cream cursor-pointer">Como hago un pedido?</summary>
+                                <p class="text-pan-contrast dark:text-pan-light mt-2">Podes hacer tu pedido por WhatsApp o directamente desde nuestra pagina agregando productos al carrito.</p>
+                            </details>
+                            <details class="bg-pan-cream dark:bg-pan-contrast p + discountedPrice + '</span><span class="text-xs font-bold bg-red-500 text-white px-2 py-1 rounded-full">-' + product.discount + '%</span></div></div>'
+                : '<span class="text-xl font-bold text-pan-accent dark:text-pan-orange">-4 rounded-lg shadow-inner">
+                                <summary class="font-semibold text-pan-dark dark:text-pan-cream cursor-pointer">Como hago un pedido?</summary>
+                                <p class="text-pan-contrast dark:text-pan-light mt-2">Podes hacer tu pedido por WhatsApp o directamente desde nuestra pagina agregando productos al carrito.</p>
+                            </details>
+                            <details class="bg-pan-cream dark:bg-pan-contrast p + originalPrice + '</span>';
             
             const offerBadge = hasDiscount 
-                ? `<div class="absolute top-2 right-2 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg animate-pulse">¡OFERTA!</div>`
+                ? '<div class="absolute top-2 right-2 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg animate-pulse">OFERTA!</div>'
                 : '';
             
-            return `
-                <div class="product-card bg-pan-light dark:bg-pan-dark p-6 rounded-xl shadow-xl hover:shadow-2xl transition duration-300 flex flex-col border border-pan-accent/30 dark:border-pan-dark relative" data-product-id="${product.id}">
-                    ${offerBadge}
-                    <div class="product-detail-trigger cursor-pointer">
-                        <img src="${product.img_url}" 
-                             onerror="this.onerror=null; this.src='https://placehold.co/400x300/8B5E3C/FFF?text=FOTO+NO+CARGADA';"
-                             alt="${product.name}"
-                             class="w-full h-auto object-cover rounded-lg mb-4 aspect-video border-2 border-pan-accent dark:border-pan-orange shadow-lg hover:opacity-90 transition duration-300">
-                        
-                        <h3 class="text-2xl font-semibold text-pan-dark dark:text-pan-cream mb-2">${product.name}</h3>
-                    </div>
-                    <p class="text-pan-contrast dark:text-pan-light mb-4 flex-grow">${product.short_description}</p>
-                    <div class="flex justify-between items-center mt-4">
-                        ${priceHTML}
-                        <button data-product-id="${product.id}" class="add-to-cart px-4 py-2 bg-pan-dark text-white rounded-lg hover:bg-pan-orange transition duration-300 flex items-center shadow-md">
-                            <i data-lucide="plus" class="w-4 h-4 mr-1"></i> Añadir
-                        </button>
-                    </div>
-                </div>
-            `;
+            return '<div class="product-card bg-pan-light dark:bg-pan-dark p-6 rounded-xl shadow-xl hover:shadow-2xl transition duration-300 flex flex-col border border-pan-accent/30 dark:border-pan-dark relative" data-product-id="' + product.id + '">' + offerBadge + '<div class="product-detail-trigger cursor-pointer"><img src="' + product.img_url + '" onerror="this.onerror=null; this.src=\'https://placehold.co/400x300/8B5E3C/FFF?text=FOTO+NO+CARGADA\';" alt="' + product.name + '" class="w-full h-auto object-cover rounded-lg mb-4 aspect-video border-2 border-pan-accent dark:border-pan-orange shadow-lg hover:opacity-90 transition duration-300"><h3 class="text-2xl font-semibold text-pan-dark dark:text-pan-cream mb-2">' + product.name + '</h3></div><p class="text-pan-contrast dark:text-pan-light mb-4 flex-grow">' + product.short_description + '</p><div class="flex justify-between items-center mt-4">' + priceHTML + '<button data-product-id="' + product.id + '" class="add-to-cart px-4 py-2 bg-pan-dark text-white rounded-lg hover:bg-pan-orange transition duration-300 flex items-center shadow-md"><i data-lucide="plus" class="w-4 h-4 mr-1"></i> Anadir</button></div></div>';
         };
 
         const renderProducts = () => {
@@ -1098,10 +1015,8 @@ html { scroll-behavior: smooth; }
             });
         };
 
-        // Tema dark/light con detección automática del sistema
         const themeToggle = document.getElementById('theme-toggle');
         
-        // Función para aplicar tema
         function applyTheme(theme) {
             if (theme === 'dark') {
                 htmlElement.classList.add('dark');
@@ -1110,17 +1025,13 @@ html { scroll-behavior: smooth; }
             }
         }
         
-        // Detectar preferencia del sistema si no hay configuración guardada
         if (!localStorage.getItem('theme')) {
-            // Si el usuario no ha elegido, usar preferencia del sistema
             const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
             applyTheme(prefersDark ? 'dark' : 'light');
         } else {
-            // Si ya eligió antes, usar su preferencia
             applyTheme(localStorage.getItem('theme'));
         }
 
-        // Cambiar tema al hacer click
         themeToggle.addEventListener('click', () => {
             if (htmlElement.classList.contains('dark')) {
                 htmlElement.classList.remove('dark');
@@ -1131,12 +1042,10 @@ html { scroll-behavior: smooth; }
             }
         });
 
-        // Función para toggle del menú móvil con animación
         function toggleMobileMenu() {
             const mobileMenu = document.getElementById('mobile-menu');
             mobileMenu.classList.toggle('hidden');
             
-            // Si se abre, agregar animación
             if (!mobileMenu.classList.contains('hidden')) {
                 mobileMenu.classList.add('animate-slide-down');
             }
@@ -1144,14 +1053,12 @@ html { scroll-behavior: smooth; }
             lucide.createIcons();
         }
 
-        // Cerrar menú móvil al hacer clic en cualquier link
         document.querySelectorAll('#mobile-menu .page-link').forEach(btn => {
             btn.addEventListener('click', () => {
                 document.getElementById('mobile-menu').classList.add('hidden');
             });
         });
 
-        // Inicialización
         document.addEventListener('DOMContentLoaded', () => {
             loadProductsFromAPI();
             updateCartDisplay();
@@ -1161,5 +1068,8 @@ html { scroll-behavior: smooth; }
 
     </script>
 </body>
-</html>
-
+</html>-4 rounded-lg shadow-inner">
+                                <summary class="font-semibold text-pan-dark dark:text-pan-cream cursor-pointer">Como hago un pedido?</summary>
+                                <p class="text-pan-contrast dark:text-pan-light mt-2">Podes hacer tu pedido por WhatsApp o directamente desde nuestra pagina agregando productos al carrito.</p>
+                            </details>
+                            <details class="bg-pan-cream dark:bg-pan-contrast p

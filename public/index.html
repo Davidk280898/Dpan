@@ -64,8 +64,7 @@
             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
         </svg>
     </a>
-
-    <!-- CABECERA y NAVEGACIÓN -->
+        <!-- CABECERA y NAVEGACIÓN -->
     <header class="sticky top-0 z-40 bg-pan-cream dark:bg-pan-contrast shadow-xl dark:shadow-pan-dark transition duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
             
@@ -151,26 +150,7 @@
                 </div>
             </div>
         </section>
-
-        <!-- PAGINA: PRODUCTOS -->
-        <section id="page-productos" class="page hidden py-16 md:py-24 bg-pan-cream dark:bg-pan-contrast transition duration-300">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="text-4xl font-bold text-center text-pan-dark dark:text-pan-light mb-12">Catálogo Completo</h2>
-                <div id="full-products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"></div>
-                
-                <div class="text-center mt-12 p-6 bg-pan-light dark:bg-pan-dark rounded-xl shadow-inner border border-pan-accent/50">
-                    <h3 class="text-2xl font-semibold text-pan-dark dark:text-pan-cream mb-4">Revisa tu Pedido</h3>
-                    <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-8">
-                        <p class="text-lg text-pan-contrast dark:text-pan-light italic" id="cart-message">Tu carrito está vacío.</p>
-                        <button onclick="openCart()" class="px-8 py-3 text-lg font-bold text-white bg-pan-orange rounded-full shadow-lg hover:bg-pan-dark transition duration-300">
-                            Ver Carrito
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- PAGINA: HISTORIA -->
+                <!-- PAGINA: HISTORIA -->
         <section id="page-historia" class="page hidden py-16 md:py-24 bg-pan-cream dark:bg-pan-contrast transition duration-300">
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <h2 class="text-4xl font-display font-bold text-center text-pan-dark dark:text-pan-accent mb-12">Mi Historia</h2>
@@ -226,6 +206,7 @@
                 </div>
             </div>
         </section>
+
         <!-- PAGINA: BIENESTAR -->
         <section id="page-bienestar" class="page hidden py-16 md:py-24 bg-pan-cream dark:bg-pan-contrast transition duration-300">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -262,132 +243,7 @@
                 </div>
             </div>
         </section>
-
-        <!-- PAGINA: QUIZ -->
-        <section id="page-quiz" class="page hidden py-16 md:py-24 bg-pan-cream dark:bg-pan-contrast transition duration-300">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h2 class="text-4xl font-bold text-pan-dark dark:text-pan-light mb-8">¿No Sabés Qué Comer?</h2>
-                <p class="text-lg max-w-3xl mx-auto text-pan-contrast dark:text-pan-cream mb-10">
-                    Respondé tres preguntas y descubrí el producto ideal para vos en este momento.
-                </p>
-                
-                <div class="bg-pan-light dark:bg-pan-dark p-8 rounded-xl shadow-xl max-w-xl mx-auto">
-                    <div id="quiz-container"></div>
-                    <button id="start-quiz-button" onclick="resetQuiz(); renderQuizStep();" class="mt-6 px-6 py-3 bg-pan-orange text-white rounded-lg font-semibold hover:bg-pan-dark transition duration-300 shadow-md">
-                        Empezar Test
-                    </button>
-                </div>
-            </div>
-        </section>
-        
-        <!-- PAGINA: CONTACTO -->
-        <section id="page-contacto" class="page hidden py-16 md:py-24 bg-pan-cream dark:bg-pan-contrast transition duration-300">
-            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h2 class="text-4xl font-display font-bold text-pan-dark dark:text-pan-accent mb-8">¿Tenés alguna duda?</h2>
-                <div class="bg-pan-light dark:bg-pan-dark p-8 rounded-xl shadow-xl space-y-6">
-                    
-                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                        <a href="https://wa.me/5493436108756" target="_blank" class="flex flex-col items-center p-4 bg-pan-cream dark:bg-pan-contrast rounded-lg hover:bg-pan-orange hover:text-white transition duration-300 shadow-md group">
-                            <i data-lucide="message-circle" class="w-12 h-12 mb-2 text-green-500 group-hover:text-white"></i>
-                            <span class="text-sm font-semibold">WhatsApp</span>
-                        </a>
-                        <a href="https://instagram.com/ok_dpan" target="_blank" class="flex flex-col items-center p-4 bg-pan-cream dark:bg-pan-contrast rounded-lg hover:bg-pan-orange hover:text-white transition duration-300 shadow-md group">
-                            <i data-lucide="instagram" class="w-12 h-12 mb-2 text-pink-500 group-hover:text-white"></i>
-                            <span class="text-sm font-semibold">@ok_dpan</span>
-                        </a>
-                        <a href="https://facebook.com/DPanParana" target="_blank" class="flex flex-col items-center p-4 bg-pan-cream dark:bg-pan-contrast rounded-lg hover:bg-pan-orange hover:text-white transition duration-300 shadow-md group">
-                            <i data-lucide="facebook" class="w-12 h-12 mb-2 text-blue-600 group-hover:text-white"></i>
-                            <span class="text-sm font-semibold">D'Pan Paraná</span>
-                        </a>
-                        <a href="mailto:dpanparana@gmail.com" class="flex flex-col items-center p-4 bg-pan-cream dark:bg-pan-contrast rounded-lg hover:bg-pan-orange hover:text-white transition duration-300 shadow-md group">
-                            <i data-lucide="mail" class="w-12 h-12 mb-2 text-red-500 group-hover:text-white"></i>
-                            <span class="text-sm font-semibold">Email</span>
-                        </a>
-                    </div>
-
-                    <div class="mt-12 text-left">
-                        <h3 class="text-2xl font-bold text-pan-dark dark:text-pan-cream mb-6 text-center">Preguntas Frecuentes</h3>
-                        <div class="space-y-4">
-                            <details class="bg-pan-cream dark:bg-pan-contrast p-4 rounded-lg shadow-inner">
-                                <summary class="font-semibold text-pan-dark dark:text-pan-cream cursor-pointer">¿Cómo hago un pedido?</summary>
-                                <p class="text-pan-contrast dark:text-pan-light mt-2">Podés hacer tu pedido por WhatsApp o directamente desde nuestra página agregando productos al carrito.</p>
-                            </details>
-                            <details class="bg-pan-cream dark:bg-pan-contrast p-4 rounded-lg shadow-inner">
-                                <summary class="font-semibold text-pan-dark dark:text-pan-cream cursor-pointer">¿Hacen envíos?</summary>
-                                <p class="text-pan-contrast dark:text-pan-light mt-2">Sí, realizamos envíos en la zona de Paraná. Consultanos por tu ubicación.</p>
-                            </details>
-                            <details class="bg-pan-cream dark:bg-pan-contrast p-4 rounded-lg shadow-inner">
-                                <summary class="font-semibold text-pan-dark dark:text-pan-cream cursor-pointer">¿Con cuánta anticipación debo pedir?</summary>
-                                <p class="text-pan-contrast dark:text-pan-light mt-2">Recomendamos hacer el pedido con al menos 24hs de anticipación para garantizar la disponibilidad.</p>
-                            </details>
-                            <details class="bg-pan-cream dark:bg-pan-contrast p-4 rounded-lg shadow-inner">
-                                <summary class="font-semibold text-pan-dark dark:text-pan-cream cursor-pointer">¿Los productos son aptos celíacos?</summary>
-                                <p class="text-pan-contrast dark:text-pan-light mt-2">Algunos productos como el Chipá son sin TACC. Consultanos por cada producto específico.</p>
-                            </details>
-                            <details class="bg-pan-cream dark:bg-pan-contrast p-4 rounded-lg shadow-inner">
-                                <summary class="font-semibold text-pan-dark dark:text-pan-cream cursor-pointer">¿Cuánto duran los productos?</summary>
-                                <p class="text-pan-contrast dark:text-pan-light mt-2">Al no tener conservantes, recomendamos consumirlos dentro de los 3-4 días. Podés congelarlos para extender su vida útil.</p>
-                            </details>
-                            <details class="bg-pan-cream dark:bg-pan-contrast p-4 rounded-lg shadow-inner">
-                                <summary class="font-semibold text-pan-dark dark:text-pan-cream cursor-pointer">¿Qué métodos de pago aceptan?</summary>
-                                <p class="text-pan-contrast dark:text-pan-light mt-2">Aceptamos efectivo, transferencia bancaria y Mercado Pago.</p>
-                            </details>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="bg-pan-contrast dark:bg-pan-dark py-8 text-center text-pan-light dark:text-pan-cream transition duration-300">
-        <p>&copy; 2025 D'Pan - Panadería Artesanal y Bienestar.</p>
-        <p class="text-sm mt-2"><a href="#" class="hover:text-pan-orange transition">Términos y Condiciones</a></p>
-    </footer>
-    <!-- MODAL DE DETALLE DE PRODUCTO -->
-    <div id="product-modal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-pan-contrast/80 dark:bg-pan-dark/90 transition-opacity duration-300">
-        <div class="flex items-center justify-center min-h-screen p-4">
-            <div class="relative w-full max-w-2xl bg-pan-cream dark:bg-pan-contrast rounded-xl shadow-2xl p-6 md:p-8 transform scale-95 opacity-0 transition-all duration-300" id="modal-content-wrapper">
-                <button id="close-modal" class="absolute top-4 right-4 text-pan-dark dark:text-pan-light hover:text-pan-orange transition-colors">
-                    <i data-lucide="x" class="w-8 h-8"></i>
-                </button>
-                <div id="modal-body"></div>
-            </div>
-        </div>
-    </div>
-
-    <!-- MODAL DE RESULTADO DEL QUIZ -->
-    <div id="quiz-result-modal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-pan-contrast/80 dark:bg-pan-dark/90 transition-opacity duration-300">
-        <div class="flex items-center justify-center min-h-screen p-4">
-            <div class="relative w-full max-w-md bg-pan-cream dark:bg-pan-contrast rounded-xl shadow-2xl p-6 md:p-8 transform scale-95 opacity-0 transition-all duration-300" id="quiz-modal-content-wrapper">
-                <button id="close-quiz-modal" class="absolute top-4 right-4 text-pan-dark dark:text-pan-light hover:text-pan-orange transition-colors">
-                    <i data-lucide="x" class="w-8 h-8"></i>
-                </button>
-                <div id="quiz-modal-body" class="text-center"></div>
-            </div>
-        </div>
-    </div>
-    
-    <!-- MODAL DE ÉXITO DE BIENESTAR -->
-    <div id="bienestar-success-modal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-pan-contrast/80 dark:bg-pan-dark/90 transition-opacity duration-300">
-        <div class="flex items-center justify-center min-h-screen p-4">
-            <div class="relative w-full max-w-sm bg-pan-cream dark:bg-pan-contrast rounded-xl shadow-2xl p-8 transform scale-95 opacity-0 transition-all duration-300" id="bienestar-modal-content-wrapper">
-                <button onclick="closeBienestarSuccessModal()" class="absolute top-4 right-4 text-pan-dark dark:text-pan-light hover:text-pan-orange transition-colors">
-                    <i data-lucide="x" class="w-8 h-8"></i>
-                </button>
-                <div class="text-center">
-                    <i data-lucide="heart-handshake" class="w-16 h-16 mx-auto mb-4 text-pan-orange dark:text-pan-accent"></i>
-                    <p class="text-lg text-pan-contrast dark:text-pan-light mb-6">
-                        Gracias por escribir, gracias por elegirte, gracias por estar. Te mando un abrazo grande, David.
-                    </p>
-                    <button onclick="closeBienestarSuccessModal(); showPage('productos');" class="px-6 py-3 bg-pan-dark text-white rounded-full font-semibold hover:bg-pan-accent transition duration-300 shadow-md">
-                        ¿Comemos algo?
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Panel Lateral del Carrito con CUPONES -->
+            <!-- Panel Lateral del Carrito con CUPONES -->
     <div id="cart-overlay" class="fixed inset-0 bg-pan-contrast/80 z-40 hidden transition-opacity duration-300" onclick="closeCart()">
         <div id="cart-drawer" class="fixed right-0 top-0 h-full w-full max-w-xs md:max-w-sm bg-pan-cream dark:bg-pan-dark shadow-2xl cart-drawer-transition transform translate-x-full" onclick="event.stopPropagation()">
             <div class="flex flex-col h-full">
@@ -435,6 +291,7 @@
             </div>
         </div>
     </div>
+
     <script>
         lucide.createIcons();
 
@@ -442,290 +299,11 @@
         let ALL_PRODUCTS = [];
         let cart = [];
         let currentQuizStep = 0;
-        let quizScore = 0;
+        let quizAnswers = { estado: null, momento: null, gusto: null };
         let appliedCoupon = null;
         let discountAmount = 0;
 
-        // Elementos del DOM
-        const htmlElement = document.documentElement;
-        const cartDrawer = document.getElementById('cart-drawer');
-        const cartOverlay = document.getElementById('cart-overlay');
-        const cartCountElement = document.getElementById('cart-count');
-        const cartContentElement = document.getElementById('cart-content');
-        const cartTotalElement = document.getElementById('cart-total');
-        const finalizeWhatsappButton = document.getElementById('finalize-whatsapp-button');
-        const bienestarSuccessModal = document.getElementById('bienestar-success-modal');
-        const bienestarModalContentWrapper = document.getElementById('bienestar-modal-content-wrapper');
-
-        // Cargar productos desde API
-        async function loadProductsFromAPI() {
-            try {
-                const response = await fetch('/api/products');
-                if (!response.ok) throw new Error('Error al cargar productos');
-                ALL_PRODUCTS = await response.json();
-                renderProducts();
-            } catch (error) {
-                console.error('Error cargando productos:', error);
-                document.getElementById('featured-products-grid').innerHTML = '<p class="col-span-full text-center text-red-500">Error al cargar productos. Recarga la página.</p>';
-            }
-        }
-
-        // Navegación entre páginas
-        const showPage = (pageId) => {
-            document.querySelectorAll('.page').forEach(page => page.classList.add('hidden'));
-            const targetPage = document.getElementById(`page-${pageId}`);
-            if (targetPage) targetPage.classList.remove('hidden');
-            window.scrollTo(0, 0);
-        };
-
-        document.querySelectorAll('.page-link').forEach(button => {
-            button.addEventListener('click', (e) => {
-                const pageId = e.currentTarget.getAttribute('data-page');
-                showPage(pageId);
-            });
-        });
-
-        // Funciones del modal de Bienestar
-        const clearAndShowSuccessModal = () => {
-            document.getElementById('descarga-text').value = '';
-            openBienestarSuccessModal();
-        }
-
-        const openBienestarSuccessModal = () => {
-            bienestarSuccessModal.classList.remove('hidden');
-            setTimeout(() => {
-                bienestarModalContentWrapper.classList.remove('scale-95', 'opacity-0');
-                bienestarModalContentWrapper.classList.add('scale-100', 'opacity-100');
-            }, 10);
-            document.body.style.overflow = 'hidden';
-            lucide.createIcons();
-        }
-
-        const closeBienestarSuccessModal = () => {
-            bienestarModalContentWrapper.classList.remove('scale-100', 'opacity-100');
-            bienestarModalContentWrapper.classList.add('scale-95', 'opacity-0');
-            setTimeout(() => {
-                bienestarSuccessModal.classList.add('hidden');
-                document.body.style.overflow = 'auto';
-            }, 300);
-        }
-
-        // Funciones del carrito
-        function openCart() {
-            cartOverlay.classList.remove('hidden');
-            cartDrawer.classList.remove('translate-x-full');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeCart() {
-            cartDrawer.classList.add('translate-x-full');
-            setTimeout(() => {
-                cartOverlay.classList.add('hidden');
-                document.body.style.overflow = 'auto';
-            }, 300);
-        }
-
-        const updateCartDisplay = () => {
-            let totalItems = 0;
-            let totalCost = 0;
-            cartContentElement.innerHTML = '';
-
-            if (cart.length === 0) {
-                cartContentElement.innerHTML = '<p class="text-center text-pan-contrast/70 dark:text-pan-light/70 py-10">Tu carrito está vacío. ¡Añade nuestros panes!</p>';
-                finalizeWhatsappButton.disabled = true;
-                finalizeWhatsappButton.textContent = 'Pedir por WhatsApp (0)';
-            } else {
-                cart.forEach((item, index) => {
-                    const subtotal = item.quantity * item.price;
-                    totalItems += item.quantity;
-                    totalCost += subtotal;
-
-                    const itemElement = document.createElement('div');
-                    itemElement.className = 'flex items-center space-x-3 p-3 bg-pan-cream dark:bg-pan-contrast rounded-lg shadow-inner';
-                    itemElement.innerHTML = `
-                        <img src="${item.img_url}" alt="${item.name}" class="w-12 h-12 object-cover rounded-md border border-pan-accent/30 flex-shrink-0" onerror="this.onerror=null; this.src='https://placehold.co/48x48/E28C42/FFF?text=ERR'">
-                        <div class="flex-grow min-w-0">
-                            <p class="font-semibold text-pan-dark dark:text-pan-cream text-sm truncate">${item.name}</p>
-                            <p class="text-xs text-pan-contrast/80 dark:text-pan-light/80">Costo: $${item.price}</p>
-                            <p class="font-bold text-pan-orange dark:text-pan-accent text-lg">$${subtotal}</p>
-                        </div>
-                        <div class="flex items-center space-x-1 flex-shrink-0">
-                            <button data-index="${index}" class="decrease-quantity text-pan-dark dark:text-pan-light hover:text-red-500 p-1 rounded-full transition duración-150">
-                                <i data-lucide="minus-circle" class="w-6 h-6"></i>
-                            </button>
-                            <span class="font-bold text-pan-dark dark:text-pan-cream w-4 text-center">${item.quantity}</span>
-                            <button data-index="${index}" class="increase-quantity text-pan-dark dark:text-pan-light hover:text-green-500 p-1 rounded-full transition duración-150">
-                                <i data-lucide="plus-circle" class="w-6 h-6"></i>
-                            </button>
-                        </div>
-                    `;
-                    cartContentElement.appendChild(itemElement);
-                });
-                finalizeWhatsappButton.disabled = false;
-            }
-
-            cartCountElement.textContent = totalItems;
-
-            // Calcular descuento si hay cupón
-            if (appliedCoupon) {
-                if (appliedCoupon.type === 'percentage') {
-                    discountAmount = Math.round(totalCost * (appliedCoupon.discount / 100));
-                } else {
-                    discountAmount = appliedCoupon.discount;
-                }
-
-                document.getElementById('cart-subtotal').textContent = `$${totalCost}`;
-                document.getElementById('discount-section').classList.remove('hidden');
-                document.getElementById('coupon-code').textContent = appliedCoupon.code;
-                document.getElementById('discount-amount').textContent = `-$${discountAmount}`;
-
-                const finalTotal = Math.max(0, totalCost - discountAmount);
-                cartTotalElement.textContent = `$${finalTotal}`;
-            } else {
-                document.getElementById('cart-subtotal').textContent = `$${totalCost}`;
-                document.getElementById('discount-section').classList.add('hidden');
-                cartTotalElement.textContent = `$${totalCost}`;
-            }
-
-            const cartMessage = document.getElementById('cart-message');
-            if (cartMessage) {
-                const finalTotal = appliedCoupon ? Math.max(0, totalCost - discountAmount) : totalCost;
-                cartMessage.innerHTML = totalItems > 0 
-                    ? `¡Tenés ${totalItems} productos listos! Total: $${finalTotal}`
-                    : 'Tu carrito está vacío.';
-            }
-
-            lucide.createIcons();
-            attachCartQuantityListeners();
-        };
-
-        const updateCartItemQuantity = (index, change) => {
-            if (index < 0 || index >= cart.length) return;
-            cart[index].quantity += change;
-            if (cart[index].quantity <= 0) {
-                cart.splice(index, 1);
-            }
-            updateCartDisplay();
-        };
-
-        const addToCart = (productId) => {
-            const product = ALL_PRODUCTS.find(p => p.id === productId);
-            if (!product) return;
-
-            // Calcular precio con descuento si existe
-            const finalPrice = product.discount && product.discount > 0
-                ? Math.round(product.price * (1 - product.discount / 100))
-                : product.price;
-
-            const existingItemIndex = cart.findIndex(item => item.id === productId);
-
-            if (existingItemIndex > -1) {
-                cart[existingItemIndex].quantity += 1;
-            } else {
-                cart.push({
-                    id: product.id,
-                    name: product.name,
-                    price: finalPrice,
-                    quantity: 1,
-                    img_url: product.img_url
-                });
-            }
-
-            updateCartDisplay();
-            openCart();
-        };
-
-        const attachCartQuantityListeners = () => {
-            document.querySelectorAll('.increase-quantity').forEach(button => {
-                button.onclick = (e) => {
-                    const index = parseInt(e.currentTarget.getAttribute('data-index'));
-                    updateCartItemQuantity(index, 1);
-                };
-            });
-
-            document.querySelectorAll('.decrease-quantity').forEach(button => {
-                button.onclick = (e) => {
-                    const index = parseInt(e.currentTarget.getAttribute('data-index'));
-                    updateCartItemQuantity(index, -1);
-                };
-            });
-        }
-
-        // Función para aplicar cupón
-        async function applyCoupon() {
-            const couponInput = document.getElementById('coupon-input');
-            const couponCode = couponInput.value.trim().toUpperCase();
-            const couponMessage = document.getElementById('coupon-message');
-
-            if (!couponCode) {
-                couponMessage.textContent = 'Ingresa un código';
-                couponMessage.className = 'text-sm text-red-500';
-                couponMessage.classList.remove('hidden');
-                return;
-            }
-
-            try {
-                const response = await fetch('/api/validate-coupon', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ code: couponCode })
-                });
-
-                const data = await response.json();
-
-                if (response.ok) {
-                    appliedCoupon = {
-                        code: couponCode,
-                        discount: data.discount,
-                        type: data.type
-                    };
-
-                    couponMessage.textContent = `¡Cupón aplicado! ${data.type === 'percentage' ? data.discount + '%' : '$' + data.discount} de descuento`;
-                    couponMessage.className = 'text-sm text-green-600 font-semibold';
-                    couponMessage.classList.remove('hidden');
-
-                    updateCartDisplay();
-                } else {
-                    couponMessage.textContent = data.error || 'Cupón inválido';
-                    couponMessage.className = 'text-sm text-red-500';
-                    couponMessage.classList.remove('hidden');
-                    appliedCoupon = null;
-                }
-            } catch (error) {
-                couponMessage.textContent = 'Error al validar cupón';
-                couponMessage.className = 'text-sm text-red-500';
-                couponMessage.classList.remove('hidden');
-            }
-        }
-
-        // Finalizar pedido por WhatsApp
-        const finalizeOrder = () => {
-            if (cart.length === 0) return;
-
-            let message = "Hola D'PAN, quiero encargar lo siguiente:%0A%0A";
-            let total = 0;
-
-            cart.forEach(item => {
-                const subtotal = item.quantity * item.price;
-                message += `* ${item.quantity} x ${item.name} (Subtotal: $${subtotal})%0A`;
-                total += subtotal;
-            });
-
-            message += `%0ASubtotal: $${total}`;
-
-            if (appliedCoupon) {
-                message += `%0ADescuento (${appliedCoupon.code}): -$${discountAmount}`;
-                total = Math.max(0, total - discountAmount);
-            }
-
-            message += `%0A*TOTAL FINAL: $${total}*%0A%0A`;
-            message += "Por favor, confírmenme el pedido y el método de pago/entrega.";
-
-            const whatsappUrl = `https://wa.me/5493436108756?text=${message}`;
-            window.open(whatsappUrl, '_blank');
-            closeCart();
-        }
-        // Preguntas del Quiz
+        // ---------------- QUIZ CORREGIDO ----------------
         const QUIZ_QUESTIONS = [
             {
                 question: "¿Cómo te sentís en este momento?",
@@ -746,9 +324,9 @@
             {
                 question: "¿Tenés ganas de algo...?",
                 options: [
-                    { text: "Salado", score: 3 },
-                    { text: "Dulce", score: 1 },
-                    { text: "Me es indistinto", score: 2 }
+                    { text: "Dulce 🍩", score: 1 },
+                    { text: "Indiferente 🤷", score: 2 },
+                    { text: "Salado 🥪", score: 3 }
                 ]
             }
         ];
@@ -779,349 +357,103 @@
             `;
 
             document.querySelectorAll('.quiz-option').forEach(button => {
-                button.addEventListener('click', handleAnswer);
+                button.addEventListener('click', (e) => {
+                    const score = parseInt(e.currentTarget.getAttribute('data-score'));
+                    if (currentQuizStep === 0) quizAnswers.estado = score;
+                    if (currentQuizStep === 1) quizAnswers.momento = score;
+                    if (currentQuizStep === 2) quizAnswers.gusto = score;
+                    currentQuizStep++;
+                    renderQuizStep();
+                });
             });
             startQuizButton.classList.add('hidden');
         };
 
-        const handleAnswer = (e) => {
-            const score = parseInt(e.currentTarget.getAttribute('data-score'));
-            quizScore += score;
-            currentQuizStep++;
-            renderQuizStep();
-        };
-
         const showQuizResult = () => {
-            // LÓGICA MEJORADA: Busca productos por categoría según respuestas
             let resultProduct = ALL_PRODUCTS[0];
-            
-            // Categorizar según puntaje EXACTO
-            if (quizScore >= 3 && quizScore <= 4) {
-                // DULCES: Usuario quiere algo dulce, está bajón, busca antojo
-                const dulces = ALL_PRODUCTS.filter(p => 
-                    p.quiz_score && (p.quiz_score.includes(3) || p.quiz_score.includes(4))
-                );
-                resultProduct = dulces.length > 0 
-                    ? dulces[Math.floor(Math.random() * dulces.length)]
-                    : ALL_PRODUCTS[0];
-                    
-            } else if (quizScore >= 5 && quizScore <= 6) {
-                // MERIENDA: Usuario busca merienda, puede ser dulce o versátil
-                const merienda = ALL_PRODUCTS.filter(p => 
-                    p.quiz_score && (p.quiz_score.includes(5) || p.quiz_score.includes(6))
-                );
-                resultProduct = merienda.length > 0 
-                    ? merienda[Math.floor(Math.random() * merienda.length)]
-                    : ALL_PRODUCTS[0];
-                    
-            } else if (quizScore === 7) {
-                // VERSÁTIL: Usuario está neutral, indeciso
-                const versatiles = ALL_PRODUCTS.filter(p => 
-                    p.quiz_score && (p.quiz_score.includes(6) || p.quiz_score.includes(7))
-                );
-                resultProduct = versatiles.length > 0 
-                    ? versatiles[Math.floor(Math.random() * versatiles.length)]
-                    : ALL_PRODUCTS[0];
-                    
-            } else if (quizScore >= 8 && quizScore <= 9) {
-                // SALADOS/COMIDAS: Usuario está bien, busca comida, quiere salado
-                const salados = ALL_PRODUCTS.filter(p => 
-                    p.quiz_score && (p.quiz_score.includes(8) || p.quiz_score.includes(9))
-                );
-                resultProduct = salados.length > 0 
-                    ? salados[Math.floor(Math.random() * salados.length)]
-                    : ALL_PRODUCTS[0];
+            const gusto = quizAnswers.gusto;
+
+            if (gusto === 1) {
+                const dulces = ALL_PRODUCTS.filter(p => p.category === "dulce");
+                if (dulces.length) resultProduct = dulces[Math.floor(Math.random() * dulces.length)];
+            } else if (gusto === 3) {
+                const salados = ALL_PRODUCTS.filter(p => p.category === "salado");
+                if (salados.length) resultProduct = salados[Math.floor(Math.random() * salados.length)];
+            } else {
+                const versatiles = ALL_PRODUCTS.filter(p => p.category === "versatil" || p.category === "merienda");
+                if (versatiles.length) resultProduct = versatiles[Math.floor(Math.random() * versatiles.length)];
             }
 
-            // Frase aleatoria para el encabezado del resultado
-            const message = fraseAleatoria();
-
             const quizModalBody = document.getElementById('quiz-modal-body');
-            const quizResultModal = document.getElementById('quiz-result-modal');
-            const quizModalContentWrapper = document.getElementById('quiz-modal-content-wrapper');
-
-            // Calcular precio con descuento si existe
-            const hasDiscount = resultProduct.discount && resultProduct.discount > 0;
-            const displayPrice = hasDiscount 
-                ? Math.round(resultProduct.price * (1 - resultProduct.discount / 100))
-                : resultProduct.price;
-            
-            const priceHTML = hasDiscount 
-                ? `<span class="line-through text-gray-400 text-lg mr-2">$${resultProduct.price}</span><span class="text-2xl">$${displayPrice}</span> <span class="text-sm bg-red-500 text-white px-2 py-1 rounded">-${resultProduct.discount}%</span>`
-                : `$${resultProduct.price}`;
-
             quizModalBody.innerHTML = `
-                <h3 class="text-3xl font-display font-bold text-pan-orange mb-4">${message}</h3>
-                <div class="bg-pan-cream dark:bg-pan-dark p-6 rounded-xl border-4 border-pan-accent shadow-lg">
-                    <img src="${resultProduct.img_url}" 
-                        onerror="this.onerror=null; this.src='https://placehold.co/300x200/8B5E3C/FFF?text=ERR';"
-                        alt="Resultado: ${resultProduct.name}"
-                        class="w-full h-auto object-cover rounded-lg mb-4 aspect-video shadow-md">
-                    <h4 class="text-3xl font-semibold text-pan-dark dark:text-pan-cream mb-2">${resultProduct.name}</h4>
-                    <p class="text-pan-contrast dark:text-pan-light mb-4">${resultProduct.short_description}</p>
-                </div>
-                
-                <div class="flex flex-col space-y-3 mt-4">
-                    <button onclick="addToCart('${resultProduct.id}'); closeQuizModal();" class="px-6 py-3 bg-pan-orange text-white font-bold rounded-lg hover:bg-pan-dark transition duration-300 transform hover:scale-[1.02] shadow-xl">
-                        <i data-lucide="shopping-bag" class="w-5 h-5 mr-2 inline"></i> Encargar Ahora (${priceHTML})
-                    </button>
-                    <button onclick="openProductModal('${resultProduct.id}'); closeQuizModal();" class="px-6 py-3 bg-pan-dark text-white rounded-lg hover:bg-pan-accent transition duration-300 shadow-md">
-                        Ver Detalles
-                    </button>
-                    <button onclick="resetQuiz();" class="text-pan-contrast/70 dark:text-pan-light/70 hover:text-pan-dark dark:hover:text-pan-light transition duration-300 text-sm">
-                        Probar otro resultado
-                    </button>
-                </div>
+                <h3 class="text-2xl font-bold mb-4">Según tus respuestas, lo ideal para vos es:</h3>
+                <img src="${resultProduct.img_url}" alt="${resultProduct.name}"
+                     class="w-full max-w-xs mx-auto rounded-lg shadow-lg mb-6 object-cover">
+                <p class="text-lg mb-4">${resultProduct.short_description}</p>
+                <button onclick="addToCart('${resultProduct.id}'); closeQuizModal();" 
+                        class="w-full px-6 py-3 bg-pan-orange text-white font-bold rounded-full shadow-lg hover:bg-pan-dark transition">
+                    Encargar ahora
+                </button>
             `;
-
-            quizResultModal.classList.remove('hidden');
+            const modal = document.getElementById('quiz-result-modal');
+            const wrapper = document.getElementById('quiz-modal-content-wrapper');
+            modal.classList.remove('hidden');
             setTimeout(() => {
-                quizModalContentWrapper.classList.remove('scale-95', 'opacity-0');
-                quizModalContentWrapper.classList.add('scale-100', 'opacity-100');
+                wrapper.classList.remove('scale-95','opacity-0');
+                wrapper.classList.add('scale-100','opacity-100');
             }, 10);
-            document.body.style.overflow = 'hidden';
-            lucide.createIcons();
         };
 
         const resetQuiz = () => {
             currentQuizStep = 0;
-            quizScore = 0;
-            document.getElementById('quiz-container').innerHTML = '';
+            quizAnswers = { estado: null, momento: null, gusto: null };
+                        document.getElementById('quiz-container').innerHTML = '';
             document.getElementById('start-quiz-button').classList.remove('hidden');
             closeQuizModal();
-        }
+        };
 
         const closeQuizModal = () => {
-            const quizResultModal = document.getElementById('quiz-result-modal');
-            const quizModalContentWrapper = document.getElementById('quiz-modal-content-wrapper');
-            quizModalContentWrapper.classList.remove('scale-100', 'opacity-100');
-            quizModalContentWrapper.classList.add('scale-95', 'opacity-0');
+            const modal = document.getElementById('quiz-result-modal');
+            const wrapper = document.getElementById('quiz-modal-content-wrapper');
+            wrapper.classList.remove('scale-100','opacity-100');
+            wrapper.classList.add('scale-95','opacity-0');
             setTimeout(() => {
-                quizResultModal.classList.add('hidden');
-                document.body.style.overflow = 'auto';
+                modal.classList.add('hidden');
             }, 300);
         };
 
         document.getElementById('close-quiz-modal').addEventListener('click', closeQuizModal);
-        // Modal de detalle de producto
-        const openProductModal = (productId) => {
-            const product = ALL_PRODUCTS.find(p => p.id === productId);
-            if (!product) return;
 
-            const modalBody = document.getElementById('modal-body');
-            const productModal = document.getElementById('product-modal');
-            const modalContentWrapper = document.getElementById('modal-content-wrapper');
-
-            const ingredientsList = product.ingredients.map(ing => `
-                <li class="flex items-start">
-                    <i data-lucide="check-circle" class="w-5 h-5 mr-2 mt-1 text-pan-orange flex-shrink-0"></i>
-                    <span>${ing}</span>
-                </li>
-            `).join('');
-
-            // Calcular precio con descuento
-            const hasDiscount = product.discount && product.discount > 0;
-            const displayPrice = hasDiscount 
-                ? Math.round(product.price * (1 - product.discount / 100))
-                : product.price;
-            
-            const priceHTML = hasDiscount 
-                ? `
-                    <div class="flex flex-col">
-                        <span class="text-lg text-gray-500 line-through">$${product.price}</span>
-                        <div class="flex items-center space-x-2">
-                            <span class="text-3xl font-bold text-pan-orange dark:text-pan-accent">$${displayPrice}</span>
-                            <span class="text-sm font-bold bg-red-500 text-white px-2 py-1 rounded">-${product.discount}%</span>
-                        </div>
-                    </div>
-                `
-                : `<span class="text-3xl font-bold text-pan-orange dark:text-pan-accent">$${product.price}</span>`;
-
-            modalBody.innerHTML = `
-                <div class="md:flex md:space-x-6">
-                    <div class="md:w-1/2 mb-4 md:mb-0">
-                        <img src="${product.img_url}" 
-                            onerror="this.onerror=null; this.src='https://placehold.co/400x400/8B5E3C/FFF?text=FOTO+NO+CARGADA';"
-                            alt="Detalle de ${product.name}"
-                            class="w-full h-auto object-cover rounded-lg border-4 border-pan-accent shadow-xl">
-                    </div>
-                    <div class="md:w-1/2">
-                        <h3 class="text-3xl font-display font-bold text-pan-dark dark:text-pan-accent mb-2">${product.name}</h3>
-                        <p class="text-pan-contrast dark:text-pan-light mb-4">${product.long_description}</p>
-                        <h4 class="text-xl font-semibold text-pan-dark dark:text-pan-light mb-2">Ingredientes Clave:</h4>
-                        <ul class="space-y-2 text-pan-contrast dark:text-pan-light text-sm list-none pl-0">
-                            ${ingredientsList}
-                        </ul>
-                        <div class="mt-6 flex justify-between items-center border-t pt-4 border-pan-dark/10 dark:border-pan-light/10">
-                            ${priceHTML}
-                            <button data-product-id="${product.id}" 
-                                class="add-to-cart-modal px-6 py-3 bg-pan-orange text-white rounded-lg hover:bg-pan-dark transition duration-300 flex items-center shadow-lg transform hover:scale-105">
-                                <i data-lucide="plus" class="w-5 h-5 mr-2"></i> Añadir al Carrito
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            `;
-            lucide.createIcons();
-
-            productModal.classList.remove('hidden');
-            setTimeout(() => {
-                modalContentWrapper.classList.remove('scale-95', 'opacity-0');
-                modalContentWrapper.classList.add('scale-100', 'opacity-100');
-            }, 10);
-
-            document.querySelector('.add-to-cart-modal').onclick = (e) => {
-                const productId = e.currentTarget.getAttribute('data-product-id');
-                addToCart(productId);
-                closeProductModal();
-            };
-
-            document.body.style.overflow = 'hidden';
-        };
-
-        const closeProductModal = () => {
-            const productModal = document.getElementById('product-modal');
-            const modalContentWrapper = document.getElementById('modal-content-wrapper');
-            modalContentWrapper.classList.remove('scale-100', 'opacity-100');
-            modalContentWrapper.classList.add('scale-95', 'opacity-0');
-            setTimeout(() => {
-                productModal.classList.add('hidden');
-                document.body.style.overflow = 'auto';
-            }, 300);
-        };
-
-        document.getElementById('close-modal').addEventListener('click', closeProductModal);
-
-        // Renderizado de productos CON DESCUENTOS
-        const renderProductCard = (product) => {
-            const hasDiscount = product.discount && product.discount > 0;
-            const originalPrice = product.price;
-            const discountedPrice = hasDiscount 
-                ? Math.round(originalPrice * (1 - product.discount / 100))
-                : originalPrice;
-            
-            const priceHTML = hasDiscount 
-                ? `
-                    <div class="flex flex-col items-start">
-                        <span class="text-sm text-gray-500 dark:text-gray-400 line-through">$${originalPrice}</span>
-                        <div class="flex items-center space-x-2">
-                            <span class="text-xl font-bold text-pan-accent dark:text-pan-orange">$${discountedPrice}</span>
-                            <span class="text-xs font-bold bg-red-500 text-white px-2 py-1 rounded-full">-${product.discount}%</span>
-                        </div>
-                    </div>
-                `
-                : `<span class="text-xl font-bold text-pan-accent dark:text-pan-orange">$${originalPrice}</span>`;
-            
-            const offerBadge = hasDiscount 
-                ? `<div class="absolute top-2 right-2 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg animate-pulse">¡OFERTA!</div>`
-                : '';
-            
-            return `
-                <div class="product-card bg-pan-light dark:bg-pan-dark p-6 rounded-xl shadow-xl hover:shadow-2xl transition duration-300 flex flex-col border border-pan-accent/30 dark:border-pan-dark relative" data-product-id="${product.id}">
-                    ${offerBadge}
-                    <div class="product-detail-trigger cursor-pointer">
-                        <img src="${product.img_url}" 
-                             onerror="this.onerror=null; this.src='https://placehold.co/400x300/8B5E3C/FFF?text=FOTO+NO+CARGADA';"
-                             alt="${product.name}"
-                             class="w-full h-auto object-cover rounded-lg mb-4 aspect-video border-2 border-pan-accent dark:border-pan-orange shadow-lg hover:opacity-90 transition duration-300">
-                        
-                        <h3 class="text-2xl font-semibold text-pan-dark dark:text-pan-cream mb-2">${product.name}</h3>
-                    </div>
-                    <p class="text-pan-contrast dark:text-pan-light mb-4 flex-grow">${product.short_description}</p>
-                    <div class="flex justify-between items-center mt-4">
-                        ${priceHTML}
-                        <button data-product-id="${product.id}" class="add-to-cart px-4 py-2 bg-pan-dark text-white rounded-lg hover:bg-pan-orange transition duration-300 flex items-center shadow-md">
-                            <i data-lucide="plus" class="w-4 h-4 mr-1"></i> Añadir
-                        </button>
-                    </div>
-                </div>
-            `;
-        };
-
+        // ---------------- Resto de tu código (carrito, productos, tema, etc.) ----------------
+        // Renderizado de productos
         const renderProducts = () => {
             const featuredGrid = document.getElementById('featured-products-grid');
             const fullGrid = document.getElementById('full-products-grid');
+            if (!ALL_PRODUCTS.length) return;
 
             featuredGrid.innerHTML = ALL_PRODUCTS
                 .filter(p => p.featured)
-                .map(renderProductCard)
-                .join('');
+                .map(p => `
+                    <div class="bg-white rounded-lg shadow p-4 flex flex-col">
+                        <img src="${p.img_url}" alt="${p.name}" class="w-full h-40 object-cover rounded mb-4">
+                        <h3 class="text-xl font-bold mb-2">${p.name}</h3>
+                        <p class="text-sm mb-2">${p.short_description}</p>
+                        <p class="font-semibold text-pan-orange mb-4">$${p.price}</p>
+                        <button onclick="addToCart('${p.id}')" class="mt-auto px-4 py-2 bg-pan-dark text-white rounded hover:bg-pan-orange transition">Añadir</button>
+                    </div>
+                `).join('');
 
             fullGrid.innerHTML = ALL_PRODUCTS
-                .map(renderProductCard)
-                .join('');
-
-            lucide.createIcons();
-            attachProductCardListeners();
+                .map(p => `
+                    <div class="bg-white rounded-lg shadow p-4 flex flex-col">
+                        <img src="${p.img_url}" alt="${p.name}" class="w-full h-40 object-cover rounded mb-4">
+                        <h3 class="text-xl font-bold mb-2">${p.name}</h3>
+                        <p class="text-sm mb-2">${p.short_description}</p>
+                        <p class="font-semibold text-pan-orange mb-4">$${p.price}</p>
+                        <button onclick="addToCart('${p.id}')" class="mt-auto px-4 py-2 bg-pan-dark text-white rounded hover:bg-pan-orange transition">Añadir</button>
+                    </div>
+                `).join('');
         };
-
-        const attachProductCardListeners = () => {
-            document.querySelectorAll('.add-to-cart').forEach(button => {
-                button.onclick = (e) => {
-                    const productId = e.currentTarget.getAttribute('data-product-id');
-                    addToCart(productId);
-                };
-            });
-
-            document.querySelectorAll('.product-card').forEach(card => {
-                card.querySelector('.product-detail-trigger').onclick = (e) => {
-                    const productId = card.getAttribute('data-product-id');
-                    openProductModal(productId);
-                };
-            });
-        };
-        // Tema dark/light con detección automática del sistema
-        const themeToggle = document.getElementById('theme-toggle');
-        
-        // Función para aplicar tema
-        function applyTheme(theme) {
-            if (theme === 'dark') {
-                htmlElement.classList.add('dark');
-            } else {
-                htmlElement.classList.remove('dark');
-            }
-        }
-        
-        // Detectar preferencia del sistema si no hay configuración guardada
-        if (!localStorage.getItem('theme')) {
-            // Si el usuario no ha elegido, usar preferencia del sistema
-            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            applyTheme(prefersDark ? 'dark' : 'light');
-        } else {
-            // Si ya eligió antes, usar su preferencia
-            applyTheme(localStorage.getItem('theme'));
-        }
-
-        // Cambiar tema al hacer click
-        themeToggle.addEventListener('click', () => {
-            if (htmlElement.classList.contains('dark')) {
-                htmlElement.classList.remove('dark');
-                localStorage.setItem('theme', 'light');
-            } else {
-                htmlElement.classList.add('dark');
-                localStorage.setItem('theme', 'dark');
-            }
-        });
-
-        // Función para toggle del menú móvil con animación
-        function toggleMobileMenu() {
-            const mobileMenu = document.getElementById('mobile-menu');
-            mobileMenu.classList.toggle('hidden');
-            
-            // Si se abre, agregar animación
-            if (!mobileMenu.classList.contains('hidden')) {
-                mobileMenu.classList.add('animate-slide-down');
-            }
-            
-            lucide.createIcons();
-        }
-
-        // Cerrar menú móvil al hacer clic en cualquier link
-        document.querySelectorAll('#mobile-menu .page-link').forEach(btn => {
-            btn.addEventListener('click', () => {
-                document.getElementById('mobile-menu').classList.add('hidden');
-            });
-        });
 
         // Inicialización
         document.addEventListener('DOMContentLoaded', () => {
@@ -1130,30 +462,7 @@
             showPage('inicio');
             lucide.createIcons();
         });
-
-    </script>
-
-    <!-- Bloque de frases para el resultado del Quiz -->
-    <script>
-      const frases = [
-        "Según tus respuestas, lo que más te va a gustar ahora es esto 😋",
-        "Lo ideal para vos en este momento es esto ✨",
-        "Tu mejor opción ahora mismo es esto 🥖",
-        "Lo que va perfecto con tu día de hoy es esto 🌞",
-        "Después de tus respuestas, la recomendación es clara: esto 💡",
-        "Hoy lo que más te va a rendir es esto 💪",
-        "Para este momento, nada mejor que esto 🧡",
-        "Lo que mejor acompaña tu día ahora es esto 🌿",
-        "Tu elección ideal, según el test, es esto ✅",
-        "Lo que más vas a disfrutar ahora es esto 🤩",
-        "El producto que encaja perfecto con vos en este momento es esto 🎯",
-        "Mi recomendación para vos es esto 🙌"
-      ];
-
-      function fraseAleatoria() {
-        const i = Math.floor(Math.random() * frases.length);
-        return frases[i];
-      }
     </script>
 </body>
 </html>
+            

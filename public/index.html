@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>D'PAN - Hecho en casa, como en casa</title>
+    <title>D'PAN - Panaderia Artesanal</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@100..900&family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -13,22 +13,18 @@
             darkMode: 'class', 
             theme: {
                 extend: {
- 
                     colors: {
                         'pan-dark': '#8B5E3C',     
                         'pan-light': '#F5E3C0',    
-                     
-    'pan-cream': '#FFF4E1',    
+                        'pan-cream': '#FFF4E1',    
                         'pan-accent': '#D19C4C',   
                         'pan-orange': '#E28C42',   
                         'pan-contrast': '#5C3A21', 
-          
-           },
+                    },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
                         display: ['Playfair Display', 'serif'],
-                
-         handwritten: ['Dancing Script', 'cursive'],
+                        handwritten: ['Dancing Script', 'cursive'],
                     },
                 }
             }
@@ -37,358 +33,306 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
- transition: background-color 0.3s, color 0.3s;
+            transition: background-color 0.3s, color 0.3s;
         }
         .text-display-shadow {
             text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15);
- }
+        }
         .hero-background {
             background-image: url('https://placehold.co/1920x600/D19C4C/8B5E3C?text=La+Esencia+del+Pan+Artesanal');
- background-size: cover;
+            background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
         }
         .cart-drawer-transition {
             transition: transform 0.3s ease-in-out;
- }
+        }
         @keyframes slide-down {
-            from { opacity: 0;
- transform: translateY(-10px); }
-            to   { opacity: 1;
- transform: translateY(0); }
+            from { opacity: 0; transform: translateY(-10px); }
+            to   { opacity: 1; transform: translateY(0); }
         }
         .animate-slide-down {
             animation: slide-down 0.3s ease-out;
- }
+        }
     </style>
 </head>
 
 <body class="bg-pan-cream text-pan-contrast dark:bg-pan-contrast dark:text-pan-cream min-h-screen flex flex-col">
+    <!-- Icono de WhatsApp Flotante -->
     <a href="https://wa.me/5493436108756" target="_blank" class="fixed bottom-6 right-6 z-50 p-4 bg-green-500 rounded-full shadow-2xl hover:bg-green-600 transition duration-300 ease-in-out transform hover:scale-110" aria-label="WhatsApp Business de D'PAN">
         <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 
- 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
         </svg>
     </a>
 
+    <!-- CABECERA y NAVEGACIÓN -->
     <header class="sticky top-0 z-40 bg-pan-cream dark:bg-pan-contrast shadow-xl dark:shadow-pan-dark transition duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-           
-  
+            
+            <!-- LOGO -->
             <button data-page="inicio" class="page-link focus:outline-none">
                 <img src="/img/logo.jpg" 
                      alt="Logo D'PAN" 
-                     class="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 object-contain rounded-full 
- shadow-lg hover:scale-105 transition duration-300" />
+                     class="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 object-contain rounded-full shadow-lg hover:scale-105 transition duration-300" />
             </button>
 
+            <!-- MENÚ DESKTOP -->
             <nav class="hidden md:flex space-x-4 lg:space-x-8 text-lg font-semibold">
                 <button data-page="inicio" class="page-link text-pan-contrast dark:text-pan-cream hover:text-pan-orange dark:hover:text-pan-accent transition duration-200 focus:outline-none">Inicio</button>
                 <button data-page="productos" class="page-link text-pan-contrast dark:text-pan-cream hover:text-pan-orange dark:hover:text-pan-accent transition duration-200 focus:outline-none">Menú</button>
- 
                 <button data-page="historia" class="page-link text-pan-contrast dark:text-pan-cream hover:text-pan-orange dark:hover:text-pan-accent transition duration-200 focus:outline-none">Historia</button>
                 <button data-page="quiz" class="page-link text-pan-contrast dark:text-pan-cream hover:text-pan-orange dark:hover:text-pan-accent transition duration-200 focus:outline-none">¿No Sabés Qué Comer?</button>
                 <button data-page="bienestar" class="page-link text-pan-contrast dark:text-pan-cream hover:text-pan-orange dark:hover:text-pan-accent transition duration-200 focus:outline-none">Bienestar</button>
-                <button data-page="contacto" class="page-link text-pan-contrast dark:text-pan-cream hover:text-pan-orange dark:hover:text-pan-accent 
- transition duration-200 focus:outline-none">Contacto</button>
+                <button data-page="contacto" class="page-link text-pan-contrast dark:text-pan-cream hover:text-pan-orange dark:hover:text-pan-accent transition duration-200 focus:outline-none">Contacto</button>
             </nav>
 
+            <!-- BOTONES: hamburguesa, carrito y tema -->
             <div class="flex items-center space-x-2 sm:space-x-4">
                 
+                <!-- Botón menú móvil -->
                 <button id="mobile-menu-button" class="md:hidden p-2 rounded-lg bg-pan-light dark:bg-pan-dark hover:bg-pan-orange transition duration-200" onclick="toggleMobileMenu()" aria-label="Menú">
                     <svg class="w-6 h-6 text-pan-dark dark:text-pan-light" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
-        
-         </button>
-
-                <button id="cart-button" onclick="openCart()" class="relative p-2 rounded-full bg-pan-light dark:bg-pan-dark hover:bg-pan-dark hover:text-pan-light transition duration-200 shadow-md">
-                    <i data-lucide="shopping-bag" class="w-5 h-5 sm:w-6 sm:h-6 text-pan-dark dark:text-pan-light"></i>
-                  
-   <span id="cart-count" class="absolute -top-1 -right-1 inline-flex items-center justify-center px-1.5 py-0.5 text-xs font-bold leading-none text-white transform bg-pan-orange rounded-full shadow-lg min-w-[20px]">0</span>
                 </button>
 
+                <!-- Botón carrito -->
+                <button id="cart-button" onclick="openCart()" class="relative p-2 rounded-full bg-pan-light dark:bg-pan-dark hover:bg-pan-dark hover:text-pan-light transition duration-200 shadow-md">
+                    <i data-lucide="shopping-bag" class="w-5 h-5 sm:w-6 sm:h-6 text-pan-dark dark:text-pan-light"></i>
+                    <span id="cart-count" class="absolute -top-1 -right-1 inline-flex items-center justify-center px-1.5 py-0.5 text-xs font-bold leading-none text-white transform bg-pan-orange rounded-full shadow-lg min-w-[20px]">0</span>
+                </button>
+
+                <!-- Botón tema -->
                 <button id="theme-toggle" class="p-2 rounded-full bg-pan-light dark:bg-pan-dark text-pan-dark dark:text-pan-light hover:bg-pan-dark hover:text-pan-light transition duration-200 shadow-md" aria-label="Cambiar tema">
-               
-     <i data-lucide="moon" class="w-5 h-5 sm:w-6 sm:h-6 block dark:hidden"></i>
+                    <i data-lucide="moon" class="w-5 h-5 sm:w-6 sm:h-6 block dark:hidden"></i>
                     <i data-lucide="sun" class="w-5 h-5 sm:w-6 sm:h-6 hidden dark:block"></i>
                 </button>
             </div>
         </div>
 
-        <div id="mobile-menu" class="hidden md:hidden bg-pan-light dark:bg-pan-dark 
- shadow-xl border-t-2 border-pan-accent/30">
+        <!-- MENÚ MÓVIL -->
+        <div id="mobile-menu" class="hidden md:hidden bg-pan-light dark:bg-pan-dark shadow-xl border-t-2 border-pan-accent/30">
             <nav class="flex flex-col p-4 space-y-2">
                 <button data-page="inicio" class="page-link text-left px-4 py-3 text-pan-contrast dark:text-pan-cream hover:bg-pan-orange hover:text-white rounded-lg transition duration-200 font-medium">🏠 Inicio</button>
                 <button data-page="productos" class="page-link text-left px-4 py-3 text-pan-contrast dark:text-pan-cream hover:bg-pan-orange hover:text-white rounded-lg transition duration-200 font-medium">🍞 Menú</button>
-                <button data-page="historia" class="page-link text-left px-4 py-3 
- text-pan-contrast dark:text-pan-cream hover:bg-pan-orange hover:text-white rounded-lg transition duration-200 font-medium">📖 Historia</button>
+                <button data-page="historia" class="page-link text-left px-4 py-3 text-pan-contrast dark:text-pan-cream hover:bg-pan-orange hover:text-white rounded-lg transition duration-200 font-medium">📖 Historia</button>
                 <button data-page="quiz" class="page-link text-left px-4 py-3 text-pan-contrast dark:text-pan-cream hover:bg-pan-orange hover:text-white rounded-lg transition duration-200 font-medium">❓ ¿No Sabés Qué Comer?</button>
                 <button data-page="bienestar" class="page-link text-left px-4 py-3 text-pan-contrast dark:text-pan-cream hover:bg-pan-orange hover:text-white rounded-lg transition duration-200 font-medium">💚 Bienestar</button>
-                <button data-page="contacto" class="page-link text-left px-4 py-3 text-pan-contrast dark:text-pan-cream hover:bg-pan-orange hover:text-white rounded-lg transition duration-200 
- font-medium">📞 Contacto</button>
+                <button data-page="contacto" class="page-link text-left px-4 py-3 text-pan-contrast dark:text-pan-cream hover:bg-pan-orange hover:text-white rounded-lg transition duration-200 font-medium">📞 Contacto</button>
             </nav>
         </div>
     </header>
 
     <main class="flex-grow">
+        <!-- PAGINA: INICIO -->
         <section id="page-inicio" class="page py-0 md:py-0 bg-pan-cream dark:bg-pan-contrast transition duration-300">
             <div class="py-20 md:py-32 hero-background text-white shadow-inner">
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center bg-pan-dark/70 p-6 rounded-xl 
- backdrop-blur-sm">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center bg-pan-dark/70 p-6 rounded-xl backdrop-blur-sm">
                     <h1 class="text-6xl md:text-8xl font-handwritten text-pan-accent mb-2 text-display-shadow">D'PAN</h1>
                     <p class="text-2xl md:text-4xl font-display text-pan-cream mb-8 italic font-light flex items-center justify-center space-x-2">
                         <span>Hecho en casa, como en casa</span>
-              
-           <i data-lucide="home" class="w-8 h-8 text-pan-orange fill-pan-orange"></i>
+                        <i data-lucide="home" class="w-8 h-8 text-pan-orange fill-pan-orange"></i>
                         <i data-lucide="heart" class="w-8 h-8 text-red-500 fill-red-500"></i>
                     </p>
-                    <button data-page="productos" class="page-link inline-block px-8 py-3 text-lg font-bold text-white bg-pan-orange rounded-lg shadow-xl hover:bg-pan-accent transition duration-300 transform 
- hover:scale-105">
+                    <button data-page="productos" class="page-link inline-block px-8 py-3 text-lg font-bold text-white bg-pan-orange rounded-lg shadow-xl hover:bg-pan-accent transition duration-300 transform hover:scale-105">
                         Ver Productos <i data-lucide="arrow-right" class="inline ml-2 w-5 h-5"></i>
                     </button>
                 </div>
             </div>
 
             <div id="featured-products-container" class="py-16 md:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
- 
-                <h2 class="text-4xl font-bold text-center text-pan-dark dark:text-pan-light mb-12">Nuestros Favoritos</h2>
-                <div id="featured-products-grid" class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8"></div>
+                <h2 class="text-4xl font-bold text-center text-pan-dark dark:text-pan-light mb-12">Los más elegidos</h2>
+                <div id="featured-products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"></div>
                 
                 <div class="text-center mt-12">
-                    <button data-page="productos" 
- class="page-link px-10 py-4 text-xl font-bold text-white bg-pan-orange rounded-full shadow-2xl hover:bg-pan-dark transition duration-300 transform hover:scale-105">
+                    <button data-page="productos" class="page-link px-10 py-4 text-xl font-bold text-white bg-pan-orange rounded-full shadow-2xl hover:bg-pan-dark transition duration-300 transform hover:scale-105">
                         Ver Menú Completo
                     </button>
                 </div>
             </div>
         </section>
 
-     
-    <section id="page-productos" class="page hidden py-16 md:py-24 bg-pan-cream dark:bg-pan-contrast transition duration-300">
+        <!-- PAGINA: PRODUCTOS -->
+        <section id="page-productos" class="page hidden py-16 md:py-24 bg-pan-cream dark:bg-pan-contrast transition duration-300">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <h2 class="text-4xl font-bold text-center text-pan-dark dark:text-pan-light mb-12">Catálogo Completo</h2>
-                <div id="full-products-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-8"></div>
-              
-   
+                <div id="full-products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"></div>
+                
                 <div class="text-center mt-12 p-6 bg-pan-light dark:bg-pan-dark rounded-xl shadow-inner border border-pan-accent/50">
                     <h3 class="text-2xl font-semibold text-pan-dark dark:text-pan-cream mb-4">Revisa tu Pedido</h3>
                     <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-8">
-                  
-       <p class="text-lg text-pan-contrast dark:text-pan-light italic" id="cart-message">Tu carrito está vacío.</p>
+                        <p class="text-lg text-pan-contrast dark:text-pan-light italic" id="cart-message">Tu carrito está vacío.</p>
                         <button onclick="openCart()" class="px-8 py-3 text-lg font-bold text-white bg-pan-orange rounded-full shadow-lg hover:bg-pan-dark transition duration-300">
                             Ver Carrito
-                     
-     </button>
+                        </button>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- PAGINA: HISTORIA -->
         <section id="page-historia" class="page hidden py-16 md:py-24 bg-pan-cream dark:bg-pan-contrast transition duration-300">
-            <div 
- class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <h2 class="text-4xl font-display font-bold text-center text-pan-dark dark:text-pan-accent mb-12">Mi Historia</h2>
                 
                 <div class="grid lg:grid-cols-2 gap-10">
                     <div class="space-y-8">
-                
-         <div class="bg-pan-light dark:bg-pan-dark p-8 rounded-xl shadow-xl border-t-4 border-pan-orange">
+                        <div class="bg-pan-light dark:bg-pan-dark p-8 rounded-xl shadow-xl border-t-4 border-pan-orange">
                             <p class="text-lg text-pan-contrast dark:text-pan-light leading-relaxed">
-                                Hola, soy David, el "un poquito de todo" de este emprendimiento llamado <strong>D'Pan</strong>.
- Hace poco descubrí en la cocina una forma de expresión que no conocía, y con el tiempo se convirtió en mi proyecto de vida.
- Así nació D'Pan: de a poco, con esfuerzo, con aprendizajes, con errores y con mucho corazón.
- </p>
-                            <p class="text-lg text-pan-contrast dark:text-pan-light leading-relaxed mt-4">
-                                Acá vas a encontrar panes y productos caseros, ricos, sin aditivos ni conservantes.
- Todo hecho a pulmón, con la idea de que sientas que lo que recibís es tan real y cercano como si lo hubieras hecho vos mismo.
- </p>
-                            <p class="text-lg text-pan-contrast dark:text-pan-light leading-relaxed mt-4">
-                                Pero D'Pan también es mi historia.
- Viene de años de lucha con la salud mental, de nadar en mares que parecían no terminar nunca y de encontrar, después de tanto, una pequeña isla donde sostenerme.
- Esa isla hoy se llama D'Pan.
+                                Hola, soy David, el "un poquito de todo" de este emprendimiento llamado <strong>D'Pan</strong>. Hace poco descubrí en la cocina una forma de expresión que no conocía, y con el tiempo se convirtió en mi proyecto de vida. Así nació D'Pan: de a poco, con esfuerzo, con aprendizajes, con errores y con mucho corazón.
                             </p>
                             <p class="text-lg text-pan-contrast dark:text-pan-light leading-relaxed mt-4">
-                                Este proyecto es mi forma de seguir adelante.
- Nació del dolor, pero también de no rendirme (aunque ni yo sé cómo).
- Hoy crece con dedicación, con amor, con lágrimas (sí, tampoco podían faltar 😂) y con la esperanza de que cada pan que llega a tu mesa te recuerde que lo simple, lo casero y lo compartido tienen un valor enorme.
- </p>
+                                Acá vas a encontrar panes y productos caseros, ricos, sin aditivos ni conservantes. Todo hecho a pulmón, con la idea de que sientas que lo que recibís es tan real y cercano como si lo hubieras hecho vos mismo.
+                            </p>
+                            <p class="text-lg text-pan-contrast dark:text-pan-light leading-relaxed mt-4">
+                                Pero D'Pan también es mi historia. Viene de años de lucha con la salud mental, de nadar en mares que parecían no terminar nunca y de encontrar, después de tanto, una pequeña isla donde sostenerme. Esa isla hoy se llama D'Pan.
+                            </p>
+                            <p class="text-lg text-pan-contrast dark:text-pan-light leading-relaxed mt-4">
+                                Este proyecto es mi forma de seguir adelante. Nació del dolor, pero también de no rendirme (aunque ni yo sé cómo). Hoy crece con dedicación, con amor, con lágrimas (sí, tampoco podían faltar 😂) y con la esperanza de que cada pan que llega a tu mesa te recuerde que lo simple, lo casero y lo compartido tienen un valor enorme.
+                            </p>
                             <p class="text-lg text-pan-contrast dark:text-pan-light leading-relaxed mt-4 font-semibold">
                                 Gracias por estar acá, gracias por leer, y gracias por ser parte de este camino.
- </p>
+                            </p>
                             <p class="text-xl font-bold text-pan-dark dark:text-pan-accent mt-6 text-center">
                                 D'Pan – Hecho en casa, como en casa ❤️‍🩹🏡
-                          
-   </p>
+                            </p>
                         </div>
                     </div>
 
                     <div class="space-y-8">
                         <div class="bg-pan-light dark:bg-pan-dark p-6 rounded-xl shadow-lg border-l-4 border-pan-dark">
-  
-                           <h3 class="text-2xl font-semibold text-pan-dark dark:text-pan-cream mb-4 text-center">Valores</h3>
+                            <h3 class="text-2xl font-semibold text-pan-dark dark:text-pan-cream mb-4 text-center">Valores</h3>
                             <div class="space-y-4">
                                 <div class="bg-pan-cream dark:bg-pan-contrast p-4 rounded-lg shadow-inner">
-  
-                                   <h4 class="font-bold text-pan-orange flex items-center"><i data-lucide="wheat" class="w-5 h-5 mr-2"></i> Ingredientes de verdad, sin apuros</h4>
-                                    <p class="text-sm text-pan-contrast dark:text-pan-light mt-1">Acá no vas a encontrar químicos raros ni nombres imposibles de pronunciar.
- Cada pan se hace con la paciencia y dedicación que vos le pondrías a todo lo que amas.</p>
+                                    <h4 class="font-bold text-pan-orange flex items-center"><i data-lucide="wheat" class="w-5 h-5 mr-2"></i> Ingredientes de verdad, sin apuros</h4>
+                                    <p class="text-sm text-pan-contrast dark:text-pan-light mt-1">Acá no vas a encontrar químicos raros ni nombres imposibles de pronunciar. Cada pan se hace con la paciencia y dedicación que vos le pondrías a todo lo que amas.</p>
                                 </div>
                                 <div class="bg-pan-cream dark:bg-pan-contrast p-4 rounded-lg shadow-inner">
-              
-                       <h4 class="font-bold text-pan-accent flex items-center"><i data-lucide="heart" class="w-5 h-5 mr-2"></i> Bienestar Integral</h4>
-                                    <p class="text-sm text-pan-contrast dark:text-pan-light mt-1">Cuidar lo que comemos es tan importante como cuidar nuestra cabeza, por eso otro pilar de D'Pan es promover un bienestar integral.
- Vas a poder encontrar espacios para comer rico y descargar la cabeza.</p>
+                                    <h4 class="font-bold text-pan-accent flex items-center"><i data-lucide="heart" class="w-5 h-5 mr-2"></i> Bienestar Integral</h4>
+                                    <p class="text-sm text-pan-contrast dark:text-pan-light mt-1">Cuidar lo que comemos es tan importante como cuidar nuestra cabeza, por eso otro pilar de D'Pan es promover un bienestar integral. Vas a poder encontrar espacios para comer rico y descargar la cabeza.</p>
                                 </div>
                             </div>
                         </div>
 
-     
-                     <div>
+                        <div>
                             <h3 class="text-2xl font-semibold text-center text-pan-dark dark:text-pan-cream mb-4">Mirá más...</h3>
                             <a href="https://www.instagram.com/p/DJm-w2UBoGY/" target="_blank" class="block bg-gradient-to-br from-purple-500 via-pink-500 to-orange-500 p-12 rounded-xl text-white text-center hover:scale-105 transition duration-300 shadow-2xl">
-   
-                              <i data-lucide="instagram" class="w-24 h-24 mx-auto mb-4"></i>
+                                <i data-lucide="instagram" class="w-24 h-24 mx-auto mb-4"></i>
                                 <p class="text-2xl font-bold">Ver video en Instagram</p>
-                             
-     <p class="text-sm mt-2">Click para abrir el reel</p>
+                                <p class="text-sm mt-2">Click para abrir el reel</p>
                             </a>
                         </div>
                     </div>
                 </div>
-   
-           </div>
+            </div>
         </section>
+        <!-- PAGINA: BIENESTAR -->
         <section id="page-bienestar" class="page hidden py-16 md:py-24 bg-pan-cream dark:bg-pan-contrast transition duration-300">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                 <h2 class="text-5xl font-display font-bold text-pan-dark dark:text-pan-accent mb-8">TU ESPACIO</h2>
-              
-   <div class="bg-pan-light dark:bg-pan-dark p-10 rounded-xl shadow-2xl border-4 border-pan-accent space-y-6">
+                <div class="bg-pan-light dark:bg-pan-dark p-10 rounded-xl shadow-2xl border-4 border-pan-accent space-y-6">
                     
                     <p class="text-lg font-semibold text-pan-dark dark:text-pan-cream">
                         Sin salud mental hoy no existiría D'Pan, y por eso era tan importante para mí haber creado esta sección.
- </p>
+                    </p>
                     <p class="text-lg text-pan-contrast dark:text-pan-light">
-                        Escribir siempre me ha ayudado a expresar mis emociones, a poner en letras lo que no sale con la boca.
- Y ojalá te sirva a vos también.
+                        Escribir siempre me ha ayudado a expresar mis emociones, a poner en letras lo que no sale con la boca. Y ojalá te sirva a vos también.
                     </p>
                     
                     <p class="text-xl font-bold text-pan-orange dark:text-pan-accent pt-4 border-y border-pan-accent/50 py-3">
                         Acordate que pedir ayuda es el gesto de valor más grande que podés tener.
- </p>
+                    </p>
 
                     <p class="text-pan-contrast dark:text-pan-light text-md italic">
-                        Escribí lo que quieras, lo que sientas, no se almacenará en ningún lugar.
- Si te sirve, podés copiar el texto y compartirlo con alguien de confianza.
- </p>
+                        Escribí lo que quieras, lo que sientas, no se almacenará en ningún lugar. Si te sirve, podés copiar el texto y compartirlo con alguien de confianza.
+                    </p>
 
                     <textarea 
                         id="descarga-text"
                         rows="8" 
-                        placeholder="Hoy me siento... (Escribí acá tu 
- pensamiento, preocupación o idea. Es un espacio privado, para vos.)" 
+                        placeholder="Hoy me siento... (Escribí acá tu pensamiento, preocupación o idea. Es un espacio privado, para vos.)" 
                         class="w-full p-4 border-2 border-pan-accent rounded-lg focus:ring-pan-orange focus:border-pan-orange transition duration-200 bg-white dark:bg-pan-contrast/50 text-pan-contrast dark:text-pan-light placeholder-pan-dark/50 dark:placeholder-pan-light/50 shadow-inner">
                     </textarea>
                     
-           
-          <button 
+                    <button 
                         onclick="clearAndShowSuccessModal()" 
                         class="px-8 py-3 bg-pan-orange text-white font-bold rounded-full shadow-lg hover:bg-pan-dark transition duration-300 transform hover:scale-105">
                         Soltar
-      
-               </button>
+                    </button>
                 </div>
             </div>
         </section>
 
+        <!-- PAGINA: QUIZ -->
         <section id="page-quiz" class="page hidden py-16 md:py-24 bg-pan-cream dark:bg-pan-contrast transition duration-300">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-    
-             <h2 class="text-4xl font-bold text-pan-dark dark:text-pan-light mb-8">¿No Sabés Qué Comer?</h2>
+                <h2 class="text-4xl font-bold text-pan-dark dark:text-pan-light mb-8">¿No Sabés Qué Comer?</h2>
                 <p class="text-lg max-w-3xl mx-auto text-pan-contrast dark:text-pan-cream mb-10">
                     Respondé tres preguntas y descubrí el producto ideal para vos en este momento.
- </p>
+                </p>
                 
                 <div class="bg-pan-light dark:bg-pan-dark p-8 rounded-xl shadow-xl max-w-xl mx-auto">
                     <div id="quiz-container"></div>
-                    <button id="start-quiz-button" onclick="resetQuiz(); renderQuizStep();"
- class="mt-6 px-6 py-3 bg-pan-orange text-white rounded-lg font-semibold hover:bg-pan-dark transition duration-300 shadow-md">
+                    <button id="start-quiz-button" onclick="resetQuiz(); renderQuizStep();" class="mt-6 px-6 py-3 bg-pan-orange text-white rounded-lg font-semibold hover:bg-pan-dark transition duration-300 shadow-md">
                         Empezar Test
                     </button>
                 </div>
             </div>
         </section>
         
- 
+        <!-- PAGINA: CONTACTO -->
         <section id="page-contacto" class="page hidden py-16 md:py-24 bg-pan-cream dark:bg-pan-contrast transition duration-300">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                 <h2 class="text-4xl font-display font-bold text-pan-dark dark:text-pan-accent mb-8">¿Tenés alguna duda?</h2>
                 <div class="bg-pan-light dark:bg-pan-dark p-8 rounded-xl shadow-xl space-y-6">
-         
-            
+                    
                     <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
                         <a href="https://wa.me/5493436108756" target="_blank" class="flex flex-col items-center p-4 bg-pan-cream dark:bg-pan-contrast rounded-lg hover:bg-pan-orange hover:text-white transition duration-300 shadow-md group">
-                          
-   <i data-lucide="message-circle" class="w-12 h-12 mb-2 text-green-500 group-hover:text-white"></i>
+                            <i data-lucide="message-circle" class="w-12 h-12 mb-2 text-green-500 group-hover:text-white"></i>
                             <span class="text-sm font-semibold">WhatsApp</span>
                         </a>
-                        <a href="https://instagram.com/ok_dpan" target="_blank" class="flex flex-col items-center p-4 bg-pan-cream dark:bg-pan-contrast rounded-lg hover:bg-pan-orange hover:text-white transition duration-300 
- shadow-md group">
+                        <a href="https://instagram.com/ok_dpan" target="_blank" class="flex flex-col items-center p-4 bg-pan-cream dark:bg-pan-contrast rounded-lg hover:bg-pan-orange hover:text-white transition duration-300 shadow-md group">
                             <i data-lucide="instagram" class="w-12 h-12 mb-2 text-pink-500 group-hover:text-white"></i>
                             <span class="text-sm font-semibold">@ok_dpan</span>
                         </a>
-           
-              <a href="https://facebook.com/DPanParana" target="_blank" class="flex flex-col items-center p-4 bg-pan-cream dark:bg-pan-contrast rounded-lg hover:bg-pan-orange hover:text-white transition duration-300 shadow-md group">
+                        <a href="https://facebook.com/DPanParana" target="_blank" class="flex flex-col items-center p-4 bg-pan-cream dark:bg-pan-contrast rounded-lg hover:bg-pan-orange hover:text-white transition duration-300 shadow-md group">
                             <i data-lucide="facebook" class="w-12 h-12 mb-2 text-blue-600 group-hover:text-white"></i>
                             <span class="text-sm font-semibold">D'Pan Paraná</span>
-       
-                  </a>
+                        </a>
                         <a href="mailto:dpanparana@gmail.com" class="flex flex-col items-center p-4 bg-pan-cream dark:bg-pan-contrast rounded-lg hover:bg-pan-orange hover:text-white transition duration-300 shadow-md group">
                             <i data-lucide="mail" class="w-12 h-12 mb-2 text-red-500 group-hover:text-white"></i>
-           
-                  <span class="text-sm font-semibold">Email</span>
+                            <span class="text-sm font-semibold">Email</span>
                         </a>
                     </div>
 
                     <div class="mt-12 text-left">
-               
-          <h3 class="text-2xl font-bold text-pan-dark dark:text-pan-cream mb-6 text-center">Preguntas Frecuentes</h3>
+                        <h3 class="text-2xl font-bold text-pan-dark dark:text-pan-cream mb-6 text-center">Preguntas Frecuentes</h3>
                         <div class="space-y-4">
                             <details class="bg-pan-cream dark:bg-pan-contrast p-4 rounded-lg shadow-inner">
-                          
-       <summary class="font-semibold text-pan-dark dark:text-pan-cream cursor-pointer">¿Cómo hago un pedido?</summary>
+                                <summary class="font-semibold text-pan-dark dark:text-pan-cream cursor-pointer">¿Cómo hago un pedido?</summary>
                                 <p class="text-pan-contrast dark:text-pan-light mt-2">Podés hacer tu pedido por WhatsApp o directamente desde nuestra página agregando productos al carrito.</p>
                             </details>
-          
-                   <details class="bg-pan-cream dark:bg-pan-contrast p-4 rounded-lg shadow-inner">
+                            <details class="bg-pan-cream dark:bg-pan-contrast p-4 rounded-lg shadow-inner">
                                 <summary class="font-semibold text-pan-dark dark:text-pan-cream cursor-pointer">¿Hacen envíos?</summary>
-                                <p class="text-pan-contrast dark:text-pan-light mt-2">Sí, realizamos envíos en la 
- zona de Paraná. Consultanos por tu ubicación.</p>
+                                <p class="text-pan-contrast dark:text-pan-light mt-2">Sí, realizamos envíos en la zona de Paraná. Consultanos por tu ubicación.</p>
                             </details>
                             <details class="bg-pan-cream dark:bg-pan-contrast p-4 rounded-lg shadow-inner">
-                                <summary 
- class="font-semibold text-pan-dark dark:text-pan-cream cursor-pointer">¿Con cuánta anticipación debo pedir?</summary>
+                                <summary class="font-semibold text-pan-dark dark:text-pan-cream cursor-pointer">¿Con cuánta anticipación debo pedir?</summary>
                                 <p class="text-pan-contrast dark:text-pan-light mt-2">Recomendamos hacer el pedido con al menos 24hs de anticipación para garantizar la disponibilidad.</p>
                             </details>
-                 
-             <details class="bg-pan-cream dark:bg-pan-contrast p-4 rounded-lg shadow-inner">
+                            <details class="bg-pan-cream dark:bg-pan-contrast p-4 rounded-lg shadow-inner">
                                 <summary class="font-semibold text-pan-dark dark:text-pan-cream cursor-pointer">¿Los productos son aptos celíacos?</summary>
-                                <p class="text-pan-contrast dark:text-pan-light mt-2">Algunos productos como el Chipá son sin TACC.
- Consultanos por cada producto específico.</p>
+                                <p class="text-pan-contrast dark:text-pan-light mt-2">Algunos productos como el Chipá son sin TACC. Consultanos por cada producto específico.</p>
                             </details>
                             <details class="bg-pan-cream dark:bg-pan-contrast p-4 rounded-lg shadow-inner">
-                                <summary class="font-semibold text-pan-dark 
- dark:text-pan-cream cursor-pointer">¿Cuánto duran los productos?</summary>
-                                <p class="text-pan-contrast dark:text-pan-light mt-2">Al no tener conservantes, recomendamos consumirlos dentro de los 3-4 días.
- Podés congelarlos para extender su vida útil.</p>
+                                <summary class="font-semibold text-pan-dark dark:text-pan-cream cursor-pointer">¿Cuánto duran los productos?</summary>
+                                <p class="text-pan-contrast dark:text-pan-light mt-2">Al no tener conservantes, recomendamos consumirlos dentro de los 3-4 días. Podés congelarlos para extender su vida útil.</p>
                             </details>
                             <details class="bg-pan-cream dark:bg-pan-contrast p-4 rounded-lg shadow-inner">
-                                <summary 
- class="font-semibold text-pan-dark dark:text-pan-cream cursor-pointer">¿Qué métodos de pago aceptan?</summary>
+                                <summary class="font-semibold text-pan-dark dark:text-pan-cream cursor-pointer">¿Qué métodos de pago aceptan?</summary>
                                 <p class="text-pan-contrast dark:text-pan-light mt-2">Aceptamos efectivo, transferencia bancaria y Mercado Pago.</p>
                             </details>
-                        
- </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -396,15 +340,14 @@
     </main>
 
     <footer class="bg-pan-contrast dark:bg-pan-dark py-8 text-center text-pan-light dark:text-pan-cream transition duration-300">
-        <p>&copy;
- 2025 D'Pan - Panadería Artesanal y Bienestar.</p>
+        <p>&copy; 2025 D'Pan - Panadería Artesanal y Bienestar.</p>
         <p class="text-sm mt-2"><a href="#" class="hover:text-pan-orange transition">Términos y Condiciones</a></p>
     </footer>
+    <!-- MODAL DE DETALLE DE PRODUCTO -->
     <div id="product-modal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-pan-contrast/80 dark:bg-pan-dark/90 transition-opacity duration-300">
         <div class="flex items-center justify-center min-h-screen p-4">
             <div class="relative w-full max-w-2xl bg-pan-cream dark:bg-pan-contrast rounded-xl shadow-2xl p-6 md:p-8 transform scale-95 opacity-0 transition-all duration-300" id="modal-content-wrapper">
-           
-     <button id="close-modal" class="absolute top-4 right-4 text-pan-dark dark:text-pan-light hover:text-pan-orange transition-colors">
+                <button id="close-modal" class="absolute top-4 right-4 text-pan-dark dark:text-pan-light hover:text-pan-orange transition-colors">
                     <i data-lucide="x" class="w-8 h-8"></i>
                 </button>
                 <div id="modal-body"></div>
@@ -412,324 +355,311 @@
         </div>
     </div>
 
+    <!-- MODAL DE RESULTADO DEL QUIZ -->
     <div id="quiz-result-modal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-pan-contrast/80 dark:bg-pan-dark/90 transition-opacity duration-300">
         <div class="flex items-center justify-center min-h-screen p-4">
             <div class="relative w-full max-w-md bg-pan-cream dark:bg-pan-contrast rounded-xl shadow-2xl p-6 md:p-8 transform scale-95 opacity-0 transition-all duration-300" id="quiz-modal-content-wrapper">
                 <button id="close-quiz-modal" class="absolute top-4 right-4 text-pan-dark dark:text-pan-light hover:text-pan-orange transition-colors">
-                   
-  <i data-lucide="x" class="w-8 h-8"></i>
+                    <i data-lucide="x" class="w-8 h-8"></i>
                 </button>
                 <div id="quiz-modal-body" class="text-center"></div>
             </div>
         </div>
     </div>
     
+    <!-- MODAL DE ÉXITO DE BIENESTAR -->
     <div id="bienestar-success-modal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-pan-contrast/80 dark:bg-pan-dark/90 transition-opacity duration-300">
-        <div class="flex 
- items-center justify-center min-h-screen p-4">
+        <div class="flex items-center justify-center min-h-screen p-4">
             <div class="relative w-full max-w-sm bg-pan-cream dark:bg-pan-contrast rounded-xl shadow-2xl p-8 transform scale-95 opacity-0 transition-all duration-300" id="bienestar-modal-content-wrapper">
                 <button onclick="closeBienestarSuccessModal()" class="absolute top-4 right-4 text-pan-dark dark:text-pan-light hover:text-pan-orange transition-colors">
                     <i data-lucide="x" class="w-8 h-8"></i>
                 </button>
-        
-         <div class="text-center">
+                <div class="text-center">
                     <i data-lucide="heart-handshake" class="w-16 h-16 mx-auto mb-4 text-pan-orange dark:text-pan-accent"></i>
                     <p class="text-lg text-pan-contrast dark:text-pan-light mb-6">
-                        Gracias por escribir, gracias por elegirte, gracias por estar.
- Te mando un abrazo grande, David.
+                        Gracias por escribir, gracias por elegirte, gracias por estar. Te mando un abrazo grande, David.
                     </p>
-                    <button onclick="closeBienestarSuccessModal(); showPage('productos');"
- class="px-6 py-3 bg-pan-dark text-white rounded-full font-semibold hover:bg-pan-accent transition duration-300 shadow-md">
+                    <button onclick="closeBienestarSuccessModal(); showPage('productos');" class="px-6 py-3 bg-pan-dark text-white rounded-full font-semibold hover:bg-pan-accent transition duration-300 shadow-md">
                         ¿Comemos algo?
- </button>
+                    </button>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- Panel Lateral del Carrito con CUPONES -->
     <div id="cart-overlay" class="fixed inset-0 bg-pan-contrast/80 z-40 hidden transition-opacity duration-300" onclick="closeCart()">
         <div id="cart-drawer" class="fixed right-0 top-0 h-full w-full max-w-xs md:max-w-sm bg-pan-cream dark:bg-pan-dark shadow-2xl cart-drawer-transition transform translate-x-full" onclick="event.stopPropagation()">
-            <div 
- class="flex flex-col h-full">
+            <div class="flex flex-col h-full">
                 <div class="p-6 border-b border-pan-accent/50 flex justify-between items-center bg-pan-light dark:bg-pan-contrast">
                     <h3 class="text-2xl font-bold text-pan-dark dark:text-pan-cream">Tu Pedido</h3>
                     <button onclick="closeCart()" class="text-pan-dark dark:text-pan-light hover:text-pan-orange transition duration-200 p-1 rounded-full">
-                     
-    <i data-lucide="x" class="w-6 h-6"></i>
+                        <i data-lucide="x" class="w-6 h-6"></i>
                     </button>
                 </div>
                 
                 <div id="cart-content" class="flex-grow overflow-y-auto p-4 space-y-3"></div>
 
-                <div class="p-6 border-t border-pan-accent/50 space-y-4 
- bg-pan-light dark:bg-pan-contrast">
+                <div class="p-6 border-t border-pan-accent/50 space-y-4 bg-pan-light dark:bg-pan-contrast">
+                    <!-- Campo de cupón -->
                     <div class="space-y-2">
                         <label class="text-sm font-medium text-pan-dark dark:text-pan-cream">¿Tenés un cupón?</label>
-                        
- <div class="flex space-x-2">
+                        <div class="flex space-x-2">
                             <input type="text" id="coupon-input" placeholder="Código de cupón" class="flex-1 px-3 py-2 border border-pan-accent rounded-lg text-pan-dark focus:ring-2 focus:ring-pan-orange">
                             <button onclick="applyCoupon()" class="px-4 py-2 bg-pan-accent text-white rounded-lg hover:bg-pan-orange transition">Aplicar</button>
-                    
-     </div>
+                        </div>
                         <p id="coupon-message" class="text-sm hidden"></p>
                     </div>
 
+                    <!-- Subtotal -->
                     <div class="flex justify-between items-center text-lg text-pan-dark dark:text-pan-cream">
- 
                         <span>Subtotal:</span>
                         <span id="cart-subtotal">$0.00</span>
                     </div>
 
+                    <!-- Descuento -->
                     <div id="discount-section" class="hidden flex justify-between items-center text-lg text-green-600">
                         <span>Descuento (<span id="coupon-code"></span>):</span>
                         <span id="discount-amount">-$0</span>
                     </div>
 
-            
-         <div class="flex justify-between items-center text-xl font-bold text-pan-dark dark:text-pan-cream border-t pt-2">
+                    <!-- Total final -->
+                    <div class="flex justify-between items-center text-xl font-bold text-pan-dark dark:text-pan-cream border-t pt-2">
                         <span>TOTAL:</span>
                         <span id="cart-total" class="text-pan-orange dark:text-pan-accent">$0.00</span>
-         
-             </div>
+                    </div>
 
                     <button id="finalize-whatsapp-button" onclick="finalizeOrder()" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 rounded-xl transition duration-200 shadow-lg focus:outline-none" disabled>Pedir por WhatsApp (0)</button>
                     <button onclick="closeCart()" class="w-full text-pan-dark dark:text-pan-accent hover:text-pan-orange font-semibold py-2 rounded-xl transition duration-200">Seguir Navegando</button>
                 </div>
-     
-         </div>
+            </div>
         </div>
     </div>
     <script>
         lucide.createIcons();
- // Variables globales
+
+        // Variables globales
         let ALL_PRODUCTS = [];
         let cart = [];
-        // ==========================================================
-        // CAMBIO APLICADO (Lógica del Quiz):
-        // Se reemplaza el sistema de 'score' por 'currentQuizStep'
-        // (que ahora es un string) y 'quizAnswers' (un objeto).
-        // ==========================================================
-        let currentQuizStep = 'start';
-        let quizAnswers = {};
+        let currentQuizStep = 0;
+        let quizScore = 0;
         let appliedCoupon = null;
         let discountAmount = 0;
- // Elementos del DOM
+
+        // Elementos del DOM
         const htmlElement = document.documentElement;
         const cartDrawer = document.getElementById('cart-drawer');
- const cartOverlay = document.getElementById('cart-overlay');
+        const cartOverlay = document.getElementById('cart-overlay');
         const cartCountElement = document.getElementById('cart-count');
         const cartContentElement = document.getElementById('cart-content');
         const cartTotalElement = document.getElementById('cart-total');
         const finalizeWhatsappButton = document.getElementById('finalize-whatsapp-button');
- const bienestarSuccessModal = document.getElementById('bienestar-success-modal');
+        const bienestarSuccessModal = document.getElementById('bienestar-success-modal');
         const bienestarModalContentWrapper = document.getElementById('bienestar-modal-content-wrapper');
 
         // Cargar productos desde API
         async function loadProductsFromAPI() {
             try {
                 const response = await fetch('/api/products');
- if (!response.ok) throw new Error('Error al cargar productos');
+                if (!response.ok) throw new Error('Error al cargar productos');
                 ALL_PRODUCTS = await response.json();
                 renderProducts();
- } catch (error) {
+            } catch (error) {
                 console.error('Error cargando productos:', error);
- document.getElementById('featured-products-grid').innerHTML = '<p class="col-span-full text-center text-red-500">Error al cargar productos. Recarga la página.</p>';
- }
+                document.getElementById('featured-products-grid').innerHTML = '<p class="col-span-full text-center text-red-500">Error al cargar productos. Recarga la página.</p>';
+            }
         }
 
         // Navegación entre páginas
         const showPage = (pageId) => {
             document.querySelectorAll('.page').forEach(page => page.classList.add('hidden'));
- const targetPage = document.getElementById(`page-${pageId}`);
+            const targetPage = document.getElementById(`page-${pageId}`);
             if (targetPage) targetPage.classList.remove('hidden');
             window.scrollTo(0, 0);
         };
- document.querySelectorAll('.page-link').forEach(button => {
+
+        document.querySelectorAll('.page-link').forEach(button => {
             button.addEventListener('click', (e) => {
                 const pageId = e.currentTarget.getAttribute('data-page');
                 showPage(pageId);
             });
         });
- // Funciones del modal de Bienestar
+
+        // Funciones del modal de Bienestar
         const clearAndShowSuccessModal = () => {
             document.getElementById('descarga-text').value = '';
- openBienestarSuccessModal();
+            openBienestarSuccessModal();
         }
 
         const openBienestarSuccessModal = () => {
             bienestarSuccessModal.classList.remove('hidden');
- setTimeout(() => {
+            setTimeout(() => {
                 bienestarModalContentWrapper.classList.remove('scale-95', 'opacity-0');
                 bienestarModalContentWrapper.classList.add('scale-100', 'opacity-100');
             }, 10);
- document.body.style.overflow = 'hidden';
+            document.body.style.overflow = 'hidden';
             lucide.createIcons();
         }
 
         const closeBienestarSuccessModal = () => {
             bienestarModalContentWrapper.classList.remove('scale-100', 'opacity-100');
- bienestarModalContentWrapper.classList.add('scale-95', 'opacity-0');
+            bienestarModalContentWrapper.classList.add('scale-95', 'opacity-0');
             setTimeout(() => {
                 bienestarSuccessModal.classList.add('hidden');
                 document.body.style.overflow = 'auto';
             }, 300);
- }
+        }
 
         // Funciones del carrito
         function openCart() {
             cartOverlay.classList.remove('hidden');
- cartDrawer.classList.remove('translate-x-full');
+            cartDrawer.classList.remove('translate-x-full');
             document.body.style.overflow = 'hidden';
         }
 
         function closeCart() {
             cartDrawer.classList.add('translate-x-full');
- setTimeout(() => {
+            setTimeout(() => {
                 cartOverlay.classList.add('hidden');
                 document.body.style.overflow = 'auto';
             }, 300);
- }
+        }
 
         const updateCartDisplay = () => {
             let totalItems = 0;
- let totalCost = 0;
+            let totalCost = 0;
             cartContentElement.innerHTML = '';
 
             if (cart.length === 0) {
-cartContentElement.innerHTML = '<p class="text-center text-pan-contrast/70 dark:text-pan-light/70 py-10">Tu carrito está vacío.</p>'; ¡Añade nuestros panes!</p>';
+                cartContentElement.innerHTML = '<p class="text-center text-pan-contrast/70 dark:text-pan-light/70 py-10">Tu carrito está vacío. ¡Añade nuestros panes!</p>';
                 finalizeWhatsappButton.disabled = true;
                 finalizeWhatsappButton.textContent = 'Pedir por WhatsApp (0)';
- } else {
+            } else {
                 cart.forEach((item, index) => {
                     const subtotal = item.quantity * item.price;
                     totalItems += item.quantity;
                     totalCost += subtotal;
 
-          
-           const itemElement = document.createElement('div');
+                    const itemElement = document.createElement('div');
                     itemElement.className = 'flex items-center space-x-3 p-3 bg-pan-cream dark:bg-pan-contrast rounded-lg shadow-inner';
                     itemElement.innerHTML = `
                         <img src="${item.img_url}" alt="${item.name}" class="w-12 h-12 object-cover rounded-md border border-pan-accent/30 flex-shrink-0" onerror="this.onerror=null; this.src='https://placehold.co/48x48/E28C42/FFF?text=ERR'">
- 
                         <div class="flex-grow min-w-0">
                             <p class="font-semibold text-pan-dark dark:text-pan-cream text-sm truncate">${item.name}</p>
                             <p class="text-xs text-pan-contrast/80 dark:text-pan-light/80">Costo: $${item.price}</p>
-          
-                   <p class="font-bold text-pan-orange dark:text-pan-accent text-lg">$${subtotal}</p>
+                            <p class="font-bold text-pan-orange dark:text-pan-accent text-lg">$${subtotal}</p>
                         </div>
                         <div class="flex items-center space-x-1 flex-shrink-0">
-                          
-   <button data-index="${index}" class="decrease-quantity text-pan-dark dark:text-pan-light hover:text-red-500 p-1 rounded-full transition duration-150">
+                            <button data-index="${index}" class="decrease-quantity text-pan-dark dark:text-pan-light hover:text-red-500 p-1 rounded-full transition duration-150">
                                 <i data-lucide="minus-circle" class="w-6 h-6"></i>
                             </button>
-                          
-   <span class="font-bold text-pan-dark dark:text-pan-cream w-4 text-center">${item.quantity}</span>
+                            <span class="font-bold text-pan-dark dark:text-pan-cream w-4 text-center">${item.quantity}</span>
                             <button data-index="${index}" class="increase-quantity text-pan-dark dark:text-pan-light hover:text-green-500 p-1 rounded-full transition duration-150">
                                 <i data-lucide="plus-circle" class="w-6 h-6"></i>
-                     
-         </button>
+                            </button>
                         </div>
                     `;
- cartContentElement.appendChild(itemElement);
+                    cartContentElement.appendChild(itemElement);
                 });
                 finalizeWhatsappButton.disabled = false;
             }
 
             cartCountElement.textContent = totalItems;
- // Calcular descuento si hay cupón
+
+            // Calcular descuento si hay cupón
             if (appliedCoupon) {
                 if (appliedCoupon.type === 'percentage') {
                     discountAmount = Math.round(totalCost * (appliedCoupon.discount / 100));
- } else {
+                } else {
                     discountAmount = appliedCoupon.discount;
- }
+                }
 
                 document.getElementById('cart-subtotal').textContent = `$${totalCost}`;
                 document.getElementById('discount-section').classList.remove('hidden');
- document.getElementById('coupon-code').textContent = appliedCoupon.code;
+                document.getElementById('coupon-code').textContent = appliedCoupon.code;
                 document.getElementById('discount-amount').textContent = `-$${discountAmount}`;
 
                 const finalTotal = Math.max(0, totalCost - discountAmount);
                 cartTotalElement.textContent = `$${finalTotal}`;
- } else {
+            } else {
                 document.getElementById('cart-subtotal').textContent = `$${totalCost}`;
- document.getElementById('discount-section').classList.add('hidden');
+                document.getElementById('discount-section').classList.add('hidden');
                 cartTotalElement.textContent = `$${totalCost}`;
             }
 
             const cartMessage = document.getElementById('cart-message');
- if (cartMessage) {
-                const finalTotal = appliedCoupon ?
- Math.max(0, totalCost - discountAmount) : totalCost;
+            if (cartMessage) {
+                const finalTotal = appliedCoupon ? Math.max(0, totalCost - discountAmount) : totalCost;
                 cartMessage.innerHTML = totalItems > 0 
-                    ?
- `¡Tenés ${totalItems} productos listos! Total: $${finalTotal}`
+                    ? `¡Tenés ${totalItems} productos listos! Total: $${finalTotal}`
                     : 'Tu carrito está vacío.';
- }
+            }
 
             lucide.createIcons();
             attachCartQuantityListeners();
         };
- const updateCartItemQuantity = (index, change) => {
+
+        const updateCartItemQuantity = (index, change) => {
             if (index < 0 || index >= cart.length) return;
- cart[index].quantity += change;
+            cart[index].quantity += change;
             if (cart[index].quantity <= 0) {
                 cart.splice(index, 1);
- }
+            }
             updateCartDisplay();
         };
- const addToCart = (productId) => {
+
+        const addToCart = (productId) => {
             const product = ALL_PRODUCTS.find(p => p.id === productId);
- if (!product) return;
+            if (!product) return;
 
             // Calcular precio con descuento si existe
             const finalPrice = product.discount && product.discount > 0
-                ?
- Math.round(product.price * (1 - product.discount / 100))
+                ? Math.round(product.price * (1 - product.discount / 100))
                 : product.price;
- const existingItemIndex = cart.findIndex(item => item.id === productId);
+
+            const existingItemIndex = cart.findIndex(item => item.id === productId);
 
             if (existingItemIndex > -1) {
                 cart[existingItemIndex].quantity += 1;
- } else {
+            } else {
                 cart.push({
                     id: product.id,
                     name: product.name,
                     price: finalPrice,
-                   
-  quantity: 1,
+                    quantity: 1,
                     img_url: product.img_url
                 });
- }
+            }
 
             updateCartDisplay();
             openCart();
         };
- const attachCartQuantityListeners = () => {
+
+        const attachCartQuantityListeners = () => {
             document.querySelectorAll('.increase-quantity').forEach(button => {
                 button.onclick = (e) => {
                     const index = parseInt(e.currentTarget.getAttribute('data-index'));
                     updateCartItemQuantity(index, 1);
                 };
- 
             });
- document.querySelectorAll('.decrease-quantity').forEach(button => {
+
+            document.querySelectorAll('.decrease-quantity').forEach(button => {
                 button.onclick = (e) => {
                     const index = parseInt(e.currentTarget.getAttribute('data-index'));
                     updateCartItemQuantity(index, -1);
                 };
             });
- }
+        }
 
         // Función para aplicar cupón
         async function applyCoupon() {
             const couponInput = document.getElementById('coupon-input');
- const couponCode = couponInput.value.trim().toUpperCase();
+            const couponCode = couponInput.value.trim().toUpperCase();
             const couponMessage = document.getElementById('coupon-message');
 
             if (!couponCode) {
                 couponMessage.textContent = 'Ingresa un código';
- couponMessage.className = 'text-sm text-red-500';
+                couponMessage.className = 'text-sm text-red-500';
                 couponMessage.classList.remove('hidden');
                 return;
             }
@@ -738,33 +668,32 @@ cartContentElement.innerHTML = '<p class="text-center text-pan-contrast/70 dark:
                 const response = await fetch('/api/validate-coupon', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-               
-     body: JSON.stringify({ code: couponCode })
+                    body: JSON.stringify({ code: couponCode })
                 });
- const data = await response.json();
+
+                const data = await response.json();
 
                 if (response.ok) {
                     appliedCoupon = {
                         code: couponCode,
                         discount: data.discount,
-                     
-    type: data.type
+                        type: data.type
                     };
- couponMessage.textContent = `¡Cupón aplicado! ${data.type === 'percentage' ? data.discount + '%' : '$' + data.discount} de descuento`;
- couponMessage.className = 'text-sm text-green-600 font-semibold';
+
+                    couponMessage.textContent = `¡Cupón aplicado! ${data.type === 'percentage' ? data.discount + '%' : '$' + data.discount} de descuento`;
+                    couponMessage.className = 'text-sm text-green-600 font-semibold';
                     couponMessage.classList.remove('hidden');
 
                     updateCartDisplay();
                 } else {
-                    couponMessage.textContent = data.error ||
- 'Cupón inválido';
+                    couponMessage.textContent = data.error || 'Cupón inválido';
                     couponMessage.className = 'text-sm text-red-500';
                     couponMessage.classList.remove('hidden');
                     appliedCoupon = null;
- }
+                }
             } catch (error) {
                 couponMessage.textContent = 'Error al validar cupón';
- couponMessage.className = 'text-sm text-red-500';
+                couponMessage.className = 'text-sm text-red-500';
                 couponMessage.classList.remove('hidden');
             }
         }
@@ -772,169 +701,138 @@ cartContentElement.innerHTML = '<p class="text-center text-pan-contrast/70 dark:
         // Finalizar pedido por WhatsApp
         const finalizeOrder = () => {
             if (cart.length === 0) return;
- let message = "Hola D'PAN, quiero encargar lo siguiente:%0A%0A";
+
+            let message = "Hola D'PAN, quiero encargar lo siguiente:%0A%0A";
             let total = 0;
- cart.forEach(item => {
+
+            cart.forEach(item => {
                 const subtotal = item.quantity * item.price;
                 message += `* ${item.quantity} x ${item.name} (Subtotal: $${subtotal})%0A`;
                 total += subtotal;
             });
- message += `%0ASubtotal: $${total}`;
+
+            message += `%0ASubtotal: $${total}`;
 
             if (appliedCoupon) {
                 message += `%0ADescuento (${appliedCoupon.code}): -$${discountAmount}`;
- total = Math.max(0, total - discountAmount);
+                total = Math.max(0, total - discountAmount);
             }
 
             message += `%0A*TOTAL FINAL: $${total}*%0A%0A`;
- message += "Por favor, confírmenme el pedido y el método de pago/entrega.";
+            message += "Por favor, confírmenme el pedido y el método de pago/entrega.";
 
             const whatsappUrl = `https://wa.me/5493436108756?text=${message}`;
             window.open(whatsappUrl, '_blank');
             closeCart();
- }
-        // ==========================================================
-        // CAMBIO APLICADO (Lógica del Quiz):
-        // Se reemplaza la variable 'QUIZ_QUESTIONS' por un objeto
-        // que funciona como un "árbol de decisión" o "cuello de botella".
-        // ==========================================================
-        const QUIZ_QUESTIONS = {
-            'start': {
+        }
+        // Preguntas del Quiz
+        const QUIZ_QUESTIONS = [
+            {
                 question: "¿Cómo te sentís en este momento?",
                 options: [
-                    { text: "De diez 🙌", next: 'sabor' },
-                    { text: "Ahí andamos... 😂", next: 'sabor' },
-                    { text: "Siguiente pregunta... 😶‍🌫️", next: 'sabor' }
+                    { text: "De diez 🙌", score: 3 },
+                    { text: "Ahí andamos... 😂", score: 2 },
+                    { text: "Siguiente pregunta... 😶‍🌫️", score: 1 }
                 ]
             },
-            'sabor': {
-                question: "¿Tenés ganas de algo...?",
-                options: [
-                    { text: "Dulce", next: 'dulce_tipo' },
-                    { text: "Salado", next: 'salado_tipo' }
-                ]
-            },
-            'dulce_tipo': {
+            {
                 question: "¿Buscás algo para...?",
                 options: [
-                    { text: "La merienda ☕🧉", next: 'find_product', tags: ['dulce', 'merienda'] },
-                    { text: "Saciar el antojo 😋", next: 'find_product', tags: ['dulce', 'antojo'] }
+                    { text: "El almuerzo / cena 🍽️☀️", score: 3 },
+                    { text: "La merienda ☕🧉", score: 2 },
+                    { text: "Saciar el antojo 😋", score: 1 }
                 ]
             },
-            'salado_tipo': {
-                question: "¿Para qué momento?",
+            {
+                question: "¿Tenés ganas de algo...?",
                 options: [
-                    { text: "El almuerzo / cena 🍽️☀️", next: 'find_product', tags: ['salado', 'comida'] },
-                    { text: "Picar entre horas 😋", next: 'find_product', tags: ['salado', 'antojo'] }
+                    { text: "Salado", score: 3 },
+                    { text: "Dulce", score: 1 },
+                    { text: "Me es indistinto", score: 2 }
                 ]
             }
-        };
+        ];
 
-        // ==========================================================
-        // CAMBIO APLICADO (Lógica del Quiz):
-        // Se reemplaza 'renderQuizStep' para que lea el nuevo
-        // objeto QUIZ_QUESTIONS y use 'data-next' y 'data-tags'.
-        // ==========================================================
         const renderQuizStep = () => {
             const quizContainer = document.getElementById('quiz-container');
             const startQuizButton = document.getElementById('start-quiz-button');
 
-            const stepData = QUIZ_QUESTIONS[currentQuizStep];
-            if (!stepData) {
-                console.error("Quiz step no encontrado:", currentQuizStep);
+            if (currentQuizStep >= QUIZ_QUESTIONS.length) {
+                showQuizResult();
+                startQuizButton.classList.remove('hidden');
                 return;
             }
 
+            const stepData = QUIZ_QUESTIONS[currentQuizStep];
             const optionsHtml = stepData.options.map((opt) => `
-                <button 
-                    data-next="${opt.next}" 
-                    data-tags='${JSON.stringify(opt.tags || [])}' 
-                    class="quiz-option block w-full py-3 my-2 bg-pan-light dark:bg-pan-dark text-pan-dark dark:text-pan-cream rounded-lg border-2 border-pan-accent hover:bg-pan-orange hover:text-white transition duration-200">
+                <button data-score="${opt.score}" class="quiz-option block w-full py-3 my-2 bg-pan-light dark:bg-pan-dark text-pan-dark dark:text-pan-cream rounded-lg border-2 border-pan-accent hover:bg-pan-orange hover:text-white transition duration-200">
                     ${opt.text}
                 </button>
             `).join('');
 
             quizContainer.innerHTML = `
-                <h3 class="text-2xl font-semibold text-pan-dark dark:text-pan-accent mb-4">Pregunta...</h3>
+                <h3 class="text-2xl font-semibold text-pan-dark dark:text-pan-accent mb-4">Pregunta ${currentQuizStep + 1} de ${QUIZ_QUESTIONS.length}</h3>
                 <p class="text-lg text-pan-contrast dark:text-pan-light mb-6 font-bold">${stepData.question}</p>
                 <div class="space-y-3">
                     ${optionsHtml}
                 </div>
             `;
+
             document.querySelectorAll('.quiz-option').forEach(button => {
                 button.addEventListener('click', handleAnswer);
             });
             startQuizButton.classList.add('hidden');
         };
 
-        // ==========================================================
-        // CAMBIO APLICADO (Lógica del Quiz):
-        // Se reemplaza 'handleAnswer' para que navegue el árbol
-        // y llame a 'showQuizResult' con los 'tags' finales.
-        // ==========================================================
         const handleAnswer = (e) => {
-            const nextStep = e.currentTarget.getAttribute('data-next');
-            const tagsJson = e.currentTarget.getAttribute('data-tags');
-            
-            quizAnswers[currentQuizStep] = e.currentTarget.textContent; 
-
-            if (nextStep === 'find_product') {
-                const finalTags = JSON.parse(tagsJson); // Ej: ['dulce', 'merienda']
-                showQuizResult(finalTags); // Pasamos los tags al resultado
-            } else {
-                currentQuizStep = nextStep;
-                renderQuizStep();
-            }
+            const score = parseInt(e.currentTarget.getAttribute('data-score'));
+            quizScore += score;
+            currentQuizStep++;
+            renderQuizStep();
         };
 
-        // ==========================================================
-        // CAMBIO APLICADO (Lógica del Quiz):
-        // Se reemplaza 'showQuizResult' para que ACEPTE 'userTags'
-        // y busque el producto por coincidencia de etiquetas.
-        // ==========================================================
-        const showQuizResult = (userTags) => { // userTags es Ej: ['dulce', 'merienda']
+        const showQuizResult = () => {
+            // LÓGICA MEJORADA: Busca productos por categoría según respuestas
+            let resultProduct = ALL_PRODUCTS[0];
             
-            let bestMatch = null;
-            let maxScore = -1;
-
-            // 1. Buscamos el producto que MEJOR coincida (Ej: 2 de 2 tags)
-            ALL_PRODUCTS.forEach(product => {
-                if (!product.tags || product.tags.length === 0) return; // Ignora productos sin tags
-
-                let currentScore = 0;
-                userTags.forEach(tag => {
-                    if (product.tags.includes(tag)) {
-                        currentScore++; // Suma 1 por cada tag que coincida
-                    }
-                });
-
-                if (currentScore > maxScore) {
-                    maxScore = currentScore;
-                    bestMatch = product;
-                } else if (currentScore === maxScore && maxScore > 0) {
-                    // Si hay empate, elegimos uno al azar
-                    if (Math.random() > 0.5) {
-                        bestMatch = product;
-                    }
-                }
-            });
-
-            // 2. Si no hubo NINGUNA coincidencia (maxScore = 0)
-            // Buscamos uno que tenga al menos UN tag (Ej: 'dulce')
-            if (maxScore <= 0) {
-                bestMatch = ALL_PRODUCTS.find(p => 
-                    p.tags && (p.tags.includes(userTags[0]) || p.tags.includes(userTags[1]))
+            // Categorizar según puntaje EXACTO
+            if (quizScore >= 3 && quizScore <= 4) {
+                // DULCES: Usuario quiere algo dulce, está bajón, busca antojo
+                const dulces = ALL_PRODUCTS.filter(p => 
+                    p.quiz_score && (p.quiz_score.includes(3) || p.quiz_score.includes(4))
                 );
-            }
-            
-            // 3. Si sigue sin haber nada, elegimos uno al azar
-            if (!bestMatch) {
-                bestMatch = ALL_PRODUCTS[Math.floor(Math.random() * ALL_PRODUCTS.length)];
+                resultProduct = dulces.length > 0 
+                    ? dulces[Math.floor(Math.random() * dulces.length)]
+                    : ALL_PRODUCTS[0];
+                    
+            } else if (quizScore >= 5 && quizScore <= 6) {
+                // MERIENDA: Usuario busca merienda, puede ser dulce o versátil
+                const merienda = ALL_PRODUCTS.filter(p => 
+                    p.quiz_score && (p.quiz_score.includes(5) || p.quiz_score.includes(6))
+                );
+                resultProduct = merienda.length > 0 
+                    ? merienda[Math.floor(Math.random() * merienda.length)]
+                    : ALL_PRODUCTS[0];
+                    
+            } else if (quizScore === 7) {
+                // VERSÁTIL: Usuario está neutral, indeciso
+                const versatiles = ALL_PRODUCTS.filter(p => 
+                    p.quiz_score && (p.quiz_score.includes(6) || p.quiz_score.includes(7))
+                );
+                resultProduct = versatiles.length > 0 
+                    ? versatiles[Math.floor(Math.random() * versatiles.length)]
+                    : ALL_PRODUCTS[0];
+                    
+            } else if (quizScore >= 8 && quizScore <= 9) {
+                // SALADOS/COMIDAS: Usuario está bien, busca comida, quiere salado
+                const salados = ALL_PRODUCTS.filter(p => 
+                    p.quiz_score && (p.quiz_score.includes(8) || p.quiz_score.includes(9))
+                );
+                resultProduct = salados.length > 0 
+                    ? salados[Math.floor(Math.random() * salados.length)]
+                    : ALL_PRODUCTS[0];
             }
 
-            const resultProduct = bestMatch;
-
-            // Esta parte (generar el modal) es idéntica a tu código original
             const quizModalBody = document.getElementById('quiz-modal-body');
             const quizResultModal = document.getElementById('quiz-result-modal');
             const quizModalContentWrapper = document.getElementById('quiz-modal-content-wrapper');
@@ -942,56 +840,49 @@ cartContentElement.innerHTML = '<p class="text-center text-pan-contrast/70 dark:
             // Calcular precio con descuento si existe
             const hasDiscount = resultProduct.discount && resultProduct.discount > 0;
             const displayPrice = hasDiscount 
-                ?
-                Math.round(resultProduct.price * (1 - resultProduct.discount / 100))
+                ? Math.round(resultProduct.price * (1 - resultProduct.discount / 100))
                 : resultProduct.price;
+            
             const priceHTML = hasDiscount 
-                ?
-                `<span class="line-through text-gray-400 text-lg mr-2">$${resultProduct.price}</span><span class="text-2xl">$${displayPrice}</span> <span class="text-sm bg-red-500 text-white px-2 py-1 rounded">-${resultProduct.discount}%</span>`
+                ? `<span class="line-through text-gray-400 text-lg mr-2">$${resultProduct.price}</span><span class="text-2xl">$${displayPrice}</span> <span class="text-sm bg-red-500 text-white px-2 py-1 rounded">-${resultProduct.discount}%</span>`
                 : `$${resultProduct.price}`;
+
             quizModalBody.innerHTML = `
                 <h3 class="text-3xl font-display font-bold text-pan-orange mb-4">¡Tu producto ideal es!</h3>
                 <div class="bg-pan-cream dark:bg-pan-dark p-6 rounded-xl border-4 border-pan-accent shadow-lg">
                     <img src="${resultProduct.img_url}" 
                         onerror="this.onerror=null; this.src='https://placehold.co/300x200/8B5E3C/FFF?text=ERR';"
-alt="Resultado: ${resultProduct.name}"
+                        alt="Resultado: ${resultProduct.name}"
                         class="w-full h-auto object-cover rounded-lg mb-4 aspect-video shadow-md">
                     <h4 class="text-3xl font-semibold text-pan-dark dark:text-pan-cream mb-2">${resultProduct.name}</h4>
                     <p class="text-pan-contrast dark:text-pan-light mb-4">${resultProduct.short_description}</p>
                 </div>
-     
+                
                 <div class="flex flex-col space-y-3 mt-4">
-                    <button onclick="addToCart('${resultProduct.id}'); closeQuizModal();"
-class="px-6 py-3 bg-pan-orange text-white font-bold rounded-lg hover:bg-pan-dark transition duration-300 transform hover:scale-[1.02] shadow-xl">
+                    <button onclick="addToCart('${resultProduct.id}'); closeQuizModal();" class="px-6 py-3 bg-pan-orange text-white font-bold rounded-lg hover:bg-pan-dark transition duration-300 transform hover:scale-[1.02] shadow-xl">
                         <i data-lucide="shopping-bag" class="w-5 h-5 mr-2 inline"></i> Encargar Ahora (${priceHTML})
                     </button>
-                    <button onclick="openProductModal('${resultProduct.id}'); closeQuizModal();"
-class="px-6 py-3 bg-pan-dark text-white rounded-lg hover:bg-pan-accent transition duration-300 shadow-md">
+                    <button onclick="openProductModal('${resultProduct.id}'); closeQuizModal();" class="px-6 py-3 bg-pan-dark text-white rounded-lg hover:bg-pan-accent transition duration-300 shadow-md">
                         Ver Detalles
                     </button>
-                    <button onclick="resetQuiz();"
-class="text-pan-contrast/70 dark:text-pan-light/70 hover:text-pan-dark dark:hover:text-pan-light transition duration-300 text-sm">
+                    <button onclick="resetQuiz();" class="text-pan-contrast/70 dark:text-pan-light/70 hover:text-pan-dark dark:hover:text-pan-light transition duration-300 text-sm">
                         Probar otro resultado
                     </button>
                 </div>
             `;
-quizResultModal.classList.remove('hidden');
+
+            quizResultModal.classList.remove('hidden');
             setTimeout(() => {
                 quizModalContentWrapper.classList.remove('scale-95', 'opacity-0');
                 quizModalContentWrapper.classList.add('scale-100', 'opacity-100');
             }, 10);
-document.body.style.overflow = 'hidden';
+            document.body.style.overflow = 'hidden';
             lucide.createIcons();
         };
 
-        // ==========================================================
-        // CAMBIO APLICADO (Lógica del Quiz):
-        // Se reemplaza 'resetQuiz' para que reinicie
-        // 'currentQuizStep' a 'start' y 'quizAnswers'.
-        // ==========================================================
         const resetQuiz = () => {
-            currentQuizStep = 'start';
-            quizAnswers = {};
+            currentQuizStep = 0;
+            quizScore = 0;
             document.getElementById('quiz-container').innerHTML = '';
             document.getElementById('start-quiz-button').classList.remove('hidden');
             closeQuizModal();
@@ -999,90 +890,86 @@ document.body.style.overflow = 'hidden';
 
         const closeQuizModal = () => {
             const quizResultModal = document.getElementById('quiz-result-modal');
-const quizModalContentWrapper = document.getElementById('quiz-modal-content-wrapper');
+            const quizModalContentWrapper = document.getElementById('quiz-modal-content-wrapper');
             quizModalContentWrapper.classList.remove('scale-100', 'opacity-100');
             quizModalContentWrapper.classList.add('scale-95', 'opacity-0');
             setTimeout(() => {
                 quizResultModal.classList.add('hidden');
                 document.body.style.overflow = 'auto';
             }, 300);
- };
+        };
 
         document.getElementById('close-quiz-modal').addEventListener('click', closeQuizModal);
         // Modal de detalle de producto
         const openProductModal = (productId) => {
             const product = ALL_PRODUCTS.find(p => p.id === productId);
- if (!product) return;
+            if (!product) return;
 
             const modalBody = document.getElementById('modal-body');
             const productModal = document.getElementById('product-modal');
             const modalContentWrapper = document.getElementById('modal-content-wrapper');
- const ingredientsList = product.ingredients.map(ing => `
+
+            const ingredientsList = product.ingredients.map(ing => `
                 <li class="flex items-start">
                     <i data-lucide="check-circle" class="w-5 h-5 mr-2 mt-1 text-pan-orange flex-shrink-0"></i>
                     <span>${ing}</span>
                 </li>
             `).join('');
- // Calcular precio con descuento
+
+            // Calcular precio con descuento
             const hasDiscount = product.discount && product.discount > 0;
- const displayPrice = hasDiscount 
-                ?
- Math.round(product.price * (1 - product.discount / 100))
+            const displayPrice = hasDiscount 
+                ? Math.round(product.price * (1 - product.discount / 100))
                 : product.price;
- const priceHTML = hasDiscount 
-                ?
- `
+            
+            const priceHTML = hasDiscount 
+                ? `
                     <div class="flex flex-col">
                         <span class="text-lg text-gray-500 line-through">$${product.price}</span>
                         <div class="flex items-center space-x-2">
-                        
-     <span class="text-3xl font-bold text-pan-orange dark:text-pan-accent">$${displayPrice}</span>
+                            <span class="text-3xl font-bold text-pan-orange dark:text-pan-accent">$${displayPrice}</span>
                             <span class="text-sm font-bold bg-red-500 text-white px-2 py-1 rounded">-${product.discount}%</span>
                         </div>
                     </div>
-             
-    `
+                `
                 : `<span class="text-3xl font-bold text-pan-orange dark:text-pan-accent">$${product.price}</span>`;
- modalBody.innerHTML = `
+
+            modalBody.innerHTML = `
                 <div class="md:flex md:space-x-6">
                     <div class="md:w-1/2 mb-4 md:mb-0">
                         <img src="${product.img_url}" 
                             onerror="this.onerror=null; this.src='https://placehold.co/400x400/8B5E3C/FFF?text=FOTO+NO+CARGADA';"
-alt="Detalle de ${product.name}"
+                            alt="Detalle de ${product.name}"
                             class="w-full h-auto object-cover rounded-lg border-4 border-pan-accent shadow-xl">
                     </div>
                     <div class="md:w-1/2">
-                       
-  <h3 class="text-3xl font-display font-bold text-pan-dark dark:text-pan-accent mb-2">${product.name}</h3>
+                        <h3 class="text-3xl font-display font-bold text-pan-dark dark:text-pan-accent mb-2">${product.name}</h3>
                         <p class="text-pan-contrast dark:text-pan-light mb-4">${product.long_description}</p>
                         <h4 class="text-xl font-semibold text-pan-dark dark:text-pan-light mb-2">Ingredientes Clave:</h4>
                         <ul class="space-y-2 text-pan-contrast dark:text-pan-light text-sm list-none pl-0">
-      
-                       ${ingredientsList}
+                            ${ingredientsList}
                         </ul>
                         <div class="mt-6 flex justify-between items-center border-t pt-4 border-pan-dark/10 dark:border-pan-light/10">
-                      
-       ${priceHTML}
+                            ${priceHTML}
                             <button data-product-id="${product.id}" 
                                 class="add-to-cart-modal px-6 py-3 bg-pan-orange text-white rounded-lg hover:bg-pan-dark transition duration-300 flex items-center shadow-lg transform hover:scale-105">
-                   
-              <i data-lucide="plus" class="w-5 h-5 mr-2"></i> Añadir al Carrito
+                                <i data-lucide="plus" class="w-5 h-5 mr-2"></i> Añadir al Carrito
                             </button>
                         </div>
                     </div>
-        
-         </div>
+                </div>
             `;
- lucide.createIcons();
+            lucide.createIcons();
 
             productModal.classList.remove('hidden');
             setTimeout(() => {
                 modalContentWrapper.classList.remove('scale-95', 'opacity-0');
                 modalContentWrapper.classList.add('scale-100', 'opacity-100');
             }, 10);
- document.querySelector('.add-to-cart-modal').onclick = (e) => {
+
+            document.querySelector('.add-to-cart-modal').onclick = (e) => {
                 const productId = e.currentTarget.getAttribute('data-product-id');
- addToCart(productId);
+                addToCart(productId);
                 closeProductModal();
             };
 
@@ -1091,81 +978,77 @@ alt="Detalle de ${product.name}"
 
         const closeProductModal = () => {
             const productModal = document.getElementById('product-modal');
- const modalContentWrapper = document.getElementById('modal-content-wrapper');
+            const modalContentWrapper = document.getElementById('modal-content-wrapper');
             modalContentWrapper.classList.remove('scale-100', 'opacity-100');
             modalContentWrapper.classList.add('scale-95', 'opacity-0');
             setTimeout(() => {
                 productModal.classList.add('hidden');
                 document.body.style.overflow = 'auto';
             }, 300);
- };
+        };
 
         document.getElementById('close-modal').addEventListener('click', closeProductModal);
 
         // Renderizado de productos CON DESCUENTOS
         const renderProductCard = (product) => {
             const hasDiscount = product.discount && product.discount > 0;
- const originalPrice = product.price;
+            const originalPrice = product.price;
             const discountedPrice = hasDiscount 
-                ?
- Math.round(originalPrice * (1 - product.discount / 100))
+                ? Math.round(originalPrice * (1 - product.discount / 100))
                 : originalPrice;
- const priceHTML = hasDiscount 
-                ?
- `
+            
+            const priceHTML = hasDiscount 
+                ? `
                     <div class="flex flex-col items-start">
                         <span class="text-sm text-gray-500 dark:text-gray-400 line-through">$${originalPrice}</span>
                         <div class="flex items-center space-x-2">
-                      
-       <span class="text-xl font-bold text-pan-accent dark:text-pan-orange">$${discountedPrice}</span>
+                            <span class="text-xl font-bold text-pan-accent dark:text-pan-orange">$${discountedPrice}</span>
                             <span class="text-xs font-bold bg-red-500 text-white px-2 py-1 rounded-full">-${product.discount}%</span>
                         </div>
                     </div>
-           
-      `
+                `
                 : `<span class="text-xl font-bold text-pan-accent dark:text-pan-orange">$${originalPrice}</span>`;
- const offerBadge = hasDiscount 
-                ?
- `<div class="absolute top-2 right-2 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg animate-pulse">¡OFERTA!</div>`
+            
+            const offerBadge = hasDiscount 
+                ? `<div class="absolute top-2 right-2 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg animate-pulse">¡OFERTA!</div>`
                 : '';
- return `
+            
+            return `
                 <div class="product-card bg-pan-light dark:bg-pan-dark p-6 rounded-xl shadow-xl hover:shadow-2xl transition duration-300 flex flex-col border border-pan-accent/30 dark:border-pan-dark relative" data-product-id="${product.id}">
                     ${offerBadge}
                     <div class="product-detail-trigger cursor-pointer">
-                        <img 
- src="${product.img_url}" 
+                        <img src="${product.img_url}" 
                              onerror="this.onerror=null; this.src='https://placehold.co/400x300/8B5E3C/FFF?text=FOTO+NO+CARGADA';"
- alt="${product.name}"
+                             alt="${product.name}"
                              class="w-full h-auto object-cover rounded-lg mb-4 aspect-video border-2 border-pan-accent dark:border-pan-orange shadow-lg hover:opacity-90 transition duration-300">
                         
                         <h3 class="text-2xl font-semibold text-pan-dark dark:text-pan-cream mb-2">${product.name}</h3>
-      
-               </div>
+                    </div>
                     <p class="text-pan-contrast dark:text-pan-light mb-4 flex-grow">${product.short_description}</p>
                     <div class="flex justify-between items-center mt-4">
                         ${priceHTML}
-              
-           <button data-product-id="${product.id}" class="add-to-cart px-4 py-2 bg-pan-dark text-white rounded-lg hover:bg-pan-orange transition duration-300 flex items-center shadow-md">
+                        <button data-product-id="${product.id}" class="add-to-cart px-4 py-2 bg-pan-dark text-white rounded-lg hover:bg-pan-orange transition duration-300 flex items-center shadow-md">
                             <i data-lucide="plus" class="w-4 h-4 mr-1"></i> Añadir
                         </button>
-                    
- </div>
+                    </div>
                 </div>
             `;
- };
+        };
 
         const renderProducts = () => {
             const featuredGrid = document.getElementById('featured-products-grid');
- const fullGrid = document.getElementById('full-products-grid');
+            const fullGrid = document.getElementById('full-products-grid');
 
             featuredGrid.innerHTML = ALL_PRODUCTS
                 .filter(p => p.featured)
                 .map(renderProductCard)
                 .join('');
- fullGrid.innerHTML = ALL_PRODUCTS
+
+            fullGrid.innerHTML = ALL_PRODUCTS
                 .map(renderProductCard)
                 .join('');
- lucide.createIcons();
+
+            lucide.createIcons();
             attachProductCardListeners();
         };
 
@@ -1174,36 +1057,37 @@ alt="Detalle de ${product.name}"
                 button.onclick = (e) => {
                     const productId = e.currentTarget.getAttribute('data-product-id');
                     addToCart(productId);
-               
-  };
+                };
             });
- document.querySelectorAll('.product-card').forEach(card => {
+
+            document.querySelectorAll('.product-card').forEach(card => {
                 card.querySelector('.product-detail-trigger').onclick = (e) => {
                     const productId = card.getAttribute('data-product-id');
                     openProductModal(productId);
                 };
             });
- };
+        };
         // Tema dark/light con detección automática del sistema
         const themeToggle = document.getElementById('theme-toggle');
- // Función para aplicar tema
+        
+        // Función para aplicar tema
         function applyTheme(theme) {
             if (theme === 'dark') {
                 htmlElement.classList.add('dark');
- } else {
+            } else {
                 htmlElement.classList.remove('dark');
- }
+            }
         }
         
         // Detectar preferencia del sistema si no hay configuración guardada
         if (!localStorage.getItem('theme')) {
             // Si el usuario no ha elegido, usar preferencia del sistema
             const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
- applyTheme(prefersDark ? 'dark' : 'light');
+            applyTheme(prefersDark ? 'dark' : 'light');
         } else {
             // Si ya eligió antes, usar su preferencia
             applyTheme(localStorage.getItem('theme'));
- }
+        }
 
         // Cambiar tema al hacer click
         themeToggle.addEventListener('click', () => {
@@ -1211,23 +1095,23 @@ alt="Detalle de ${product.name}"
                 htmlElement.classList.remove('dark');
                 localStorage.setItem('theme', 'light');
             } else {
-               
-  htmlElement.classList.add('dark');
+                htmlElement.classList.add('dark');
                 localStorage.setItem('theme', 'dark');
             }
         });
- // Función para toggle del menú móvil con animación
+
+        // Función para toggle del menú móvil con animación
         function toggleMobileMenu() {
             const mobileMenu = document.getElementById('mobile-menu');
- mobileMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('hidden');
             
             // Si se abre, agregar animación
             if (!mobileMenu.classList.contains('hidden')) {
                 mobileMenu.classList.add('animate-slide-down');
- }
+            }
             
             lucide.createIcons();
- }
+        }
 
         // Cerrar menú móvil al hacer clic en cualquier link
         document.querySelectorAll('#mobile-menu .page-link').forEach(btn => {
@@ -1235,14 +1119,16 @@ alt="Detalle de ${product.name}"
                 document.getElementById('mobile-menu').classList.add('hidden');
             });
         });
- // Inicialización
+
+        // Inicialización
         document.addEventListener('DOMContentLoaded', () => {
             loadProductsFromAPI();
             updateCartDisplay();
             showPage('inicio');
             lucide.createIcons();
         });
- </script>
+
+    </script>
 </body>
 </html>
 

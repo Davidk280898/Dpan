@@ -358,8 +358,7 @@
     <!-- MODAL DE RESULTADO DEL QUIZ -->
     <div id="quiz-result-modal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-pan-contrast/80 dark:bg-pan-dark/90 transition-opacity duration-300">
         <div class="flex items-center justify-center min-h-screen p-4">
-            <div class="relative w-full max-w-md bg-pan-cream dark:bg-pan-contrast rounded-xl shadow-2xl p-6 md:p-8 transform scale-95 opacity-0 transition-all duration-300" id="quiz-modal-content-wrapper">
-                <button id="close-quiz-modal" class="absolute top-4 right-4 text-pan-dark dark:text-pan-light hover:text-pan-orange transition-colors">
+<div class="relative w-full max-w-sm sm:max-w-md bg-pan-cream dark:bg-pan-contrast rounded-xl shadow-2xl p-6 md:p-8 transform scale-95 opacity-0 transition-all duration-300" id="quiz-modal-content-wrapper">                <button id="close-quiz-modal" class="absolute top-4 right-4 text-pan-dark dark:text-pan-light hover:text-pan-orange transition-colors">
                     <i data-lucide="x" class="w-8 h-8"></i>
                 </button>
                 <div id="quiz-modal-body" class="text-center"></div>
@@ -442,7 +441,7 @@
         let ALL_PRODUCTS = [];
         let cart = [];
         let currentQuizStep = 0;
-        let quizScore = 0;
+        let quizPreference = '';
         let appliedCoupon = null;
         let discountAmount = 0;
 
@@ -746,11 +745,11 @@
             {
                 question: "¿Tenés ganas de algo...?",
                 options: [
-                    { text: "Salado", score: 3 },
-                    { text: "Dulce", score: 1 },
-                    { text: "Me es indistinto", score: 2 }
-                ]
-            }
+                { text: "Salado", value: 'salado' },
+                { text: "Dulce", value: 'dulce' },
+                { text: "Me es indistinto", value: 'indistinto' }
+        ]
+    }
         ];
 
         const renderQuizStep = () => {
@@ -764,12 +763,11 @@
             }
 
             const stepData = QUIZ_QUESTIONS[currentQuizStep];
-            const optionsHtml = stepData.options.map((opt) => `
-                <button data-score="${opt.score}" class="quiz-option block w-full py-3 my-2 bg-pan-light dark:bg-pan-dark text-pan-dark dark:text-pan-cream rounded-lg border-2 border-pan-accent hover:bg-pan-orange hover:text-white transition duration-200">
-                    ${opt.text}
-                </button>
-            `).join('');
-
+          const optionsHtml = stepData.options.map((opt) => `
+    <button data-value="${opt.value}" class="quiz-option block w-full py-3 my-2 bg-pan-light dark:bg-pan-dark text-pan-dark dark:text-pan-cream rounded-lg border-2 border-pan-accent hover:bg-pan-orange hover:text-white transition duration-200">
+        ${opt.text}
+    </button>
+`).join('');
             quizContainer.innerHTML = `
                 <h3 class="text-2xl font-semibold text-pan-dark dark:text-pan-accent mb-4">Pregunta ${currentQuizStep + 1} de ${QUIZ_QUESTIONS.length}</h3>
                 <p class="text-lg text-pan-contrast dark:text-pan-light mb-6 font-bold">${stepData.question}</p>
@@ -784,54 +782,33 @@
             startQuizButton.classList.add('hidden');
         };
 
-        const handleAnswer = (e) => {
-            const score = parseInt(e.currentTarget.getAttribute('data-score'));
-            quizScore += score;
-            currentQuizStep++;
-            renderQuizStep();
-        };
+       const handleAnswer = (e) => {
+    const value = e.currentTarget.getAttribute('data-value');
+    if (value) {
+        quizPreference = value;
+    }
+    currentQuizStep++;
+    renderQuizStep();
+};
 
         const showQuizResult = () => {
-            // LÓGICA MEJORADA: Busca productos por categoría según respuestas
-            let resultProduct = ALL_PRODUCTS[0];
-            
-            // Categorizar según puntaje EXACTO
-            if (quizScore >= 3 && quizScore <= 4) {
-                // DULCES: Usuario quiere algo dulce, está bajón, busca antojo
-                const dulces = ALL_PRODUCTS.filter(p => 
-                    p.quiz_score && (p.quiz_score.includes(3) || p.quiz_score.includes(4))
-                );
-                resultProduct = dulces.length > 0 
-                    ? dulces[Math.floor(Math.random() * dulces.length)]
-                    : ALL_PRODUCTS[0];
-                    
-            } else if (quizScore >= 5 && quizScore <= 6) {
-                // MERIENDA: Usuario busca merienda, puede ser dulce o versátil
-                const merienda = ALL_PRODUCTS.filter(p => 
-                    p.quiz_score && (p.quiz_score.includes(5) || p.quiz_score.includes(6))
-                );
-                resultProduct = merienda.length > 0 
-                    ? merienda[Math.floor(Math.random() * merienda.length)]
-                    : ALL_PRODUCTS[0];
-                    
-            } else if (quizScore === 7) {
-                // VERSÁTIL: Usuario está neutral, indeciso
-                const versatiles = ALL_PRODUCTS.filter(p => 
-                    p.quiz_score && (p.quiz_score.includes(6) || p.quiz_score.includes(7))
-                );
-                resultProduct = versatiles.length > 0 
-                    ? versatiles[Math.floor(Math.random() * versatiles.length)]
-                    : ALL_PRODUCTS[0];
-                    
-            } else if (quizScore >= 8 && quizScore <= 9) {
-                // SALADOS/COMIDAS: Usuario está bien, busca comida, quiere salado
-                const salados = ALL_PRODUCTS.filter(p => 
-                    p.quiz_score && (p.quiz_score.includes(8) || p.quiz_score.includes(9))
-                );
-                resultProduct = salados.length > 0 
-                    ? salados[Math.floor(Math.random() * salados.length)]
-                    : ALL_PRODUCTS[0];
-            }
+    let targetScores = [];
+    
+    if (quizPreference === 'dulce') {
+        targetScores = [3, 4];
+    } else if (quizPreference === 'salado') {
+        targetScores = [8, 9];
+    } else {
+        targetScores = [6, 7];
+    }
+    
+    const matchingProducts = ALL_PRODUCTS.filter(p => 
+        p.quiz_score && targetScores.some(score => p.quiz_score.includes(score))
+    );
+    
+    const resultProduct = matchingProducts.length > 0
+        ? matchingProducts[Math.floor(Math.random() * matchingProducts.length)]
+        : ALL_PRODUCTS[0];
 
             const quizModalBody = document.getElementById('quiz-modal-body');
             const quizResultModal = document.getElementById('quiz-result-modal');
@@ -880,13 +857,13 @@
             lucide.createIcons();
         };
 
-        const resetQuiz = () => {
-            currentQuizStep = 0;
-            quizScore = 0;
-            document.getElementById('quiz-container').innerHTML = '';
-            document.getElementById('start-quiz-button').classList.remove('hidden');
-            closeQuizModal();
-        }
+const resetQuiz = () => {
+    currentQuizStep = 0;
+    quizPreference = '';
+    document.getElementById('quiz-container').innerHTML = '';
+    document.getElementById('start-quiz-button').classList.remove('hidden');
+    closeQuizModal();
+}
 
         const closeQuizModal = () => {
             const quizResultModal = document.getElementById('quiz-result-modal');
@@ -1131,4 +1108,5 @@
     </script>
 </body>
 </html>
+
 

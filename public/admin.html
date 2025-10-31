@@ -1,589 +1,591 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Panel - D'PAN</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'pan-dark': '#8B5E3C',     
-                        'pan-light': '#F5E3C0',    
-                        'pan-cream': '#FFF4E1',    
-                        'pan-accent': '#D19C4C',   
-                        'pan-orange': '#E28C42',   
-                        'pan-contrast': '#5C3A21', 
-                    }
-                }
-            }
-        }
-    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - D'PAN</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'pan-dark': '#8B5E3C',     
+                        'pan-light': '#F5E3C0',    
+                        'pan-cream': '#FFF4E1',    
+                        'pan-accent': '#D19C4C',   
+                        'pan-orange': '#E28C42',   
+                        'pan-contrast': '#5C3A21', 
+                    }
+                }
+            }
+        }
+    </script>
 </head>
 <body class="bg-gray-100 min-h-screen">
-        <div id="login-screen" class="flex items-center justify-center min-h-screen">
-        <div class="bg-white p-8 rounded-xl shadow-2xl max-w-md w-full">
-            <h1 class="text-3xl font-bold text-pan-dark mb-6 text-center">Panel Admin D'PAN</h1>
-            <form id="login-form" class="space-y-4">
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Usuario</label>
-                    <input type="text" id="login-username" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-pan-orange" required>
-                </div>
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Contraseña</label>
-                    <input type="password" id="login-password" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-pan-orange" required>
-                </div>
-                <button type="submit" class="w-full bg-pan-orange text-white py-2 rounded-lg hover:bg-pan-dark transition">
-                    Iniciar Sesión
-                </button>
-                <p id="login-error" class="text-red-500 text-sm hidden"></p>
-            </form>
-        </div>
-    </div>
+    <!-- Login Screen -->
+    <div id="login-screen" class="flex items-center justify-center min-h-screen">
+        <div class="bg-white p-8 rounded-xl shadow-2xl max-w-md w-full">
+            <h1 class="text-3xl font-bold text-pan-dark mb-6 text-center">Panel Admin D'PAN</h1>
+            <form id="login-form" class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Usuario</label>
+                    <input type="text" id="login-username" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-pan-orange" required>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Contraseña</label>
+                    <input type="password" id="login-password" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-pan-orange" required>
+                </div>
+                <button type="submit" class="w-full bg-pan-orange text-white py-2 rounded-lg hover:bg-pan-dark transition">
+                    Iniciar Sesión
+                </button>
+                <p id="login-error" class="text-red-500 text-sm hidden"></p>
+            </form>
+        </div>
+    </div>
 
-        <div id="admin-panel" class="hidden">
-        <header class="bg-pan-dark text-white shadow-lg">
-            <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-                <h1 class="text-2xl font-bold">Panel de Administración - D'PAN</h1>
-                <div class="flex items-center space-x-4">
-                    <span id="admin-username" class="text-pan-light"></span>
-                    <button onclick="logout()" class="bg-red-500 px-4 py-2 rounded hover:bg-red-600 transition">
-                        Cerrar Sesión
-                    </button>
-                </div>
-            </div>
-        </header>
+    <!-- Admin Panel -->
+    <div id="admin-panel" class="hidden">
+        <header class="bg-pan-dark text-white shadow-lg">
+            <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+                <h1 class="text-2xl font-bold">Panel de Administración - D'PAN</h1>
+                <div class="flex items-center space-x-4">
+                    <span id="admin-username" class="text-pan-light"></span>
+                    <button onclick="logout()" class="bg-red-500 px-4 py-2 rounded hover:bg-red-600 transition">
+                        Cerrar Sesión
+                    </button>
+                </div>
+            </div>
+        </header>
 
-                <main class="max-w-7xl mx-auto px-4 py-8">
-            <div class="mb-6 flex justify-between items-center">
-                <h2 class="text-3xl font-bold text-pan-dark">Gestión de Productos</h2>
-                <button onclick="openProductModal()" class="bg-green-500 text-white px-6 py-3 rounded-lg hover:bg-green-600 transition flex items-center">
-                    <i data-lucide="plus" class="w-5 h-5 mr-2"></i>
-                    Nuevo Producto
-                </button>
-            </div>
-            <div id="products-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
-        </main>
+        <!-- PRODUCTOS -->
+        <main class="max-w-7xl mx-auto px-4 py-8">
+            <div class="mb-6 flex justify-between items-center">
+                <h2 class="text-3xl font-bold text-pan-dark">Gestión de Productos</h2>
+                <button onclick="openProductModal()" class="bg-green-500 text-white px-6 py-3 rounded-lg hover:bg-green-600 transition flex items-center">
+                    <i data-lucide="plus" class="w-5 h-5 mr-2"></i>
+                    Nuevo Producto
+                </button>
+            </div>
+            <div id="products-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+        </main>
 
-                <section class="max-w-7xl mx-auto px-4 py-8 mt-8 border-t-4 border-pan-orange">
-            <div class="mb-6 flex justify-between items-center">
-                <h2 class="text-3xl font-bold text-pan-dark">Gestión de Cupones</h2>
-                <button onclick="openCouponModal()" class="bg-green-500 text-white px-6 py-3 rounded-lg hover:bg-green-600 transition flex items-center">
-                    <i data-lucide="ticket" class="w-5 h-5 mr-2"></i>
-                    Nuevo Cupón
-                </button>
-            </div>
-            <div id="coupons-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
-        </section>
-    </div>
-        <div id="product-modal" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-        <div class="bg-white rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6">
-            <div class="flex justify-between items-center mb-4">
-                <h3 id="modal-title" class="text-2xl font-bold text-pan-dark">Nuevo Producto</h3>
-                <button onclick="closeProductModal()" class="text-gray-500 hover:text-gray-700">
-                    <i data-lucide="x" class="w-6 h-6"></i>
-                </button>
-            </div>
+        <!-- CUPONES -->
+        <section class="max-w-7xl mx-auto px-4 py-8 mt-8 border-t-4 border-pan-orange">
+            <div class="mb-6 flex justify-between items-center">
+                <h2 class="text-3xl font-bold text-pan-dark">Gestión de Cupones</h2>
+                <button onclick="openCouponModal()" class="bg-green-500 text-white px-6 py-3 rounded-lg hover:bg-green-600 transition flex items-center">
+                    <i data-lucide="ticket" class="w-5 h-5 mr-2"></i>
+                    Nuevo Cupón
+                </button>
+            </div>
+            <div id="coupons-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+        </section>
+    </div>
+    <!-- Modal de Productos -->
+    <div id="product-modal" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+        <div class="bg-white rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6">
+            <div class="flex justify-between items-center mb-4">
+                <h3 id="modal-title" class="text-2xl font-bold text-pan-dark">Nuevo Producto</h3>
+                <button onclick="closeProductModal()" class="text-gray-500 hover:text-gray-700">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+            </div>
 
-            <form id="product-form" class="space-y-4">
-                <input type="hidden" id="product-id">
-                
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Nombre del Producto *</label>
-                    <input type="text" id="product-name" class="w-full px-4 py-2 border rounded-lg" required>
-                </div>
+            <form id="product-form" class="space-y-4">
+                <input type="hidden" id="product-id">
+                
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Nombre del Producto *</label>
+                    <input type="text" id="product-name" class="w-full px-4 py-2 border rounded-lg" required>
+                </div>
 
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Descripción Corta *</label>
-                    <textarea id="product-short-desc" rows="2" class="w-full px-4 py-2 border rounded-lg" required></textarea>
-                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Descripción Corta *</label>
+                    <textarea id="product-short-desc" rows="2" class="w-full px-4 py-2 border rounded-lg" required></textarea>
+                </div>
 
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Descripción Completa *</label>
-                    <textarea id="product-long-desc" rows="4" class="w-full px-4 py-2 border rounded-lg" required></textarea>
-                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Descripción Completa *</label>
+                    <textarea id="product-long-desc" rows="4" class="w-full px-4 py-2 border rounded-lg" required></textarea>
+                </div>
 
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Ingredientes (uno por línea) *</label>
-                    <textarea id="product-ingredients" rows="4" class="w-full px-4 py-2 border rounded-lg" placeholder="Harina&#10;Agua&#10;Sal" required></textarea>
-                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Ingredientes (uno por línea) *</label>
+                    <textarea id="product-ingredients" rows="4" class="w-full px-4 py-2 border rounded-lg" placeholder="Harina&#10;Agua&#10;Sal" required></textarea>
+                </div>
 
-                <div class="grid grid-cols-2 gap-4">
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Precio ($) *</label>
-                        <input type="number" id="product-price" step="0.01" class="w-full px-4 py-2 border rounded-lg" required>
-                    </div>
-                                        <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Descuento (%) 🔥</label>
-                        <input type="number" id="product-discount" min="0" max="100" step="1" placeholder="0" class="w-full px-4 py-2 border rounded-lg border-red-300 focus:ring-red-500">
-                        <p class="text-xs text-gray-500 mt-1">0 = sin oferta, 20 = 20% OFF</p>
-                    </div>
-                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Precio ($) *</label>
+                        <input type="number" id="product-price" step="0.01" class="w-full px-4 py-2 border rounded-lg" required>
+                    </div>
+                    <!-- NUEVO CAMPO DE DESCUENTO -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Descuento (%) 🔥</label>
+                        <input type="number" id="product-discount" min="0" max="100" step="1" placeholder="0" class="w-full px-4 py-2 border rounded-lg border-red-300 focus:ring-red-500">
+                        <p class="text-xs text-gray-500 mt-1">0 = sin oferta, 20 = 20% OFF</p>
+                    </div>
+                </div>
 
-                <div class="flex items-center space-x-6">
-                    <label class="flex items-center">
-                        <input type="checkbox" id="product-featured" class="mr-2">
-                        <span class="text-sm font-medium text-gray-700">⭐ Producto Destacado</span>
-                    </label>
-                </div>
+                <div class="flex items-center space-x-6">
+                    <label class="flex items-center">
+                        <input type="checkbox" id="product-featured" class="mr-2">
+                        <span class="text-sm font-medium text-gray-700">⭐ Producto Destacado</span>
+                    </label>
+                </div>
 
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Etiquetas (Tags) de Producto *</label>
-                    <input type="text" id="product-tags" placeholder="Ej: dulce, salado, merienda, cena" class="w-full px-4 py-2 border rounded-lg" required>
-                    <div class="mt-2 p-3 bg-green-50 rounded text-xs">
-                        <p class="font-semibold mb-1">💡 Consejos:</p>
-                        <p>• Use palabras clave separadas por comas (ej: **dulce**, **salado**, **merienda**).</p>
-                        <p>• Estas etiquetas definen qué productos recomendará el Quiz.</p>
-                    </div>
-                </div>
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Imagen del Producto</label>
-                    <input type="file" id="product-image" accept="image/*" class="w-full px-4 py-2 border rounded-lg">
-                    <div id="current-image-preview" class="mt-2 hidden">
-                        <p class="text-sm text-gray-600 mb-1">Imagen actual:</p>
-                        <img id="current-image" src="" class="w-32 h-32 object-cover rounded border">
-                    </div>
-                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Puntajes Quiz (separados por coma) *</label>
+                    <input type="text" id="product-quiz-score" placeholder="3,4" class="w-full px-4 py-2 border rounded-lg" required>
+                    <div class="mt-2 p-3 bg-blue-50 rounded text-xs">
+                        <p class="font-semibold mb-1">🎯 Guía rápida:</p>
+                        <p>• <strong>3,4</strong> → Dulces/Snacks (panecitos, tortas, budines, galletitas)</p>
+                        <p>• <strong>5,6</strong> → Merienda clásica</p>
+                        <p>• <strong>6,7</strong> → Versátiles (chipá, bizcochos, pan de campo)</p>
+                        <p>• <strong>8,9</strong> → Salados/Comidas (pan lactal, pizzetas, sándwiches)</p>
+                    </div>
+                </div>
 
-                <div class="flex space-x-4 pt-4">
-                    <button type="submit" class="flex-1 bg-pan-orange text-white py-2 rounded-lg hover:bg-pan-dark transition">
-                        Guardar Producto
-                    </button>
-                    <button type="button" onclick="closeProductModal()" class="px-6 bg-gray-300 text-gray-700 py-2 rounded-lg hover:bg-gray-400 transition">
-                        Cancelar
-                    </button>
-                </div>
-            </form>
-        </div>
-    </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Imagen del Producto</label>
+                    <input type="file" id="product-image" accept="image/*" class="w-full px-4 py-2 border rounded-lg">
+                    <div id="current-image-preview" class="mt-2 hidden">
+                        <p class="text-sm text-gray-600 mb-1">Imagen actual:</p>
+                        <img id="current-image" src="" class="w-32 h-32 object-cover rounded border">
+                    </div>
+                </div>
 
-        <div id="coupon-modal" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-        <div class="bg-white rounded-xl max-w-md w-full p-6">
-            <div class="flex justify-between items-center mb-4">
-                <h3 id="coupon-modal-title" class="text-2xl font-bold text-pan-dark">Nuevo Cupón</h3>
-                <button onclick="closeCouponModal()" class="text-gray-500 hover:text-gray-700">
-                    <i data-lucide="x" class="w-6 h-6"></i>
-                </button>
-            </div>
+                <div class="flex space-x-4 pt-4">
+                    <button type="submit" class="flex-1 bg-pan-orange text-white py-2 rounded-lg hover:bg-pan-dark transition">
+                        Guardar Producto
+                    </button>
+                    <button type="button" onclick="closeProductModal()" class="px-6 bg-gray-300 text-gray-700 py-2 rounded-lg hover:bg-gray-400 transition">
+                        Cancelar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
 
-            <form id="coupon-form" class="space-y-4">
-                <input type="hidden" id="coupon-id">
-                
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Código del Cupón *</label>
-                    <input type="text" id="coupon-code" placeholder="VERANO2025" class="w-full px-4 py-2 border rounded-lg uppercase" required>
-                    <p class="text-xs text-gray-500 mt-1">El código se convertirá a mayúsculas automáticamente</p>
-                </div>
+    <!-- Modal de Cupones -->
+    <div id="coupon-modal" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+        <div class="bg-white rounded-xl max-w-md w-full p-6">
+            <div class="flex justify-between items-center mb-4">
+                <h3 id="coupon-modal-title" class="text-2xl font-bold text-pan-dark">Nuevo Cupón</h3>
+                <button onclick="closeCouponModal()" class="text-gray-500 hover:text-gray-700">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+            </div>
 
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Tipo de Descuento *</label>
-                    <select id="coupon-type" class="w-full px-4 py-2 border rounded-lg" required>
-                        <option value="percentage">Porcentaje (%)</option>
-                        <option value="fixed">Monto Fijo ($)</option>
-                    </select>
-                </div>
+            <form id="coupon-form" class="space-y-4">
+                <input type="hidden" id="coupon-id">
+                
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Código del Cupón *</label>
+                    <input type="text" id="coupon-code" placeholder="VERANO2025" class="w-full px-4 py-2 border rounded-lg uppercase" required>
+                    <p class="text-xs text-gray-500 mt-1">El código se convertirá a mayúsculas automáticamente</p>
+                </div>
 
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Descuento *</label>
-                    <input type="number" id="coupon-discount" step="0.01" min="0" placeholder="10" class="w-full px-4 py-2 border rounded-lg" required>
-                    <p class="text-xs text-gray-500 mt-1">Ejemplo: 10 = 10% o $10 según el tipo</p>
-                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Tipo de Descuento *</label>
+                    <select id="coupon-type" class="w-full px-4 py-2 border rounded-lg" required>
+                        <option value="percentage">Porcentaje (%)</option>
+                        <option value="fixed">Monto Fijo ($)</option>
+                    </select>
+                </div>
 
-                <div>
-                    <label class="flex items-center">
-                        <input type="checkbox" id="coupon-active" checked class="mr-2">
-                        <span class="text-sm font-medium text-gray-700">Cupón Activo</span>
-                    </label>
-                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Descuento *</label>
+                    <input type="number" id="coupon-discount" step="0.01" min="0" placeholder="10" class="w-full px-4 py-2 border rounded-lg" required>
+                    <p class="text-xs text-gray-500 mt-1">Ejemplo: 10 = 10% o $10 según el tipo</p>
+                </div>
 
-                <div class="flex space-x-4 pt-4">
-                    <button type="submit" class="flex-1 bg-pan-orange text-white py-2 rounded-lg hover:bg-pan-dark transition">
-                        Guardar Cupón
-                    </button>
-                    <button type="button" onclick="closeCouponModal()" class="px-6 bg-gray-300 text-gray-700 py-2 rounded-lg hover:bg-gray-400 transition">
-                        Cancelar
-                    </button>
-                </div>
-            </form>
-        </div>
-    </div>
-    <script>
-        lucide.createIcons();
-        let editingProductId = null;
-        let editingCouponId = null;
+                <div>
+                    <label class="flex items-center">
+                        <input type="checkbox" id="coupon-active" checked class="mr-2">
+                        <span class="text-sm font-medium text-gray-700">Cupón Activo</span>
+                    </label>
+                </div>
 
-        // Check authentication
-        async function checkAuth() {
-            try {
-                const res = await fetch('/api/auth/check');
-                const data = await res.json();
-                
-                if (data.authenticated) {
-                    document.getElementById('login-screen').classList.add('hidden');
-                    document.getElementById('admin-panel').classList.remove('hidden');
-                    document.getElementById('admin-username').textContent = data.username;
-                    loadProducts();
-                    loadCoupons();
-                } else {
-                    document.getElementById('login-screen').classList.remove('hidden');
-                    document.getElementById('admin-panel').classList.add('hidden');
-                }
-            } catch (error) {
-                console.error('Error checking auth:', error);
-            }
-        }
+                <div class="flex space-x-4 pt-4">
+                    <button type="submit" class="flex-1 bg-pan-orange text-white py-2 rounded-lg hover:bg-pan-dark transition">
+                        Guardar Cupón
+                    </button>
+                    <button type="button" onclick="closeCouponModal()" class="px-6 bg-gray-300 text-gray-700 py-2 rounded-lg hover:bg-gray-400 transition">
+                        Cancelar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        lucide.createIcons();
+        let editingProductId = null;
+        let editingCouponId = null;
 
-        // Login
-        document.getElementById('login-form').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const username = document.getElementById('login-username').value;
-            const password = document.getElementById('login-password').value;
-            const errorEl = document.getElementById('login-error');
-            
-            try {
-                const res = await fetch('/api/auth/login', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ username, password })
-                });
-                
-                const data = await res.json();
-                
-                if (res.ok) {
-                    checkAuth();
-                } else {
-                    errorEl.textContent = data.error || 'Error al iniciar sesión';
-                    errorEl.classList.remove('hidden');
-                }
-            } catch (error) {
-                errorEl.textContent = 'Error de conexión';
-                errorEl.classList.remove('hidden');
-            }
-        });
+        // Check authentication
+        async function checkAuth() {
+            try {
+                const res = await fetch('/api/auth/check');
+                const data = await res.json();
+                
+                if (data.authenticated) {
+                    document.getElementById('login-screen').classList.add('hidden');
+                    document.getElementById('admin-panel').classList.remove('hidden');
+                    document.getElementById('admin-username').textContent = data.username;
+                    loadProducts();
+                    loadCoupons();
+                } else {
+                    document.getElementById('login-screen').classList.remove('hidden');
+                    document.getElementById('admin-panel').classList.add('hidden');
+                }
+            } catch (error) {
+                console.error('Error checking auth:', error);
+            }
+        }
 
-        // Logout
-        async function logout() {
-            await fetch('/api/auth/logout', { method: 'POST' });
-            checkAuth();
-        }
+        // Login
+        document.getElementById('login-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const username = document.getElementById('login-username').value;
+            const password = document.getElementById('login-password').value;
+            const errorEl = document.getElementById('login-error');
+            
+            try {
+                const res = await fetch('/api/auth/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username, password })
+                });
+                
+                const data = await res.json();
+                
+                if (res.ok) {
+                    checkAuth();
+                } else {
+                    errorEl.textContent = data.error || 'Error al iniciar sesión';
+                    errorEl.classList.remove('hidden');
+                }
+            } catch (error) {
+                errorEl.textContent = 'Error de conexión';
+                errorEl.classList.remove('hidden');
+            }
+        });
 
-        // === PRODUCTOS ===
+        // Logout
+        async function logout() {
+            await fetch('/api/auth/logout', { method: 'POST' });
+            checkAuth();
+        }
 
-        async function loadProducts() {
-            try {
-                const res = await fetch('/api/products');
-                const products = await res.json();
-                
-                const grid = document.getElementById('products-grid');
-                grid.innerHTML = products.map(p => {
-                    const hasDiscount = p.discount && p.discount > 0;
-                    const discountedPrice = hasDiscount ? Math.round(p.price * (1 - p.discount / 100)) : p.price;
-                    
-                    const priceHTML = hasDiscount 
-                        ? `<div class="flex flex-col"><span class="text-sm text-gray-400 line-through">$${p.price}</span><span class="text-xl font-bold text-red-600">$${discountedPrice}</span></div>`
-                        : `<span class="text-xl font-bold text-pan-orange">$${p.price}</span>`;
-                    
-                    const offerBadge = hasDiscount 
-                        ? `<span class="text-xs bg-red-500 text-white px-2 py-1 rounded ml-2">-${p.discount}% OFF</span>`
-                        : '';
-                    
-                    return `
-                        <div class="bg-white rounded-lg shadow-lg p-4 ${hasDiscount ? 'border-2 border-red-400' : ''}">
-                            ${hasDiscount ? '<div class="absolute top-2 right-2 bg-red-500 text-white text-xs px-2 py-1 rounded font-bold">¡OFERTA!</div>' : ''}
-                            <img src="${p.img_url}" alt="${p.name}" class="w-full h-48 object-cover rounded mb-3">
-                            <h3 class="font-bold text-lg text-pan-dark mb-1">${p.name}</h3>
-                            <p class="text-sm text-gray-600 mb-2">${p.short_description}</p>
-                            <div class="flex justify-between items-center mb-3">
-                                ${priceHTML}
-                                <div class="flex items-center">
-                                    ${offerBadge}
-                                    ${p.featured ? '<span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded ml-2">Destacado</span>' : ''}
-                                </div>
-                            </div>
-                            <div class="flex space-x-2">
-                                <button onclick="editProduct('${p.id}')" class="flex-1 bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition text-sm">
-                                    Editar
-                                </button>
-                                <button onclick="deleteProduct('${p.id}')" class="flex-1 bg-red-500 text-white py-2 rounded hover:bg-red-600 transition text-sm">
-                                    Eliminar
-                                </button>
-                            </div>
-                        </div>
-                    `;
-                }).join('');
-                
-                lucide.createIcons();
-            } catch (error) {
-                console.error('Error loading products:', error);
-            }
-        }
+        // === PRODUCTOS ===
 
-        function openProductModal() {
-            editingProductId = null;
-            document.getElementById('modal-title').textContent = 'Nuevo Producto';
-            document.getElementById('product-form').reset();
-            document.getElementById('product-id').value = '';
-            document.getElementById('product-discount').value = 0;
-            document.getElementById('current-image-preview').classList.add('hidden');
-            document.getElementById('product-modal').classList.remove('hidden');
-        }
+        async function loadProducts() {
+            try {
+                const res = await fetch('/api/products');
+                const products = await res.json();
+                
+                const grid = document.getElementById('products-grid');
+                grid.innerHTML = products.map(p => {
+                    const hasDiscount = p.discount && p.discount > 0;
+                    const discountedPrice = hasDiscount ? Math.round(p.price * (1 - p.discount / 100)) : p.price;
+                    
+                    const priceHTML = hasDiscount 
+                        ? `<div class="flex flex-col"><span class="text-sm text-gray-400 line-through">$${p.price}</span><span class="text-xl font-bold text-red-600">$${discountedPrice}</span></div>`
+                        : `<span class="text-xl font-bold text-pan-orange">$${p.price}</span>`;
+                    
+                    const offerBadge = hasDiscount 
+                        ? `<span class="text-xs bg-red-500 text-white px-2 py-1 rounded ml-2">-${p.discount}% OFF</span>`
+                        : '';
+                    
+                    return `
+                        <div class="bg-white rounded-lg shadow-lg p-4 ${hasDiscount ? 'border-2 border-red-400' : ''}">
+                            ${hasDiscount ? '<div class="absolute top-2 right-2 bg-red-500 text-white text-xs px-2 py-1 rounded font-bold">¡OFERTA!</div>' : ''}
+                            <img src="${p.img_url}" alt="${p.name}" class="w-full h-48 object-cover rounded mb-3">
+                            <h3 class="font-bold text-lg text-pan-dark mb-1">${p.name}</h3>
+                            <p class="text-sm text-gray-600 mb-2">${p.short_description}</p>
+                            <div class="flex justify-between items-center mb-3">
+                                ${priceHTML}
+                                <div class="flex items-center">
+                                    ${offerBadge}
+                                    ${p.featured ? '<span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded ml-2">Destacado</span>' : ''}
+                                </div>
+                            </div>
+                            <div class="flex space-x-2">
+                                <button onclick="editProduct('${p.id}')" class="flex-1 bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition text-sm">
+                                    Editar
+                                </button>
+                                <button onclick="deleteProduct('${p.id}')" class="flex-1 bg-red-500 text-white py-2 rounded hover:bg-red-600 transition text-sm">
+                                    Eliminar
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+                
+                lucide.createIcons();
+            } catch (error) {
+                console.error('Error loading products:', error);
+            }
+        }
 
-        async function editProduct(id) {
-            try {
-                const res = await fetch(`/api/products/${id}`);
-                const product = await res.json();
-                
-                editingProductId = id;
-                document.getElementById('modal-title').textContent = 'Editar Producto';
-                document.getElementById('product-id').value = product.id;
-                document.getElementById('product-name').value = product.name;
-                document.getElementById('product-short-desc').value = product.short_description;
-                document.getElementById('product-long-desc').value = product.long_description;
-                document.getElementById('product-ingredients').value = product.ingredients.join('\n');
-                document.getElementById('product-price').value = product.price;
-                document.getElementById('product-discount').value = product.discount || 0;
-                document.getElementById('product-featured').checked = product.featured;
-                
-                // INICIO CAMBIO DE quiz_score A tags
-                // Si el producto tiene 'tags' (el nuevo campo), lo usamos. Si tiene el viejo 'quiz_score', lo usamos (para compatibilidad temporal).
-                // Si tenés que editar un producto viejo que aún tiene 'quiz_score', aparecerán los números en el campo de tags.
-                const tagsOrScores = product.tags ? product.tags.join(', ') : (product.quiz_score ? product.quiz_score.join(', ') : '');
-                document.getElementById('product-tags').value = tagsOrScores;
-                // FIN CAMBIO DE quiz_score A tags
-                
-                if (product.img_url) {
-                    document.getElementById('current-image').src = product.img_url;
-                    document.getElementById('current-image-preview').classList.remove('hidden');
-                }
-                
-                document.getElementById('product-modal').classList.remove('hidden');
-            } catch (error) {
-                console.error('Error loading product:', error);
-                alert('Error al cargar el producto');
-            }
-        }
+        function openProductModal() {
+            editingProductId = null;
+            document.getElementById('modal-title').textContent = 'Nuevo Producto';
+            document.getElementById('product-form').reset();
+            document.getElementById('product-id').value = '';
+            document.getElementById('product-discount').value = 0;
+            document.getElementById('current-image-preview').classList.add('hidden');
+            document.getElementById('product-modal').classList.remove('hidden');
+        }
 
-        function closeProductModal() {
-            document.getElementById('product-modal').classList.add('hidden');
-            document.getElementById('product-form').reset();
-            editingProductId = null;
-        }
+        async function editProduct(id) {
+            try {
+                const res = await fetch(`/api/products/${id}`);
+                const product = await res.json();
+                
+                editingProductId = id;
+                document.getElementById('modal-title').textContent = 'Editar Producto';
+                document.getElementById('product-id').value = product.id;
+                document.getElementById('product-name').value = product.name;
+                document.getElementById('product-short-desc').value = product.short_description;
+                document.getElementById('product-long-desc').value = product.long_description;
+                document.getElementById('product-ingredients').value = product.ingredients.join('\n');
+                document.getElementById('product-price').value = product.price;
+                document.getElementById('product-discount').value = product.discount || 0;
+                document.getElementById('product-featured').checked = product.featured;
+                document.getElementById('product-quiz-score').value = product.quiz_score.join(',');
+                
+                if (product.img_url) {
+                    document.getElementById('current-image').src = product.img_url;
+                    document.getElementById('current-image-preview').classList.remove('hidden');
+                }
+                
+                document.getElementById('product-modal').classList.remove('hidden');
+            } catch (error) {
+                console.error('Error loading product:', error);
+                alert('Error al cargar el producto');
+            }
+        }
 
-        document.getElementById('product-form').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            const formData = new FormData();
-            const id = editingProductId || `product-${Date.now()}`;
-            
-            formData.append('id', id);
-            formData.append('name', document.getElementById('product-name').value);
-            formData.append('short_description', document.getElementById('product-short-desc').value);
-            formData.append('long_description', document.getElementById('product-long-desc').value);
-            
-            const ingredients = document.getElementById('product-ingredients').value.split('\n').filter(i => i.trim());
-            formData.append('ingredients', JSON.stringify(ingredients));
-            
-            formData.append('price', document.getElementById('product-price').value);
-            formData.append('discount', document.getElementById('product-discount').value || 0);
-            formData.append('featured', document.getElementById('product-featured').checked);
-            
-            // INICIO: PROCESO PARA GUARDAR LAS TAGS (ETIQUETAS)
-            const tags = document.getElementById('product-tags').value
-                .split(',')
-                .map(s => s.trim().toLowerCase()) // Limpiamos y convertimos a minúsculas para un uso consistente
-                .filter(s => s.length > 0); // Eliminamos tags vacías
-            formData.append('tags', JSON.stringify(tags));
-            // FIN: PROCESO PARA GUARDAR LAS TAGS (ETIQUETAS)
-            
-            const imageFile = document.getElementById('product-image').files[0];
-            if (imageFile) {
-                formData.append('image', imageFile);
-            }
-            
-            try {
-                const url = editingProductId 
-                    ? `/api/admin/products/${editingProductId}`
-                    : '/api/admin/products';
-                
-                const method = editingProductId ? 'PUT' : 'POST';
-                
-                const res = await fetch(url, {
-                    method,
-                    body: formData
-                });
-                
-                if (res.ok) {
-                    closeProductModal();
-                    loadProducts();
-                    alert(editingProductId ? 'Producto actualizado' : 'Producto creado');
-                } else {
-                    const error = await res.json();
-                    alert('Error: ' + error.error);
-                }
-            } catch (error) {
-                console.error('Error saving product:', error);
-                alert('Error al guardar el producto');
-            }
-        });
+        function closeProductModal() {
+            document.getElementById('product-modal').classList.add('hidden');
+            document.getElementById('product-form').reset();
+            editingProductId = null;
+        }
 
-        async function deleteProduct(id) {
-            if (!confirm('¿Estás seguro de eliminar este producto?')) return;
-            
-            try {
-                const res = await fetch(`/api/admin/products/${id}`, {
-                    method: 'DELETE'
-                });
-                
-                if (res.ok) {
-                    loadProducts();
-                    alert('Producto eliminado');
-                } else {
-                    alert('Error al eliminar el producto');
-                }
-            } catch (error) {
-                console.error('Error deleting product:', error);
-                alert('Error al eliminar el producto');
-            }
-        }
+        document.getElementById('product-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const formData = new FormData();
+            const id = editingProductId || `product-${Date.now()}`;
+            
+            formData.append('id', id);
+            formData.append('name', document.getElementById('product-name').value);
+            formData.append('short_description', document.getElementById('product-short-desc').value);
+            formData.append('long_description', document.getElementById('product-long-desc').value);
+            
+            const ingredients = document.getElementById('product-ingredients').value.split('\n').filter(i => i.trim());
+            formData.append('ingredients', JSON.stringify(ingredients));
+            
+            formData.append('price', document.getElementById('product-price').value);
+            formData.append('discount', document.getElementById('product-discount').value || 0);
+            formData.append('featured', document.getElementById('product-featured').checked);
+            
+            const quizScores = document.getElementById('product-quiz-score').value
+                .split(',')
+                .map(s => parseInt(s.trim()))
+                .filter(n => !isNaN(n));
+            formData.append('quiz_score', JSON.stringify(quizScores));
+            
+            const imageFile = document.getElementById('product-image').files[0];
+            if (imageFile) {
+                formData.append('image', imageFile);
+            }
+            
+            try {
+                const url = editingProductId 
+                    ? `/api/admin/products/${editingProductId}`
+                    : '/api/admin/products';
+                
+                const method = editingProductId ? 'PUT' : 'POST';
+                
+                const res = await fetch(url, {
+                    method,
+                    body: formData
+                });
+                
+                if (res.ok) {
+                    closeProductModal();
+                    loadProducts();
+                    alert(editingProductId ? 'Producto actualizado' : 'Producto creado');
+                } else {
+                    const error = await res.json();
+                    alert('Error: ' + error.error);
+                }
+            } catch (error) {
+                console.error('Error saving product:', error);
+                alert('Error al guardar el producto');
+            }
+        });
 
-        // === CUPONES ===
+        async function deleteProduct(id) {
+            if (!confirm('¿Estás seguro de eliminar este producto?')) return;
+            
+            try {
+                const res = await fetch(`/api/admin/products/${id}`, {
+                    method: 'DELETE'
+                });
+                
+                if (res.ok) {
+                    loadProducts();
+                    alert('Producto eliminado');
+                } else {
+                    alert('Error al eliminar el producto');
+                }
+            } catch (error) {
+                console.error('Error deleting product:', error);
+                alert('Error al eliminar el producto');
+            }
+        }
 
-        async function loadCoupons() {
-            try {
-                const res = await fetch('/api/admin/coupons');
-                const coupons = await res.json();
-                
-                const grid = document.getElementById('coupons-grid');
-                grid.innerHTML = coupons.map(c => `
-                    <div class="bg-white rounded-lg shadow-lg p-4 ${!c.active ? 'opacity-60' : ''}">
-                        <div class="flex justify-between items-start mb-3">
-                            <div>
-                                <h3 class="font-bold text-2xl text-pan-dark mb-1">${c.code}</h3>
-                                <p class="text-sm text-gray-600">
-                                    ${c.type === 'percentage' ? c.discount + '% de descuento' : '$' + c.discount + ' de descuento'}
-                                </p>
-                            </div>
-                            <span class="text-xs px-2 py-1 rounded ${c.active ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}">
-                                ${c.active ? 'Activo' : 'Inactivo'}
-                            </span>
-                        </div>
-                        <div class="flex space-x-2">
-                            <button onclick="editCoupon('${c.id}')" class="flex-1 bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition text-sm">
-                                Editar
-                            </button>
-                            <button onclick="deleteCoupon('${c.id}')" class="flex-1 bg-red-500 text-white py-2 rounded hover:bg-red-600 transition text-sm">
-                                Eliminar
-                            </button>
-                        </div>
-                    </div>
-                `).join('');
-                
-                lucide.createIcons();
-            } catch (error) {
-                console.error('Error loading coupons:', error);
-            }
-        }
+        // === CUPONES ===
 
-        function openCouponModal() {
-            editingCouponId = null;
-            document.getElementById('coupon-modal-title').textContent = 'Nuevo Cupón';
-            document.getElementById('coupon-form').reset();
-            document.getElementById('coupon-id').value = '';
-            document.getElementById('coupon-active').checked = true;
-            document.getElementById('coupon-modal').classList.remove('hidden');
-        }
+        async function loadCoupons() {
+            try {
+                const res = await fetch('/api/admin/coupons');
+                const coupons = await res.json();
+                
+                const grid = document.getElementById('coupons-grid');
+                grid.innerHTML = coupons.map(c => `
+                    <div class="bg-white rounded-lg shadow-lg p-4 ${!c.active ? 'opacity-60' : ''}">
+                        <div class="flex justify-between items-start mb-3">
+                            <div>
+                                <h3 class="font-bold text-2xl text-pan-dark mb-1">${c.code}</h3>
+                                <p class="text-sm text-gray-600">
+                                    ${c.type === 'percentage' ? c.discount + '% de descuento' : '$' + c.discount + ' de descuento'}
+                                </p>
+                            </div>
+                            <span class="text-xs px-2 py-1 rounded ${c.active ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}">
+                                ${c.active ? 'Activo' : 'Inactivo'}
+                            </span>
+                        </div>
+                        <div class="flex space-x-2">
+                            <button onclick="editCoupon('${c.id}')" class="flex-1 bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition text-sm">
+                                Editar
+                            </button>
+                            <button onclick="deleteCoupon('${c.id}')" class="flex-1 bg-red-500 text-white py-2 rounded hover:bg-red-600 transition text-sm">
+                                Eliminar
+                            </button>
+                        </div>
+                    </div>
+                `).join('');
+                
+                lucide.createIcons();
+            } catch (error) {
+                console.error('Error loading coupons:', error);
+            }
+        }
 
-        async function editCoupon(id) {
-            try {
-                const res = await fetch('/api/admin/coupons');
-                const coupons = await res.json();
-                const coupon = coupons.find(c => c.id === id);
-                
-                if (!coupon) return;
-                
-                editingCouponId = id;
-                document.getElementById('coupon-modal-title').textContent = 'Editar Cupón';
-                document.getElementById('coupon-id').value = coupon.id;
-                document.getElementById('coupon-code').value = coupon.code;
-                document.getElementById('coupon-type').value = coupon.type;
-                document.getElementById('coupon-discount').value = coupon.discount;
-                document.getElementById('coupon-active').checked = coupon.active;
-                
-                document.getElementById('coupon-modal').classList.remove('hidden');
-            } catch (error) {
-                console.error('Error loading coupon:', error);
-                alert('Error al cargar el cupón');
-            }
-        }
+        function openCouponModal() {
+            editingCouponId = null;
+            document.getElementById('coupon-modal-title').textContent = 'Nuevo Cupón';
+            document.getElementById('coupon-form').reset();
+            document.getElementById('coupon-id').value = '';
+            document.getElementById('coupon-active').checked = true;
+            document.getElementById('coupon-modal').classList.remove('hidden');
+        }
 
-        function closeCouponModal() {
-            document.getElementById('coupon-modal').classList.add('hidden');
-            document.getElementById('coupon-form').reset();
-            editingCouponId = null;
-        }
+        async function editCoupon(id) {
+            try {
+                const res = await fetch('/api/admin/coupons');
+                const coupons = await res.json();
+                const coupon = coupons.find(c => c.id === id);
+                
+                if (!coupon) return;
+                
+                editingCouponId = id;
+                document.getElementById('coupon-modal-title').textContent = 'Editar Cupón';
+                document.getElementById('coupon-id').value = coupon.id;
+                document.getElementById('coupon-code').value = coupon.code;
+                document.getElementById('coupon-type').value = coupon.type;
+                document.getElementById('coupon-discount').value = coupon.discount;
+                document.getElementById('coupon-active').checked = coupon.active;
+                
+                document.getElementById('coupon-modal').classList.remove('hidden');
+            } catch (error) {
+                console.error('Error loading coupon:', error);
+                alert('Error al cargar el cupón');
+            }
+        }
 
-        document.getElementById('coupon-form').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            const couponData = {
-                code: document.getElementById('coupon-code').value.toUpperCase(),
-                type: document.getElementById('coupon-type').value,
-                discount: document.getElementById('coupon-discount').value,
-                active: document.getElementById('coupon-active').checked
-            };
-            
-            try {
-                const url = editingCouponId 
-                    ? `/api/admin/coupons/${editingCouponId}`
-                    : '/api/admin/coupons';
-                
-                const method = editingCouponId ? 'PUT' : 'POST';
-                
-                const res = await fetch(url, {
-                    method,
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(couponData)
-                });
-                
-                if (res.ok) {
-                    closeCouponModal();
-                    loadCoupons();
-                    alert(editingCouponId ? 'Cupón actualizado' : 'Cupón creado');
-                } else {
-                    const error = await res.json();
-                    alert('Error: ' + error.error);
-                }
-            } catch (error) {
-                console.error('Error saving coupon:', error);
-                alert('Error al guardar el cupón');
-            }
-        });
+        function closeCouponModal() {
+            document.getElementById('coupon-modal').classList.add('hidden');
+            document.getElementById('coupon-form').reset();
+            editingCouponId = null;
+        }
 
-        async function deleteCoupon(id) {
-            if (!confirm('¿Estás seguro de eliminar este cupón?')) return;
-            
-            try {
-                const res = await fetch(`/api/admin/coupons/${id}`, {
-                    method: 'DELETE'
-                });
-                
-                if (res.ok) {
-                    loadCoupons();
-                    alert('Cupón eliminado');
-                } else {
-                    alert('Error al eliminar el cupón');
-                }
-            } catch (error) {
-                console.error('Error deleting coupon:', error);
-                alert('Error al eliminar el cupón');
-            }
-        }
+        document.getElementById('coupon-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const couponData = {
+                code: document.getElementById('coupon-code').value.toUpperCase(),
+                type: document.getElementById('coupon-type').value,
+                discount: document.getElementById('coupon-discount').value,
+                active: document.getElementById('coupon-active').checked
+            };
+            
+            try {
+                const url = editingCouponId 
+                    ? `/api/admin/coupons/${editingCouponId}`
+                    : '/api/admin/coupons';
+                
+                const method = editingCouponId ? 'PUT' : 'POST';
+                
+                const res = await fetch(url, {
+                    method,
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(couponData)
+                });
+                
+                if (res.ok) {
+                    closeCouponModal();
+                    loadCoupons();
+                    alert(editingCouponId ? 'Cupón actualizado' : 'Cupón creado');
+                } else {
+                    const error = await res.json();
+                    alert('Error: ' + error.error);
+                }
+            } catch (error) {
+                console.error('Error saving coupon:', error);
+                alert('Error al guardar el cupón');
+            }
+        });
 
-        // Initialize
-        checkAuth();
-    </script>
+        async function deleteCoupon(id) {
+            if (!confirm('¿Estás seguro de eliminar este cupón?')) return;
+            
+            try {
+                const res = await fetch(`/api/admin/coupons/${id}`, {
+                    method: 'DELETE'
+                });
+                
+                if (res.ok) {
+                    loadCoupons();
+                    alert('Cupón eliminado');
+                } else {
+                    alert('Error al eliminar el cupón');
+                }
+            } catch (error) {
+                console.error('Error deleting coupon:', error);
+                alert('Error al eliminar el cupón');
+            }
+        }
+
+        // Initialize
+        checkAuth();
+    </script>
 </body>
 </html>

@@ -9,7 +9,7 @@ const session = require('express-session');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-aapp.use(cors({
+app.use(cors({
     origin: 'https://dpan.onrender.com',
     credentials: true
 }));
@@ -339,4 +339,5 @@ app.listen(PORT, () => {
     console.log(`Panel Admin: http://localhost:${PORT}/admin.html`);
     console.log(`Sitio Web: http://localhost:${PORT}/index.html`);
 });
+
 

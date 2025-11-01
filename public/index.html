@@ -724,33 +724,32 @@
             closeCart();
         }
         // Preguntas del Quiz
-        const QUIZ_QUESTIONS = [
-            {
-                question: "¿Cómo te sentís en este momento?",
-                options: [
-                    { text: "De diez 🙌", score: 3 },
-                    { text: "Ahí andamos... 😂", score: 2 },
-                    { text: "Siguiente pregunta... 😶‍🌫️", score: 1 }
-                ]
-            },
-            {
-                question: "¿Buscás algo para...?",
-                options: [
-                    { text: "El almuerzo / cena 🍽️☀️", score: 3 },
-                    { text: "La merienda ☕🧉", score: 2 },
-                    { text: "Saciar el antojo 😋", score: 1 }
-                ]
-            },
-            {
-                question: "¿Tenés ganas de algo...?",
-                options: [
-                { text: "Salado", value: 'salado' },
-                { text: "Dulce", value: 'dulce' },
-                { text: "Me es indistinto", value: 'indistinto' }
+       const QUIZ_QUESTIONS = [
+    {
+        question: "¿Cómo te sentís en este momento?",
+        options: [
+            { text: "De diez 🙌", value: 'opcion1' },
+            { text: "Ahí andamos... 😂", value: 'opcion2' },
+            { text: "Siguiente pregunta... 😶‍🌫️", value: 'opcion3' }
+        ]
+    },
+    {
+        question: "¿Buscás algo para...?",
+        options: [
+            { text: "El almuerzo / cena 🍽️☀️", value: 'opcion1' },
+            { text: "La merienda ☕🧉", value: 'opcion2' },
+            { text: "Saciar el antojo 😋", value: 'opcion3' }
+        ]
+    },
+    {
+        question: "¿Tenés ganas de algo...?",
+        options: [
+            { text: "Salado", value: 'salado' },
+            { text: "Dulce", value: 'dulce' },
+            { text: "Me es indistinto", value: 'indistinto' }
         ]
     }
-        ];
-
+];
         const renderQuizStep = () => {
             const quizContainer = document.getElementById('quiz-container');
             const startQuizButton = document.getElementById('start-quiz-button');
@@ -1108,6 +1107,7 @@ const resetQuiz = () => {
     </script>
 </body>
 </html>
+
 
 
 

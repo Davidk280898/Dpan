@@ -761,8 +761,7 @@
                 return;
             }
 
-            const stepData = QUIZ_QUESTIONS[currentQuizStep];
-          const optionsHtml = stepData.options.map((opt) => `
+const optionsHtml = stepData.options.map((opt) => `
     <button data-value="${opt.value}" class="quiz-option block w-full py-3 my-2 bg-pan-light dark:bg-pan-dark text-pan-dark dark:text-pan-cream rounded-lg border-2 border-pan-accent hover:bg-pan-orange hover:text-white transition duration-200">
         ${opt.text}
     </button>
@@ -790,7 +789,7 @@
     renderQuizStep();
 };
 
-        const showQuizResult = () => {
+const showQuizResult = () => {
     let targetScores = [];
     
     if (quizPreference === 'dulce') {
@@ -1109,6 +1108,7 @@ const resetQuiz = () => {
     </script>
 </body>
 </html>
+
 
 
 

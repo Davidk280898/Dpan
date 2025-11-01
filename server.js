@@ -637,12 +637,8 @@ app.delete('/api/admin/products/:id', isAuthenticated, async (req, res) => {
         res.status(500).json({ error: 'Error al eliminar producto' });
     }
 });
-
 app.listen(PORT, () => {
     console.log(`Servidor corriendo en http://localhost:${PORT}`);
     console.log(`Panel Admin: http://localhost:${PORT}/admin.html`);
     console.log(`Sitio Web: http://localhost:${PORT}/index.html`);
 });
-
-
-

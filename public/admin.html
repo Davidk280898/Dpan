@@ -210,18 +210,17 @@
     </div>
 
     <script>
+        const API_BASE = 'https://dpan.onrender.com';
         let editingProductId = null;
         let editingCouponId = null;
 
-        // Crear iconos cuando lucide esté listo
         window.addEventListener('load', () => {
             if (typeof lucide !== 'undefined') lucide.createIcons();
         });
 
-        // Check Auth
         async function checkAuth() {
             try {
-                const res = await fetch('/api/auth/check');
+                const res = await fetch(`${API_BASE}/api/auth/check`);
                 if (!res.ok) throw new Error('Not authenticated');
                 const data = await res.json();
                 if (data.authenticated) {
@@ -237,14 +236,13 @@
             }
         }
 
-        // Login
         document.getElementById('login-form').addEventListener('submit', async (e) => {
             e.preventDefault();
             const username = document.getElementById('login-username').value;
             const password = document.getElementById('login-password').value;
             const errorEl = document.getElementById('login-error');
             try {
-                const res = await fetch('/api/auth/login', {
+                const res = await fetch(`${API_BASE}/api/auth/login`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ username, password })
@@ -261,16 +259,14 @@
             }
         });
 
-        // Logout
         async function logout() {
-            await fetch('/api/auth/logout', { method: 'POST' });
+            await fetch(`${API_BASE}/api/auth/logout`, { method: 'POST' });
             checkAuth();
         }
 
-        // === PRODUCTOS ===
         async function loadProducts() {
             try {
-                const res = await fetch('/api/products');
+                const res = await fetch(`${API_BASE}/api/products`);
                 const products = await res.json();
                 const grid = document.getElementById('products-grid');
                 grid.innerHTML = products.map(p => {
@@ -315,7 +311,7 @@
 
         async function editProduct(id) {
             try {
-                const res = await fetch(`/api/products/${id}`);
+                const res = await fetch(`${API_BASE}/api/products/${id}`);
                 const p = await res.json();
                 editingProductId = id;
                 document.getElementById('modal-title').textContent = 'Editar Producto';
@@ -363,7 +359,9 @@
             const imageFile = document.getElementById('product-image').files[0];
             if (imageFile) formData.append('image', imageFile);
             try {
-                const url = editingProductId ? `/api/admin/products/${editingProductId}` : '/api/admin/products';
+                const url = editingProductId 
+                    ? `${API_BASE}/api/admin/products/${editingProductId}`
+                    : `${API_BASE}/api/admin/products`;
                 const res = await fetch(url, { method: editingProductId ? 'PUT' : 'POST', body: formData });
                 if (res.ok) {
                     closeProductModal();
@@ -378,17 +376,16 @@
         async function deleteProduct(id) {
             if (!confirm('¿Eliminar este producto?')) return;
             try {
-                const res = await fetch(`/api/admin/products/${id}`, { method: 'DELETE' });
+                const res = await fetch(`${API_BASE}/api/admin/products/${id}`, { method: 'DELETE' });
                 if (res.ok) loadProducts();
             } catch (error) {
                 alert('Error al eliminar');
             }
         }
 
-        // === CUPONES ===
         async function loadCoupons() {
             try {
-                const res = await fetch('/api/admin/coupons');
+                const res = await fetch(`${API_BASE}/api/admin/coupons`);
                 const coupons = await res.json();
                 const grid = document.getElementById('coupons-grid');
                 grid.innerHTML = coupons.map(c => `
@@ -420,7 +417,7 @@
 
         async function editCoupon(id) {
             try {
-                const res = await fetch('/api/admin/coupons');
+                const res = await fetch(`${API_BASE}/api/admin/coupons`);
                 const coupons = await res.json();
                 const c = coupons.find(x => x.id === id);
                 if (!c) return;
@@ -449,7 +446,9 @@
                 active: document.getElementById('coupon-active').checked
             };
             try {
-                const url = editingCouponId ? `/api/admin/coupons/${editingCouponId}` : '/api/admin/coupons';
+                const url = editingCouponId 
+                    ? `${API_BASE}/api/admin/coupons/${editingCouponId}`
+                    : `${API_BASE}/api/admin/coupons`;
                 const res = await fetch(url, {
                     method: editingCouponId ? 'PUT' : 'POST',
                     headers: { 'Content-Type': 'application/json' },
@@ -468,7 +467,7 @@
         async function deleteCoupon(id) {
             if (!confirm('¿Eliminar este cupón?')) return;
             try {
-                const res = await fetch(`/api/admin/coupons/${id}`, { method: 'DELETE' });
+                const res = await fetch(`${API_BASE}/api/admin/coupons/${id}`, { method: 'DELETE' });
                 if (res.ok) loadCoupons();
             } catch (error) {
                 alert('Error al eliminar');

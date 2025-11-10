@@ -9,15 +9,18 @@ const session = require('express-session');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// 🔹 Configuración de CORS correcta para Netlify
 app.use(cors({
-    origin: 'https://dpan.onrender.com',
-    credentials: true
+  origin: 'https://dpansaludybienestar.netlify.app', // tu frontend
+  credentials: true
 }));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 app.use('/uploads', express.static('uploads'));
 
+// Sesiones
 app.use(session({
     secret: 'dpan-secret-key-cambiar-en-produccion',
     resave: false,
@@ -335,3 +338,4 @@ app.delete('/api/admin/products/:id', isAuthenticated, async (req, res) => {
 app.listen(PORT, () => {
     console.log(`Servidor corriendo en puerto ${PORT}`);
 });
+

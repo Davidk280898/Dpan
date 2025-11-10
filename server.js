@@ -9,10 +9,12 @@ const session = require('express-session');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// CORS
+// CORS CORRECTO
 app.use(cors({
-  origin: '*',
-  credentials: false
+  origin: 'https://dpansaludybienestar.netlify.app',
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type']
 }));
 
 app.use(express.json());
@@ -22,13 +24,14 @@ app.use('/uploads', express.static('uploads'));
 
 // Sesiones
 app.use(session({
-    secret: 'dpan-secret-key',
+    secret: 'dpan-secret-key-2024',
     resave: false,
     saveUninitialized: false,
     cookie: { 
       maxAge: 24 * 60 * 60 * 1000,
-      httpOnly: false,
-      sameSite: 'lax'
+      httpOnly: true,
+      sameSite: 'lax',
+      secure: true
     }
 }));
 

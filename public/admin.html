@@ -133,7 +133,6 @@
                             <input type="radio" name="quiz-category" value="8,9" class="mr-2"> <strong>8,9</strong> → Salados (pan lactal, pizzetas, sándwiches)
                         </label>
                     </div>
-                    <input type="hidden" id="product-quiz-score">
                 </div>
 
                 <div class="flex items-center">
@@ -216,30 +215,29 @@
 
         window.addEventListener('load', () => {
             if (typeof lucide !== 'undefined') lucide.createIcons();
+            checkAuth();
         });
 
         async function checkAuth() {
-    try {
-        const res = await fetch(`${API_BASE}/api/auth/check`, { credentials: 'include' });
-        const data = await res.json();
-        if (data.authenticated) {
-            document.getElementById('login-screen').classList.add('hidden');
-            document.getElementById('admin-panel').classList.remove('hidden');
-            document.getElementById('admin-username').textContent = data.username;
-            loadProducts();
-            loadCoupons();
-        } else {
-            document.getElementById('login-screen').classList.remove('hidden');
-            document.getElementById('admin-panel').classList.add('hidden');
+            try {
+                const res = await fetch(`${API_BASE}/api/auth/check`, { credentials: 'include' });
+                const data = await res.json();
+                if (data.authenticated) {
+                    document.getElementById('login-screen').classList.add('hidden');
+                    document.getElementById('admin-panel').classList.remove('hidden');
+                    document.getElementById('admin-username').textContent = data.username;
+                    loadProducts();
+                    loadCoupons();
+                } else {
+                    document.getElementById('login-screen').classList.remove('hidden');
+                    document.getElementById('admin-panel').classList.add('hidden');
+                }
+            } catch (err) {
+                document.getElementById('login-screen').classList.remove('hidden');
+                document.getElementById('admin-panel').classList.add('hidden');
+                console.error(err);
+            }
         }
-    } catch (err) {
-        document.getElementById('login-screen').classList.remove('hidden');
-        document.getElementById('admin-panel').classList.add('hidden');
-        console.error(err);
-    } catch {
-        document.getElementById('login-screen').classList.remove('hidden');
-        document.getElementById('admin-panel').classList.add('hidden');
-    }
 
         document.getElementById('login-form').addEventListener('submit', async (e) => {
             e.preventDefault();
@@ -250,12 +248,13 @@
                 const res = await fetch(`${API_BASE}/api/auth/login`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                        credentials: 'include', // <- agregá esto
+                    credentials: 'include',
                     body: JSON.stringify({ username, password })
                 });
                 const data = await res.json();
-                if (res.ok) checkAuth();
-                else {
+                if (res.ok) {
+                    checkAuth();
+                } else {
                     errorEl.textContent = data.error || 'Error al iniciar sesión';
                     errorEl.classList.remove('hidden');
                 }
@@ -266,7 +265,11 @@
         });
 
         async function logout() {
-            await fetch(`${API_BASE}/api/auth/logout`, { method: 'POST' });
+            try {
+                await fetch(`${API_BASE}/api/auth/logout`, { method: 'POST', credentials: 'include' });
+            } catch (err) {
+                console.error(err);
+            }
             checkAuth();
         }
 
@@ -316,31 +319,31 @@
         }
 
         async function editProduct(id) {
-    try {
-        const res = await fetch(`${API_BASE}/api/products/${id}`);
-        const p = await res.json();
-        editingProductId = id;
-        document.getElementById('modal-title').textContent = 'Editar Producto';
-        document.getElementById('product-id').value = p.id;
-        document.getElementById('product-name').value = p.name;
-        document.getElementById('product-price').value = p.price;
-        document.getElementById('product-discount').value = p.discount || 0;
-        document.getElementById('product-short-desc').value = p.short_description;
-        document.getElementById('product-long-desc').value = p.long_description;
-        document.getElementById('product-ingredients').value = p.ingredients.join('\n');
-        document.getElementById('product-featured').checked = p.featured;
-        const quizRadio = document.querySelector(`input[name="quiz-category"][value="${p.quiz_score.join(',')}"]`);
-        if (quizRadio) quizRadio.checked = true;
-        if (p.img_url) {
-            document.getElementById('current-image').src = p.img_url;
-            document.getElementById('current-image-preview').classList.remove('hidden');
+            try {
+                const res = await fetch(`${API_BASE}/api/products/${id}`);
+                const p = await res.json();
+                editingProductId = id;
+                document.getElementById('modal-title').textContent = 'Editar Producto';
+                document.getElementById('product-id').value = p.id;
+                document.getElementById('product-name').value = p.name;
+                document.getElementById('product-price').value = p.price;
+                document.getElementById('product-discount').value = p.discount || 0;
+                document.getElementById('product-short-desc').value = p.short_description;
+                document.getElementById('product-long-desc').value = p.long_description;
+                document.getElementById('product-ingredients').value = p.ingredients.join('\n');
+                document.getElementById('product-featured').checked = p.featured;
+                const quizRadio = document.querySelector(`input[name="quiz-category"][value="${p.quiz_score.join(',')}"]`);
+                if (quizRadio) quizRadio.checked = true;
+                if (p.img_url) {
+                    document.getElementById('current-image').src = p.img_url;
+                    document.getElementById('current-image-preview').classList.remove('hidden');
+                }
+                document.getElementById('product-modal').classList.remove('hidden');
+            } catch (error) {
+                alert('Error al cargar el producto');
+                console.error(error);
+            }
         }
-        document.getElementById('product-modal').classList.remove('hidden');
-    } catch (error) {
-        alert('Error al cargar el producto');
-        console.error(error);
-    }
-}
 
         function closeProductModal() {
             document.getElementById('product-modal').classList.add('hidden');
@@ -370,24 +373,39 @@
                 const url = editingProductId 
                     ? `${API_BASE}/api/admin/products/${editingProductId}`
                     : `${API_BASE}/api/admin/products`;
-                const res = await fetch(url, { method: editingProductId ? 'PUT' : 'POST', body: formData });
+                const res = await fetch(url, { 
+                    method: editingProductId ? 'PUT' : 'POST', 
+                    credentials: 'include',
+                    body: formData 
+                });
                 if (res.ok) {
                     closeProductModal();
                     loadProducts();
                     alert('Producto guardado');
+                } else {
+                    alert('Error al guardar el producto');
                 }
             } catch (error) {
                 alert('Error al guardar');
+                console.error(error);
             }
         });
 
         async function deleteProduct(id) {
             if (!confirm('¿Eliminar este producto?')) return;
             try {
-                const res = await fetch(`${API_BASE}/api/admin/products/${id}`, { method: 'DELETE' });
-                if (res.ok) loadProducts();
+                const res = await fetch(`${API_BASE}/api/admin/products/${id}`, { 
+                    method: 'DELETE',
+                    credentials: 'include'
+                });
+                if (res.ok) {
+                    loadProducts();
+                } else {
+                    alert('Error al eliminar');
+                }
             } catch (error) {
                 alert('Error al eliminar');
+                console.error(error);
             }
         }
 
@@ -438,6 +456,7 @@
                 document.getElementById('coupon-modal').classList.remove('hidden');
             } catch (error) {
                 alert('Error al cargar el cupón');
+                console.error(error);
             }
         }
 
@@ -460,32 +479,39 @@
                 const res = await fetch(url, {
                     method: editingCouponId ? 'PUT' : 'POST',
                     headers: { 'Content-Type': 'application/json' },
+                    credentials: 'include',
                     body: JSON.stringify(data)
                 });
                 if (res.ok) {
                     closeCouponModal();
                     loadCoupons();
                     alert('Cupón guardado');
+                } else {
+                    alert('Error al guardar el cupón');
                 }
             } catch (error) {
                 alert('Error al guardar');
+                console.error(error);
             }
         });
 
         async function deleteCoupon(id) {
             if (!confirm('¿Eliminar este cupón?')) return;
             try {
-                const res = await fetch(`${API_BASE}/api/admin/coupons/${id}`, { method: 'DELETE' });
-                if (res.ok) loadCoupons();
+                const res = await fetch(`${API_BASE}/api/admin/coupons/${id}`, { 
+                    method: 'DELETE',
+                    credentials: 'include'
+                });
+                if (res.ok) {
+                    loadCoupons();
+                } else {
+                    alert('Error al eliminar');
+                }
             } catch (error) {
                 alert('Error al eliminar');
+                console.error(error);
             }
         }
-
-        checkAuth();
     </script>
 </body>
 </html>
-
-
-

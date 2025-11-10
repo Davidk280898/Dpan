@@ -219,17 +219,26 @@
         });
 
         async function checkAuth() {
-            try {
-                const res = await fetch(`${API_BASE}/api/auth/check`);
-                if (!res.ok) throw new Error('Not authenticated');
-                const data = await res.json();
-                if (data.authenticated) {
-                    document.getElementById('login-screen').classList.add('hidden');
-                    document.getElementById('admin-panel').classList.remove('hidden');
-                    document.getElementById('admin-username').textContent = data.username;
-                    loadProducts();
-                    loadCoupons();
-                }
+    try {
+        const res = await fetch(`${API_BASE}/api/auth/check`, { credentials: 'include' });
+        const data = await res.json();
+        if (data.authenticated) {
+            document.getElementById('login-screen').classList.add('hidden');
+            document.getElementById('admin-panel').classList.remove('hidden');
+            document.getElementById('admin-username').textContent = data.username;
+            loadProducts();
+            loadCoupons();
+        } else {
+            document.getElementById('login-screen').classList.remove('hidden');
+            document.getElementById('admin-panel').classList.add('hidden');
+        }
+    } catch (err) {
+        document.getElementById('login-screen').classList.remove('hidden');
+        document.getElementById('admin-panel').classList.add('hidden');
+        console.error(err);
+    }
+}
+
             } catch {
                 document.getElementById('login-screen').classList.remove('hidden');
                 document.getElementById('admin-panel').classList.add('hidden');
@@ -245,6 +254,7 @@
                 const res = await fetch(`${API_BASE}/api/auth/login`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
+                        credentials: 'include', // <- agregá esto
                     body: JSON.stringify({ username, password })
                 });
                 const data = await res.json();
@@ -480,4 +490,5 @@
     </script>
 </body>
 </html>
+
 

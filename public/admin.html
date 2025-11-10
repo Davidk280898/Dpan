@@ -236,14 +236,10 @@
         document.getElementById('login-screen').classList.remove('hidden');
         document.getElementById('admin-panel').classList.add('hidden');
         console.error(err);
+    } catch {
+        document.getElementById('login-screen').classList.remove('hidden');
+        document.getElementById('admin-panel').classList.add('hidden');
     }
-}
-
-            } catch {
-                document.getElementById('login-screen').classList.remove('hidden');
-                document.getElementById('admin-panel').classList.add('hidden');
-            }
-        }
 
         document.getElementById('login-form').addEventListener('submit', async (e) => {
             e.preventDefault();
@@ -490,5 +486,6 @@
     </script>
 </body>
 </html>
+
 
 

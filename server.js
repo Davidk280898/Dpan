@@ -9,13 +9,19 @@ const session = require('express-session');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// CORS CORRECTO
+// CORS - DEBUG MODE
 app.use(cors({
-  origin: 'https://dpansaludybienestar.netlify.app',
+  origin: (origin, callback) => {
+    console.log('CORS request from:', origin);
+    callback(null, true);
+  },
   credentials: true,
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  allowedHeaders: ['Content-Type']
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Accept']
 }));
+
+// Preflight
+app.options('*', cors());
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -123,25 +129,37 @@ app.get('/health', (req, res) => {
 app.post('/api/auth/login', async (req, res) => {
     try {
         const { username, password } = req.body;
+        console.log('Login attempt:', username);
         const users = await readUsers();
+        console.log('Users available:', users.map(u => u.username));
         const user = users.find(u => u.username === username);
         
         if (!user) {
+            console.log('User not found:', username);
             return res.status(401).json({ error: 'Usuario o contraseña incorrectos' });
         }
         
-        const isValid = await bcrypt.compare(password, user.password);
+        // Intenta con bcrypt primero
+        let isValid = false;
+        try {
+            isValid = await bcrypt.compare(password, user.password);
+        } catch (e) {
+            // Si bcrypt falla, compara directamente (para contraseñas simples)
+            isValid = (password === user.password);
+        }
         
         if (!isValid) {
+            console.log('Invalid password for user:', username);
             return res.status(401).json({ error: 'Usuario o contraseña incorrectos' });
         }
         
         req.session.userId = user.id;
         req.session.username = user.username;
+        console.log('Login successful:', username);
         
         res.json({ success: true, username: user.username });
     } catch (error) {
-        console.error(error);
+        console.error('Login error:', error);
         res.status(500).json({ error: 'Error en servidor' });
     }
 });

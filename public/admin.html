@@ -249,6 +249,9 @@
             const username = document.getElementById('login-username').value;
             const password = document.getElementById('login-password').value;
             const errorEl = document.getElementById('login-error');
+            
+            console.log('Intentando login con:', username);
+            
             try {
                 const res = await fetch(`${API_BASE}/api/auth/login`, {
                     method: 'POST',
@@ -256,7 +259,11 @@
                     credentials: 'include',
                     body: JSON.stringify({ username, password })
                 });
+                
+                console.log('Respuesta:', res.status, res.ok);
                 const data = await res.json();
+                console.log('Data:', data);
+                
                 if (res.ok) {
                     checkAuth();
                 } else {
@@ -264,7 +271,8 @@
                     errorEl.classList.remove('hidden');
                 }
             } catch (error) {
-                errorEl.textContent = 'Error de conexión';
+                console.error('Error completo:', error);
+                errorEl.textContent = 'Error de conexión: ' + error.message;
                 errorEl.classList.remove('hidden');
             }
         });

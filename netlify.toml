@@ -1,9 +1,0 @@
-[build]
-  publish = "public"
-  command = ""
-
-# 🔁 Redirecciones y rutas limpias
-[[redirects]]
-  from = "/admin"
-  to = "/admin.html"
-  status = 200

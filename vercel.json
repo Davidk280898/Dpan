@@ -1,3 +1,4 @@
 {
-  "public": "."
+  "public": ".",
+  "buildCommand": "npm install"
 }

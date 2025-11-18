@@ -1,9 +1,0 @@
-{
-  "public": ".",
-  "buildCommand": "npm install",
-  "routes": [
-    { "src": "/admin", "dest": "/admin.html" },
-    { "src": "/admin/(.*)", "dest": "/admin.html" },
-    { "src": "/(.*)", "dest": "/index.html" }
-  ]
-}

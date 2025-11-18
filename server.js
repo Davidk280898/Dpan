@@ -17,12 +17,6 @@ app.use(cors({
   allowedHeaders: ['Content-Type', 'Accept']
 }));
 
-  credentials: true,
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Accept']
-}));
-
-// Preflight
 app.options('*', cors());
 
 app.use(express.json());
@@ -70,7 +64,7 @@ const upload = multer({
         if (mimetype && extname) {
             return cb(null, true);
         }
-        cb(new Error('Solo imágenes permitidas'));
+        cb(new Error('Solo imagenes permitidas'));
     }
 });
 
@@ -122,47 +116,39 @@ function isAuthenticated(req, res, next) {
     res.status(401).json({ error: 'No autorizado' });
 }
 
-// Health check
 app.get('/health', (req, res) => {
     res.json({ status: 'OK' });
 });
 
-// Auth
 app.post('/api/auth/login', async (req, res) => {
     try {
         const { username, password } = req.body;
-        console.log('Login attempt:', username);
+        console.log('Login:', username);
         const users = await readUsers();
-        console.log('Users available:', users.map(u => u.username));
         const user = users.find(u => u.username === username);
         
         if (!user) {
-            console.log('User not found:', username);
-            return res.status(401).json({ error: 'Usuario o contraseña incorrectos' });
+            return res.status(401).json({ error: 'Usuario o contrasena incorrectos' });
         }
         
-        // Intenta con bcrypt primero
         let isValid = false;
         try {
             isValid = await bcrypt.compare(password, user.password);
         } catch (e) {
-            // Si bcrypt falla, compara directamente (para contraseñas simples)
             isValid = (password === user.password);
         }
         
         if (!isValid) {
-            console.log('Invalid password for user:', username);
-            return res.status(401).json({ error: 'Usuario o contraseña incorrectos' });
+            return res.status(401).json({ error: 'Usuario o contrasena incorrectos' });
         }
         
         req.session.userId = user.id;
         req.session.username = user.username;
-        console.log('Login successful:', username);
         
         res.json({ success: true, username: user.username });
     } catch (error) {
-        console.error('Login error:', error);
-        res.status(500).json({ error: 'Error en servidor' });
+        console.error(error);
+        res.status(500).json({ error: 'Error' });
     }
 });
 
@@ -180,7 +166,6 @@ app.get('/api/auth/check', (req, res) => {
     }
 });
 
-// Cupones
 app.post('/api/validate-coupon', async (req, res) => {
     try {
         const { code } = req.body;
@@ -188,7 +173,7 @@ app.post('/api/validate-coupon', async (req, res) => {
         const coupon = coupons.find(c => c.code.toUpperCase() === code.toUpperCase() && c.active);
         
         if (!coupon) {
-            return res.status(404).json({ error: 'Inválido' });
+            return res.status(404).json({ error: 'Invalido' });
         }
         
         res.json({ valid: true, discount: coupon.discount, type: coupon.type });
@@ -255,7 +240,6 @@ app.delete('/api/admin/coupons/:id', isAuthenticated, async (req, res) => {
     }
 });
 
-// Productos
 app.get('/api/products', async (req, res) => {
     try {
         const products = await readProducts();
@@ -340,4 +324,3 @@ app.delete('/api/admin/products/:id', isAuthenticated, async (req, res) => {
 app.listen(PORT, () => {
     console.log(`Server on port ${PORT}`);
 });
-

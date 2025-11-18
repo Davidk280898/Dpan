@@ -9,12 +9,14 @@ const session = require('express-session');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// CORS - DEBUG MODE
+// CORS
 app.use(cors({
-  origin: (origin, callback) => {
-    console.log('CORS request from:', origin);
-    callback(null, true);
-  },
+  origin: true,
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Accept']
+}));
+
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Accept']
@@ -338,3 +340,4 @@ app.delete('/api/admin/products/:id', isAuthenticated, async (req, res) => {
 app.listen(PORT, () => {
     console.log(`Server on port ${PORT}`);
 });
+

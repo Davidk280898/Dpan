@@ -321,6 +321,11 @@ app.delete('/api/admin/products/:id', isAuthenticated, async (req, res) => {
     }
 });
 
+// DEBUG - Leer usuarios al iniciar
+readUsers().then(users => {
+    console.log('USUARIOS EN DB:', users);
+});
+
 app.listen(PORT, () => {
     console.log(`Server on port ${PORT}`);
 });

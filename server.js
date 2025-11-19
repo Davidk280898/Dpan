@@ -132,15 +132,19 @@ app.post('/api/auth/login', async (req, res) => {
         }
         
         let isValid = false;
-        try {
-            isValid = await bcrypt.compare(password, user.password);
-        } catch (e) {
-            isValid = (password === user.password);
-        }
-        
-        if (!isValid) {
-            return res.status(401).json({ error: 'Usuario o contrasena incorrectos' });
-        }
+try {
+    isValid = await bcrypt.compare(password, user.password);
+    console.log('bcrypt compare result:', isValid);
+} catch (e) {
+    console.log('bcrypt error, comparing directly');
+    isValid = (password === user.password);
+    console.log('Direct compare:', isValid, 'password:', password, 'stored:', user.password);
+}
+
+if (!isValid) {
+    console.log('Invalid password - returning 401');
+    return res.status(401).json({ error: 'Usuario o contrasena incorrectos' });
+}
         
         req.session.userId = user.id;
         req.session.username = user.username;
@@ -329,4 +333,5 @@ readUsers().then(users => {
 app.listen(PORT, () => {
     console.log(`Server on port ${PORT}`);
 });
+
 

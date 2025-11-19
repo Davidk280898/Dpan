@@ -30,11 +30,11 @@ app.use(session({
     resave: false,
     saveUninitialized: false,
     cookie: { 
-      maxAge: 24 * 60 * 60 * 1000,
-      httpOnly: true,
-      sameSite: 'lax',
-      secure: true
-    }
+  maxAge: 24 * 60 * 60 * 1000,
+  httpOnly: true,
+  sameSite: 'lax',
+  secure: false
+}
 }));
 
 const storage = multer.diskStorage({
@@ -329,3 +329,4 @@ readUsers().then(users => {
 app.listen(PORT, () => {
     console.log(`Server on port ${PORT}`);
 });
+

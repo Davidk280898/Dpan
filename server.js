@@ -131,20 +131,16 @@ app.post('/api/auth/login', async (req, res) => {
             return res.status(401).json({ error: 'Usuario o contrasena incorrectos' });
         }
         
-        let isValid = false;
-try {
-    isValid = await bcrypt.compare(password, user.password);
-    console.log('bcrypt compare result:', isValid);
-} catch (e) {
-    console.log('bcrypt error, comparing directly');
-    isValid = (password === user.password);
-    console.log('Direct compare:', isValid, 'password:', password, 'stored:', user.password);
-}
-
-if (!isValid) {
-    console.log('Invalid password - returning 401');
-    return res.status(401).json({ error: 'Usuario o contrasena incorrectos' });
-}
+        console.log('Stored password:', user.password);
+        console.log('Provided password:', password);
+        
+        const isValid = (password === user.password);
+        console.log('Direct comparison result:', isValid);
+        
+        if (!isValid) {
+            console.log('Invalid password - returning 401');
+            return res.status(401).json({ error: 'Usuario o contrasena incorrectos' });
+        }
         
         req.session.userId = user.id;
         req.session.username = user.username;
@@ -333,5 +329,6 @@ readUsers().then(users => {
 app.listen(PORT, () => {
     console.log(`Server on port ${PORT}`);
 });
+
 
 

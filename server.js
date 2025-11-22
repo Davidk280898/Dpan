@@ -11,7 +11,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // MongoDB Connection
-const MONGODB_URI = 'mongodb+srv://dpanparana_db_user:foo1KgcNGNFnfNyY@cluster0.mum4we8.mongodb.net/?appName=Cluster0';
+const MONGODB_URI = 'mongodb+srv://dpanparana_db_user:foo1KgcNGNFnfNyY@cluster0.mum4we8.mongodb.net/dpan?retryWrites=true&w=majority';
 
 mongoose.connect(MONGODB_URI, {
     useNewUrlParser: true,
@@ -303,3 +303,4 @@ app.delete('/api/admin/products/:id', isAuthenticated, async (req, res) => {
 app.listen(PORT, () => {
     console.log(`Server on port ${PORT}`);
 });
+

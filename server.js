@@ -262,6 +262,7 @@ app.post('/api/admin/products', isAuthenticated, upload.single('image'), async (
     }
 });
 
+// ✅ ARREGLADO: Busca por el campo "id" personalizado, no por _id de MongoDB
 app.put('/api/admin/products/:id', isAuthenticated, upload.single('image'), async (req, res) => {
     try {
         const updateData = {
@@ -276,16 +277,23 @@ app.put('/api/admin/products/:id', isAuthenticated, upload.single('image'), asyn
         };
         if (req.file) updateData.img_url = `/uploads/products/${req.file.filename}`;
         
-        const product = await Product.findByIdAndUpdate(req.params.id, updateData, { new: true });
+        // CAMBIO: findOneAndUpdate en vez de findByIdAndUpdate
+        const product = await Product.findOneAndUpdate(
+            { id: req.params.id },
+            updateData, 
+            { new: true }
+        );
         res.json(product);
     } catch (error) {
         res.status(500).json({ error: 'Error' });
     }
 });
 
+// ✅ ARREGLADO: Busca por el campo "id" personalizado, no por _id de MongoDB
 app.delete('/api/admin/products/:id', isAuthenticated, async (req, res) => {
     try {
-        await Product.findByIdAndDelete(req.params.id);
+        // CAMBIO: findOneAndDelete en vez de findByIdAndDelete
+        await Product.findOneAndDelete({ id: req.params.id });
         res.json({ success: true });
     } catch (error) {
         res.status(500).json({ error: 'Error' });

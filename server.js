@@ -5,9 +5,52 @@ const fs = require('fs').promises;
 const multer = require('multer');
 const bcrypt = require('bcryptjs');
 const session = require('express-session');
+const mongoose = require('mongoose');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+// MongoDB Connection
+const MONGODB_URI = 'mongodb+srv://dpanparana_db_user:foo1KgcNGNFnfNyY@cluster0.mum4we8.mongodb.net/?appName=Cluster0';
+
+mongoose.connect(MONGODB_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+}).then(() => console.log('✅ MongoDB conectado'))
+  .catch(err => console.error('❌ Error MongoDB:', err));
+
+// Esquemas MongoDB
+const productSchema = new mongoose.Schema({
+    id: String,
+    name: String,
+    short_description: String,
+    long_description: String,
+    ingredients: [String],
+    price: Number,
+    discount: Number,
+    featured: Boolean,
+    img_url: String,
+    quiz_score: [Number]
+});
+
+const userSchema = new mongoose.Schema({
+    id: String,
+    username: String,
+    password: String,
+    role: String
+});
+
+const couponSchema = new mongoose.Schema({
+    id: String,
+    code: String,
+    discount: Number,
+    type: String,
+    active: Boolean
+});
+
+const Product = mongoose.model('Product', productSchema);
+const User = mongoose.model('User', userSchema);
+const Coupon = mongoose.model('Coupon', couponSchema);
 
 // CORS
 app.use(cors({
@@ -30,11 +73,11 @@ app.use(session({
     resave: false,
     saveUninitialized: false,
     cookie: { 
-  maxAge: 24 * 60 * 60 * 1000,
-  httpOnly: true,
-  sameSite: 'lax',
-  secure: false
-}
+      maxAge: 24 * 60 * 60 * 1000,
+      httpOnly: true,
+      sameSite: 'lax',
+      secure: false
+    }
 }));
 
 const storage = multer.diskStorage({
@@ -68,47 +111,6 @@ const upload = multer({
     }
 });
 
-const PRODUCTS_FILE = path.join(__dirname, 'data', 'products.json');
-const USERS_FILE = path.join(__dirname, 'data', 'users.json');
-const COUPONS_FILE = path.join(__dirname, 'data', 'coupons.json');
-
-async function readProducts() {
-    try {
-        const data = await fs.readFile(PRODUCTS_FILE, 'utf8');
-        return JSON.parse(data);
-    } catch (error) {
-        return [];
-    }
-}
-
-async function saveProducts(products) {
-    await fs.mkdir(path.dirname(PRODUCTS_FILE), { recursive: true });
-    await fs.writeFile(PRODUCTS_FILE, JSON.stringify(products, null, 2));
-}
-
-async function readUsers() {
-    try {
-        const data = await fs.readFile(USERS_FILE, 'utf8');
-        return JSON.parse(data);
-    } catch (error) {
-        return [];
-    }
-}
-
-async function readCoupons() {
-    try {
-        const data = await fs.readFile(COUPONS_FILE, 'utf8');
-        return JSON.parse(data);
-    } catch (error) {
-        return [];
-    }
-}
-
-async function saveCoupons(coupons) {
-    await fs.mkdir(path.dirname(COUPONS_FILE), { recursive: true });
-    await fs.writeFile(COUPONS_FILE, JSON.stringify(coupons, null, 2));
-}
-
 function isAuthenticated(req, res, next) {
     if (req.session && req.session.userId) {
         return next();
@@ -124,8 +126,7 @@ app.post('/api/auth/login', async (req, res) => {
     try {
         const { username, password } = req.body;
         console.log('Login:', username);
-        const users = await readUsers();
-        const user = users.find(u => u.username === username);
+        const user = await User.findOne({ username });
         
         if (!user) {
             return res.status(401).json({ error: 'Usuario o contrasena incorrectos' });
@@ -169,8 +170,7 @@ app.get('/api/auth/check', (req, res) => {
 app.post('/api/validate-coupon', async (req, res) => {
     try {
         const { code } = req.body;
-        const coupons = await readCoupons();
-        const coupon = coupons.find(c => c.code.toUpperCase() === code.toUpperCase() && c.active);
+        const coupon = await Coupon.findOne({ code: code.toUpperCase(), active: true });
         
         if (!coupon) {
             return res.status(404).json({ error: 'Invalido' });
@@ -184,7 +184,7 @@ app.post('/api/validate-coupon', async (req, res) => {
 
 app.get('/api/admin/coupons', isAuthenticated, async (req, res) => {
     try {
-        const coupons = await readCoupons();
+        const coupons = await Coupon.find();
         res.json(coupons);
     } catch (error) {
         res.status(500).json({ error: 'Error' });
@@ -193,16 +193,14 @@ app.get('/api/admin/coupons', isAuthenticated, async (req, res) => {
 
 app.post('/api/admin/coupons', isAuthenticated, async (req, res) => {
     try {
-        const coupons = await readCoupons();
-        const newCoupon = {
+        const newCoupon = new Coupon({
             id: `coupon-${Date.now()}`,
             code: req.body.code.toUpperCase(),
             discount: parseFloat(req.body.discount),
             type: req.body.type,
             active: req.body.active !== 'false'
-        };
-        coupons.push(newCoupon);
-        await saveCoupons(coupons);
+        });
+        await newCoupon.save();
         res.json(newCoupon);
     } catch (error) {
         res.status(500).json({ error: 'Error' });
@@ -211,19 +209,13 @@ app.post('/api/admin/coupons', isAuthenticated, async (req, res) => {
 
 app.put('/api/admin/coupons/:id', isAuthenticated, async (req, res) => {
     try {
-        const coupons = await readCoupons();
-        const index = coupons.findIndex(c => c.id === req.params.id);
-        if (index === -1) return res.status(404).json({ error: 'No encontrado' });
-        
-        coupons[index] = {
-            ...coupons[index],
+        const coupon = await Coupon.findByIdAndUpdate(req.params.id, {
             code: req.body.code.toUpperCase(),
             discount: parseFloat(req.body.discount),
             type: req.body.type,
             active: req.body.active !== 'false'
-        };
-        await saveCoupons(coupons);
-        res.json(coupons[index]);
+        }, { new: true });
+        res.json(coupon);
     } catch (error) {
         res.status(500).json({ error: 'Error' });
     }
@@ -231,9 +223,7 @@ app.put('/api/admin/coupons/:id', isAuthenticated, async (req, res) => {
 
 app.delete('/api/admin/coupons/:id', isAuthenticated, async (req, res) => {
     try {
-        const coupons = await readCoupons();
-        const filtered = coupons.filter(c => c.id !== req.params.id);
-        await saveCoupons(filtered);
+        await Coupon.findByIdAndDelete(req.params.id);
         res.json({ success: true });
     } catch (error) {
         res.status(500).json({ error: 'Error' });
@@ -242,7 +232,7 @@ app.delete('/api/admin/coupons/:id', isAuthenticated, async (req, res) => {
 
 app.get('/api/products', async (req, res) => {
     try {
-        const products = await readProducts();
+        const products = await Product.find();
         res.json(products);
     } catch (error) {
         res.status(500).json({ error: 'Error' });
@@ -251,8 +241,7 @@ app.get('/api/products', async (req, res) => {
 
 app.get('/api/products/:id', async (req, res) => {
     try {
-        const products = await readProducts();
-        const product = products.find(p => p.id === req.params.id);
+        const product = await Product.findOne({ id: req.params.id });
         if (!product) return res.status(404).json({ error: 'No encontrado' });
         res.json(product);
     } catch (error) {
@@ -262,8 +251,7 @@ app.get('/api/products/:id', async (req, res) => {
 
 app.post('/api/admin/products', isAuthenticated, upload.single('image'), async (req, res) => {
     try {
-        const products = await readProducts();
-        const newProduct = {
+        const newProduct = new Product({
             id: req.body.id || `product-${Date.now()}`,
             name: req.body.name,
             short_description: req.body.short_description,
@@ -274,9 +262,8 @@ app.post('/api/admin/products', isAuthenticated, upload.single('image'), async (
             featured: req.body.featured === 'true',
             img_url: req.file ? `/uploads/products/${req.file.filename}` : '/uploads/placeholder.jpg',
             quiz_score: JSON.parse(req.body.quiz_score || '[]')
-        };
-        products.push(newProduct);
-        await saveProducts(products);
+        });
+        await newProduct.save();
         res.json(newProduct);
     } catch (error) {
         res.status(500).json({ error: 'Error' });
@@ -285,12 +272,7 @@ app.post('/api/admin/products', isAuthenticated, upload.single('image'), async (
 
 app.put('/api/admin/products/:id', isAuthenticated, upload.single('image'), async (req, res) => {
     try {
-        const products = await readProducts();
-        const index = products.findIndex(p => p.id === req.params.id);
-        if (index === -1) return res.status(404).json({ error: 'No encontrado' });
-        
-        const updated = {
-            ...products[index],
+        const updateData = {
             name: req.body.name,
             short_description: req.body.short_description,
             long_description: req.body.long_description,
@@ -300,11 +282,10 @@ app.put('/api/admin/products/:id', isAuthenticated, upload.single('image'), asyn
             featured: req.body.featured === 'true',
             quiz_score: JSON.parse(req.body.quiz_score || '[]')
         };
-        if (req.file) updated.img_url = `/uploads/products/${req.file.filename}`;
+        if (req.file) updateData.img_url = `/uploads/products/${req.file.filename}`;
         
-        products[index] = updated;
-        await saveProducts(products);
-        res.json(updated);
+        const product = await Product.findByIdAndUpdate(req.params.id, updateData, { new: true });
+        res.json(product);
     } catch (error) {
         res.status(500).json({ error: 'Error' });
     }
@@ -312,23 +293,13 @@ app.put('/api/admin/products/:id', isAuthenticated, upload.single('image'), asyn
 
 app.delete('/api/admin/products/:id', isAuthenticated, async (req, res) => {
     try {
-        const products = await readProducts();
-        const filtered = products.filter(p => p.id !== req.params.id);
-        await saveProducts(filtered);
+        await Product.findByIdAndDelete(req.params.id);
         res.json({ success: true });
     } catch (error) {
         res.status(500).json({ error: 'Error' });
     }
 });
 
-// DEBUG - Leer usuarios al iniciar
-readUsers().then(users => {
-    console.log('USUARIOS EN DB:', users);
-});
-
 app.listen(PORT, () => {
     console.log(`Server on port ${PORT}`);
 });
-
-
-

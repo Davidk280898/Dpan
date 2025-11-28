@@ -999,14 +999,14 @@ const resetQuiz = () => {
                         <h3 class="text-2xl font-semibold text-pan-dark dark:text-pan-cream mb-2">${product.name}</h3>
                     </div>
                     <p class="text-pan-contrast dark:text-pan-light mb-4 flex-grow">${product.short_description}</p>
-<div class="flex justify-between items-center mt-4 gap-2">
-    <div class="flex-shrink-0 text-sm">
-        ${priceHTML}
-    </div>
-    <button data-product-id="${product.id}" class="add-to-cart px-3 py-1 bg-pan-dark text-white rounded text-xs hover:bg-pan-orange transition duration-300 flex items-center shadow-md flex-shrink-0 whitespace-nowrap">
-        <i data-lucide="plus" class="w-3 h-3 mr-1"></i> Añadir
-    </button>
-</div>
+                    <div class="flex justify-between items-end mt-4">
+                        <div class="flex-shrink-0">
+                            ${priceHTML}
+                        </div>
+                        <button data-product-id="${product.id}" class="add-to-cart px-3 py-2 bg-pan-dark text-white rounded text-sm hover:bg-pan-orange transition duration-300 flex items-center shadow-md flex-shrink-0 whitespace-nowrap">
+                            <i data-lucide="plus" class="w-4 h-4 mr-1"></i> Añadir
+                        </button>
+                    </div>
                 </div>
             `;
         };
@@ -1107,6 +1107,7 @@ const resetQuiz = () => {
     </script>
 </body>
 </html>
+
 
 
 

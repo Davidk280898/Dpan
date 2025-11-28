@@ -399,15 +399,13 @@
                 <div id="cart-content" class="flex-grow overflow-y-auto p-4 space-y-3"></div>
 
                 <div class="p-6 border-t border-pan-accent/50 space-y-4 bg-pan-light dark:bg-pan-contrast">
-                    <!-- Campo de cupón -->
-                    <div class="space-y-2">
-                        <label class="text-sm font-medium text-pan-dark dark:text-pan-cream">¿Tenés un cupón?</label>
-                        <div class="flex space-x-2">
-                            <input type="text" id="coupon-input" placeholder="Código de cupón" class="flex-1 px-3 py-2 border border-pan-accent rounded-lg text-pan-dark focus:ring-2 focus:ring-pan-orange">
-                            <button onclick="applyCoupon()" class="px-4 py-2 bg-pan-accent text-white rounded-lg hover:bg-pan-orange transition">Aplicar</button>
-                        </div>
-                        <p id="coupon-message" class="text-sm hidden"></p>
-                    </div>
+                  <!-- Campo de cupón -->
+<div class="space-y-2">
+    <label class="text-sm font-medium text-pan-dark dark:text-pan-cream">¿Tenés un cupón?</label>
+    <input type="text" id="coupon-input" placeholder="Código de cupón" class="w-full px-3 py-3 border-2 border-pan-accent rounded-lg text-pan-dark dark:text-pan-cream dark:bg-pan-contrast focus:ring-2 focus:ring-pan-orange focus:border-pan-orange">
+    <button onclick="applyCoupon()" class="w-full px-4 py-3 bg-pan-orange text-white rounded-lg hover:bg-pan-dark transition font-semibold shadow-md">Aplicar Cupón</button>
+    <p id="coupon-message" class="text-sm hidden"></p>
+</div>
 
                     <!-- Subtotal -->
                     <div class="flex justify-between items-center text-lg text-pan-dark dark:text-pan-cream">
@@ -988,7 +986,7 @@ const resetQuiz = () => {
                 : '';
             
             return `
-                <div class="product-card bg-pan-light dark:bg-pan-dark p-6 rounded-xl shadow-xl hover:shadow-2xl transition duration-300 flex flex-col border border-pan-accent/30 dark:border-pan-dark relative" data-product-id="${product.id}">
+               <div class="product-card bg-pan-light dark:bg-pan-dark p-6 rounded-xl shadow-xl hover:shadow-2xl transition duration-300 flex flex-col border border-pan-accent/30 dark:border-pan-dark relative" data-product-id="${product.id}">
                     ${offerBadge}
                     <div class="product-detail-trigger cursor-pointer">
                         <img src="${product.img_url}" 
@@ -999,11 +997,11 @@ const resetQuiz = () => {
                         <h3 class="text-2xl font-semibold text-pan-dark dark:text-pan-cream mb-2">${product.name}</h3>
                     </div>
                     <p class="text-pan-contrast dark:text-pan-light mb-4 flex-grow">${product.short_description}</p>
-                    <div class="flex justify-between items-end mt-4">
+                    <div class="flex justify-between items-center mt-4">
                         <div class="flex-shrink-0">
                             ${priceHTML}
                         </div>
-                        <button data-product-id="${product.id}" class="add-to-cart px-3 py-2 bg-pan-dark text-white rounded text-sm hover:bg-pan-orange transition duration-300 flex items-center shadow-md flex-shrink-0 whitespace-nowrap">
+                        <button data-product-id="${product.id}" class="add-to-cart px-4 py-2 bg-pan-orange text-white rounded-lg text-sm font-semibold hover:bg-pan-dark transition duration-300 flex items-center shadow-lg flex-shrink-0 whitespace-nowrap">
                             <i data-lucide="plus" class="w-4 h-4 mr-1"></i> Añadir
                         </button>
                     </div>
@@ -1107,6 +1105,7 @@ const resetQuiz = () => {
     </script>
 </body>
 </html>
+
 
 
 

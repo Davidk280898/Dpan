@@ -246,18 +246,26 @@
                         Escribí lo que quieras, lo que sientas, no se almacenará en ningún lugar. Si te sirve, podés copiar el texto y compartirlo con alguien de confianza.
                     </p>
 
-                    <textarea 
-                        id="descarga-text"
-                        rows="8" 
-                        placeholder="Hoy me siento... (Escribí acá tu pensamiento, preocupación o idea. Es un espacio privado, para vos.)" 
-                        class="w-full p-4 border-2 border-pan-accent rounded-lg focus:ring-pan-orange focus:border-pan-orange transition duration-200 bg-white dark:bg-pan-contrast/50 text-pan-contrast dark:text-pan-light placeholder-pan-dark/50 dark:placeholder-pan-light/50 shadow-inner">
-                    </textarea>
-                    
-                    <button 
-                        onclick="clearAndShowSuccessModal()" 
-                        class="px-8 py-3 bg-pan-orange text-white font-bold rounded-full shadow-lg hover:bg-pan-dark transition duration-300 transform hover:scale-105">
-                        Soltar
-                    </button>
+                    <div class="relative">
+    <textarea 
+        id="descarga-text"
+        rows="8" 
+        placeholder="Hoy me siento... (Escribí acá tu pensamiento, preocupación o idea. Es un espacio privado, para vos.)" 
+        class="w-full p-4 border-2 border-pan-accent rounded-lg focus:ring-pan-orange focus:border-pan-orange transition duration-200 bg-white dark:bg-pan-contrast/50 text-pan-contrast dark:text-pan-light placeholder-pan-dark/50 dark:placeholder-pan-light/50 shadow-inner">
+    </textarea>
+    
+    <div id="flying-letter" class="hidden fixed inset-0 pointer-events-none z-50 flex items-center justify-center">
+        <div class="flying-animation bg-white dark:bg-pan-light p-6 rounded-lg shadow-2xl max-w-md border-2 border-pan-accent">
+            <p id="flying-text" class="text-pan-contrast whitespace-pre-wrap"></p>
+        </div>
+    </div>
+</div>
+
+<button 
+    onclick="animateAndClear()" 
+    class="px-8 py-3 bg-pan-orange text-white font-bold rounded-full shadow-lg hover:bg-pan-dark transition duration-300 transform hover:scale-105">
+    Soltar
+</button>
                 </div>
             </div>
         </section>
@@ -1105,6 +1113,7 @@ const resetQuiz = () => {
     </script>
 </body>
 </html>
+
 
 
 

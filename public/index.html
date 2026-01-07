@@ -7,7 +7,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@100..900&family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
-
     <script>
         tailwind.config = {
             darkMode: 'class', 
@@ -53,6 +52,23 @@
         }
         .animate-slide-down {
             animation: slide-down 0.3s ease-out;
+        }
+        @keyframes fly-away {
+            0% {
+                transform: translateY(0) scale(1) rotate(0deg);
+                opacity: 1;
+            }
+            50% {
+                transform: translateY(-300px) scale(0.8) rotate(-10deg);
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(-800px) scale(0.3) rotate(-30deg);
+                opacity: 0;
+            }
+        }
+        .flying-animation {
+            animation: fly-away 2s ease-out forwards;
         }
     </style>
 </head>
@@ -490,29 +506,53 @@
         });
 
         // Funciones del modal de Bienestar
-        const clearAndShowSuccessModal = () => {
-            document.getElementById('descarga-text').value = '';
-            openBienestarSuccessModal();
-        }
+        const animateAndClear = () => {
+    const textarea = document.getElementById('descarga-text');
+    const text = textarea.value.trim();
+    
+    if (!text) {
+        openBienestarSuccessModal();
+        return;
+    }
+    
+    // Mostrar carta voladora
+    const flyingLetter = document.getElementById('flying-letter');
+    const flyingText = document.getElementById('flying-text');
+    
+    flyingText.textContent = text;
+    flyingLetter.classList.remove('hidden');
+    
+    // Después de la animación, limpiar y mostrar modal
+    setTimeout(() => {
+        flyingLetter.classList.add('hidden');
+        textarea.value = '';
+        openBienestarSuccessModal();
+    }, 2000);
+}
 
-        const openBienestarSuccessModal = () => {
-            bienestarSuccessModal.classList.remove('hidden');
-            setTimeout(() => {
-                bienestarModalContentWrapper.classList.remove('scale-95', 'opacity-0');
-                bienestarModalContentWrapper.classList.add('scale-100', 'opacity-100');
-            }, 10);
-            document.body.style.overflow = 'hidden';
-            lucide.createIcons();
-        }
+const clearAndShowSuccessModal = () => {
+    document.getElementById('descarga-text').value = '';
+    openBienestarSuccessModal();
+}
 
-        const closeBienestarSuccessModal = () => {
-            bienestarModalContentWrapper.classList.remove('scale-100', 'opacity-100');
-            bienestarModalContentWrapper.classList.add('scale-95', 'opacity-0');
-            setTimeout(() => {
-                bienestarSuccessModal.classList.add('hidden');
-                document.body.style.overflow = 'auto';
-            }, 300);
-        }
+const openBienestarSuccessModal = () => {
+    bienestarSuccessModal.classList.remove('hidden');
+    setTimeout(() => {
+        bienestarModalContentWrapper.classList.remove('scale-95', 'opacity-0');
+        bienestarModalContentWrapper.classList.add('scale-100', 'opacity-100');
+    }, 10);
+    document.body.style.overflow = 'hidden';
+    lucide.createIcons();
+}
+
+const closeBienestarSuccessModal = () => {
+    bienestarModalContentWrapper.classList.remove('scale-100', 'opacity-100');
+    bienestarModalContentWrapper.classList.add('scale-95', 'opacity-0');
+    setTimeout(() => {
+        bienestarSuccessModal.classList.add('hidden');
+        document.body.style.overflow = 'auto';
+    }, 300);
+}
 
         // Funciones del carrito
         function openCart() {
@@ -1113,6 +1153,7 @@ const resetQuiz = () => {
     </script>
 </body>
 </html>
+
 
 
 

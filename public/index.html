@@ -506,7 +506,7 @@
         });
 
         // Funciones del modal de Bienestar
-        const animateAndClear = () => {
+const animateAndClear = () => {
     const textarea = document.getElementById('descarga-text');
     const text = textarea.value.trim();
     
@@ -514,6 +514,10 @@
         openBienestarSuccessModal();
         return;
     }
+    
+    // Ocultar textarea inmediatamente
+    textarea.style.opacity = '0';
+    textarea.style.transition = 'opacity 0.3s';
     
     // Mostrar carta voladora
     const flyingLetter = document.getElementById('flying-letter');
@@ -526,6 +530,7 @@
     setTimeout(() => {
         flyingLetter.classList.add('hidden');
         textarea.value = '';
+        textarea.style.opacity = '1';
         openBienestarSuccessModal();
     }, 2000);
 }
@@ -1153,6 +1158,7 @@ const resetQuiz = () => {
     </script>
 </body>
 </html>
+
 
 
 

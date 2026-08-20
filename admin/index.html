@@ -1,18 +1,12 @@
-backend:
-  name: git-gateway
-  branch: main # o 'master', según cómo se llame la rama principal en tu GitHub
-
-media_folder: "uploads"
-public_folder: "/uploads"
-
-collections:
-  - name: "productos"
-    label: "Productos"
-    folder: "productos"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - {label: "Nombre del Producto", name: "title", widget: "string"}
-      - {label: "Precio", name: "price", widget: "string"}
-      - {label: "Descripción", name: "description", widget: "text"}
-      - {label: "Foto", name: "image", widget: "image"}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Panel D'Pan</title>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
+  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+</body>
+</html>
